@@ -23,10 +23,10 @@ object LogProducer {
 
   def main(args: Array[String]) {
     val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
-    //val sourcepool = Array("/root/text/http_response.txt","/root/text/http_request.txt","/root/text/dns_response.txt","/root/text/dns_request.txt")
-    //val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest")
-    val sourcepool = Array("/usr/local/spark/mycode/DBNS/sample/http_request.txt")
-    val topicpool = Array("httpRequest")
+    val sourcepool = Array("/usr/local/spark/mycode/DBNS/sample/http_response.txt","/usr/local/spark/mycode/DBNS/sample/http_request.txt","/usr/local/spark/mycode/DBNS/sample/dns_response.txt","/usr/local/spark/mycode/DBNS/sample/dns_request.txt")
+    val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest")
+    //val sourcepool = Array("/usr/local/spark/mycode/DBNS/sample/http_request.txt")
+    //val topicpool = Array("httpRequest")
     val Array(brokers, topic) = args
     val props = new HashMap[String, Object]()
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
@@ -34,7 +34,7 @@ object LogProducer {
       "org.apache.kafka.common.serialization.StringSerializer")
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
       "org.apache.kafka.common.serialization.StringSerializer")
-    for (i <- 0 to 0){
+    for (i <- 0 to 3){
       threadPool.execute(new Message(props,sourcepool(i),topicpool(i)))
     }
   }
