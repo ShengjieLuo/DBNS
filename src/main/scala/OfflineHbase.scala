@@ -12,7 +12,7 @@ object Off2HBase {
 def main(args:Array[String]){
   val sc = new SparkConf().setAppName("KafkaLogCount").setMaster("local[2]")
   val sssc = new SparkContext(sc)
-  val file = new File("/usr/local/spark/mycode/DBNSv02/backup")
+  val file = new File("/usr/local/spark/mycode/DBNS/backup")
   val name = "file://" + file.listFiles().filter(_.isDirectory()).map(a => a.getAbsolutePath().toString).sorted.last + "/part-*"
   val hbrdd = sssc.textFile(name)
   val hblines = hbrdd.map(_.split("\t"))

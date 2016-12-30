@@ -40,7 +40,7 @@ def main(args:Array[String]){
   val sc = new SparkConf().setAppName("KafkaLogCount").setMaster("local[2]")
   val sssc = new SparkContext(sc)
   val ssc = new StreamingContext(sssc,Seconds(60))
-  ssc.checkpoint("file:///usr/local/spark/mycode/DBNSv02/checkpoint")
+  ssc.checkpoint("file:///usr/local/spark/mycode/DBNS/checkpoint")
   val zkQuorum = "localhost:2182" //Zookeeper服务器地址
   val group = "1"  //topic所在的group，可以设置为自己想要的名称，比如不用1，而是val group = "test-consumer-group" 
   val topics = "httpResponse"  //topics的名称          
@@ -51,7 +51,7 @@ def main(args:Array[String]){
   //step1: Save the original information into the file system
   //Use the shell to verify result: (shell) cat other/HDFSsample.txt
   //Output is stored in the local filesystem now
-  lineMap.saveAsTextFiles("file:///usr/local/spark/mycode/DBNSv02/backup/backup.txt")
+  lineMap.saveAsTextFiles("file:///usr/local/spark/mycode/DBNS/backup/backup.txt")
    
   //step2: Write the original information into the Hbase
   // Use the HBase Shell to look for the result: (hbase shell) scan 'HTTP_RESPONSE'
