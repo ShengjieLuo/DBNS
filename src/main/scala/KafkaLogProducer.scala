@@ -11,7 +11,7 @@ object LogProducer {
   class Message(props:HashMap[String,Object],source:String,topic:String) extends Runnable{
     def run(){
       val producer = new KafkaProducer[String, String](props)// Send some messages
-      val lines = Source.fromFile(source).getLines.toList
+      val lines = Source.fromFile(source,"iso-8859-1").getLines.toList
       for (line<-lines){
         println(topic+": "+line)
         val message = new ProducerRecord[String, String](topic, null, line)
