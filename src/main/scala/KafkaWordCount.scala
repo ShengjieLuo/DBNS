@@ -43,16 +43,32 @@ def main(args:Array[String]){
   ssc.checkpoint("file:///usr/local/spark/mycode/DBNS/checkpoint")
   val zkQuorum = "localhost:2182" //Zookeeper服务器地址
   val group = "1"  //topic所在的group，可以设置为自己想要的名称，比如不用1，而是val group = "test-consumer-group" 
-  val topics = "httpResponse"  //topics的名称          
-  val numThreads = 1  //每个topic的分区数
-  val topicMap =topics.split(",").map((_,numThreads.toInt)).toMap
-  val lineMap = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap)
   
+  val topic1 = "httpResponse"  //topics的名称          
+  val topic2 = "httpRequest"
+  val topic3 = "dnsResponse"
+  val topic4 = "dnsRequest"
+  
+  val numThreads = 1  //每个topic的分区数
+  val topic1Map =topic1.split(",").map((_,numThreads.toInt)).toMap
+  val line1Map = KafkaUtils.createStream(ssc,zkQuorum,group,topic1Map)
+  val topic2Map =topic2.split(",").map((_,numThreads.toInt)).toMap
+  val line2Map = KafkaUtils.createStream(ssc,zkQuorum,group,topic2Map)
+  val topic3Map =topic3.split(",").map((_,numThreads.toInt)).toMap
+  val line3Map = KafkaUtils.createStream(ssc,zkQuorum,group,topic3Map)
+  val topic4Map =topic4.split(",").map((_,numThreads.toInt)).toMap
+  val line4Map = KafkaUtils.createStream(ssc,zkQuorum,group,topic4Map)
+ 
+ 
   //step1: Save the original information into the file system
   //Use the shell to verify result: (shell) cat other/HDFSsample.txt
   //Output is stored in the local filesystem now
-  lineMap.saveAsTextFiles("file:///usr/local/spark/mycode/DBNS/backup/backup.txt")
-   
+  line1Map.saveAsTextFiles("file:///usr/local/spark/mycode/DBNS/backup/hrs.txt")
+  line2Map.saveAsTextFiles("file:///usr/local/spark/mycode/DBNS/backup/hrq.txt")
+  line3Map.saveAsTextFiles("file:///usr/local/spark/mycode/DBNS/backup/drs.txt")
+  line4Map.saveAsTextFiles("file:///usr/local/spark/mycode/DBNS/backup/drq.txt")
+
+  /* 
   //step2: Write the original information into the Hbase
   // Use the HBase Shell to look for the result: (hbase shell) scan 'HTTP_RESPONSE'
   //Note: Now this step is realized in OfflineHbase.scala
@@ -82,7 +98,7 @@ def main(args:Array[String]){
   prop.put("driver","com.mysql.jdbc.Driver")
   lines.foreachRDD(words =>
     {
-    /* Use Sort + Threshold to Implement */
+    // Use Sort + Threshold to Implement
     val IPSourceTop   	= words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
     val PortSourceTop	= words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
     val IPDestTop   	= words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
@@ -97,7 +113,7 @@ def main(args:Array[String]){
     //IPSourceTop.map(p=>println(p))
     }
   )
-  
+  */ 
   //Step final: start the spark streaming context
   ssc.start
   ssc.awaitTermination

@@ -13,10 +13,10 @@ object LogProducer {
       val producer = new KafkaProducer[String, String](props)// Send some messages
       val lines = Source.fromFile(source,"iso-8859-1").getLines.toList
       for (line<-lines){
-        println(topic+": "+line)
+        //println(topic+": "+line)
         val message = new ProducerRecord[String, String](topic, null, line)
         producer.send(message)
-        Thread.sleep(10)
+        Thread.sleep(100)
       }
     }
   }
