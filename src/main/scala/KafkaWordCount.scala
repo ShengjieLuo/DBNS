@@ -37,7 +37,7 @@ def main(args:Array[String]){
   StreamingExamples.setStreamingLogLevels()
   
   //step0: Receive the information from Kafka
-  val sc = new SparkConf().setAppName("KafkaLogCount").setMaster("local[2]")
+  val sc = new SparkConf().setAppName("LogStreaming").setMaster("local[2]")
   val sssc = new SparkContext(sc)
   val ssc = new StreamingContext(sssc,Seconds(60))
   ssc.checkpoint("file:///usr/local/spark/mycode/DBNS/checkpoint")

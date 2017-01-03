@@ -19,7 +19,7 @@ name hashing:
 1 items
 0 -> true
 products:
-20 items
+32 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$$anonfun$main$1.class
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$.class
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$Message$$anonfun$run$1.class
@@ -31,6 +31,18 @@ products:
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$4.class
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$.class
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRQ$$anonfun$1.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRQ$.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRQ.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRS$$anonfun$1.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRS$.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRS.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRQ$$anonfun$1.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRQ$.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRQ.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRS$$anonfun$1.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRS$.class
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRS.class
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$1.class
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$2.class
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$3.class
@@ -41,11 +53,11 @@ products:
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples$.class
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples.class
 binary dependencies:
-32 items
+96 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /root/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-0.8.2.1.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
-/usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /root/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar
@@ -61,7 +73,71 @@ binary dependencies:
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
-/usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-common/jars/hbase-common-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-server/jars/hbase-server-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.4.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-catalyst_2.10/jars/spark-catalyst_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-hive_2.10/jars/spark-hive_2.10-1.2.1.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-sql_2.10/jars/spark-sql_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-common/jars/hbase-common-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-server/jars/hbase-server-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.4.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-catalyst_2.10/jars/spark-catalyst_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-hive_2.10/jars/spark-hive_2.10-1.2.1.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-sql_2.10/jars/spark-sql_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-common/jars/hbase-common-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-server/jars/hbase-server-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.4.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-catalyst_2.10/jars/spark-catalyst_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-hive_2.10/jars/spark-hive_2.10-1.2.1.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-sql_2.10/jars/spark-sql_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-common/jars/hbase-common-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-server/jars/hbase-server-1.1.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.4.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-catalyst_2.10/jars/spark-catalyst_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-hive_2.10/jars/spark-hive_2.10-1.2.1.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-sql_2.10/jars/spark-sql_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-common/jars/hadoop-common-2.2.0.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar
@@ -69,11 +145,11 @@ binary dependencies:
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /root/.ivy2/cache/org.apache.hbase/hbase-server/jars/hbase-server-1.1.2.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
-/usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar
-/usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar
 direct source dependencies:
 0 items
 direct external dependencies:
@@ -83,8 +159,12 @@ public inherited source dependencies:
 public inherited external dependencies:
 0 items
 member reference internal dependencies:
-1 items
+5 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala
 member reference external dependencies:
 0 items
 inheritance internal dependencies:
@@ -92,7 +172,7 @@ inheritance internal dependencies:
 inheritance external dependencies:
 0 items
 class names:
-20 items
+32 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> LogProducer
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> LogProducer$
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> LogProducer$$anonfun$main$1
@@ -104,6 +184,18 @@ class names:
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> LogStreaming$$anonfun$2
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> LogStreaming$$anonfun$3
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> LogStreaming$$anonfun$4
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> LogStreamingDRQ
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> LogStreamingDRQ$
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> LogStreamingDRQ$$anonfun$1
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> LogStreamingDRS
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> LogStreamingDRS$
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> LogStreamingDRS$$anonfun$1
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> LogStreamingHRQ
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> LogStreamingHRQ$
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> LogStreamingHRQ$$anonfun$1
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> LogStreamingHRS
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> LogStreamingHRS$
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> LogStreamingHRS$$anonfun$1
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> Off2HBase
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> Off2HBase$
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> Off2HBase$$anonfun$1
@@ -114,7 +206,7 @@ class names:
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> StreamingExamples$
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> StreamingExamples$$anonfun$setStreamingLogLevels$1
 used names:
-280 items
+672 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> !=
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> &&
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> <init>
@@ -292,6 +384,398 @@ used names:
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> types
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> util
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> zkQuorum
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> <init>
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> AnyRef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Array
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Base64
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Bytes
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Calendar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> ClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> CloseableHttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> CloseableHttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Connection
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> ConnectionFactory
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> File
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HBaseConfiguration
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HColumnDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HTableDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HiveContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HttpClients
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HttpGet
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HttpPut
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> HttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> ImmutableBytesWritable
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Job
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> JobConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> KafkaUtils
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> LogStreamingDRQ
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Logger
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Predef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Properties
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Put
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> RDD
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Result
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Row
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> SQLContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Seconds
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> SparkConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> SparkContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> StreamingContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> StreamingExamples
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> String
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> StringEntity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Table
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> TableName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> TableOutputFormat
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> Unit
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> apache
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> apply
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> awaitTermination
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> binary
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> canBuildFrom
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> checkpoint
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> client
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> codec
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> commons
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> conforms
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> createStream
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> entity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> group
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> hadoop
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> hbase
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> hive
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> http
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> impl
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> io
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> java
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> kafka
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> lineMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> log4j
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> map
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> mapred
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> mapreduce
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> materializeClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> methods
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> numThreads
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> org
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> package
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> rdd
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> refArrayOps
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> saveAsTextFiles
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> sc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> setAppName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> setMaster
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> setStreamingLogLevels
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> spark
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> split
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> sql
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> ssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> sssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> start
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> streaming
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> toInt
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> toMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> topic
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> topicMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> types
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> util
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> zkQuorum
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> <init>
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> AnyRef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Array
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Base64
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Bytes
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Calendar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> ClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> CloseableHttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> CloseableHttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Connection
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> ConnectionFactory
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> File
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HBaseConfiguration
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HColumnDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HTableDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HiveContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HttpClients
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HttpGet
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HttpPut
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> HttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> ImmutableBytesWritable
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Job
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> JobConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> KafkaUtils
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> LogStreamingDRS
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Logger
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Predef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Properties
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Put
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> RDD
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Result
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Row
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> SQLContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Seconds
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> SparkConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> SparkContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> StreamingContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> StreamingExamples
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> String
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> StringEntity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Table
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> TableName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> TableOutputFormat
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> Unit
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> apache
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> apply
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> awaitTermination
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> binary
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> canBuildFrom
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> checkpoint
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> client
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> codec
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> commons
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> conforms
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> createStream
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> entity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> group
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> hadoop
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> hbase
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> hive
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> http
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> impl
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> io
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> java
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> kafka
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> lineMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> log4j
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> map
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> mapred
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> mapreduce
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> materializeClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> methods
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> numThreads
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> org
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> package
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> rdd
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> refArrayOps
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> saveAsTextFiles
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> sc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> setAppName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> setMaster
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> setStreamingLogLevels
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> spark
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> split
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> sql
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> ssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> sssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> start
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> streaming
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> toInt
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> toMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> topic
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> topicMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> types
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> util
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> zkQuorum
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> <init>
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> AnyRef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Array
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Base64
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Bytes
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Calendar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> ClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> CloseableHttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> CloseableHttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Connection
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> ConnectionFactory
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> File
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HBaseConfiguration
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HColumnDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HTableDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HiveContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HttpClients
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HttpGet
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HttpPut
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> HttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> ImmutableBytesWritable
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Job
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> JobConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> KafkaUtils
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> LogStreamingHRQ
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Logger
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Predef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Properties
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Put
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> RDD
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Result
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Row
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> SQLContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Seconds
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> SparkConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> SparkContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> StreamingContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> StreamingExamples
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> String
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> StringEntity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Table
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> TableName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> TableOutputFormat
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> Unit
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> apache
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> apply
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> awaitTermination
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> binary
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> canBuildFrom
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> checkpoint
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> client
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> codec
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> commons
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> conforms
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> createStream
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> entity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> group
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> hadoop
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> hbase
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> hive
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> http
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> impl
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> io
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> java
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> kafka
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> lineMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> log4j
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> map
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> mapred
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> mapreduce
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> materializeClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> methods
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> numThreads
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> org
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> package
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> rdd
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> refArrayOps
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> saveAsTextFiles
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> sc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> setAppName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> setMaster
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> setStreamingLogLevels
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> spark
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> split
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> sql
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> ssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> sssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> start
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> streaming
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> toInt
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> toMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> topic
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> topicMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> types
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> util
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> zkQuorum
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> <init>
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> AnyRef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Array
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Base64
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Bytes
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Calendar
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> ClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> CloseableHttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> CloseableHttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Connection
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> ConnectionFactory
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> File
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HBaseConfiguration
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HColumnDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HTableDescriptor
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HiveContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HttpClient
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HttpClients
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HttpGet
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HttpPut
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> HttpResponse
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> ImmutableBytesWritable
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Job
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> JobConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> KafkaUtils
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> LogStreamingHRS
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Logger
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Predef
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Properties
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Put
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> RDD
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Result
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Row
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> SQLContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Seconds
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> SparkConf
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> SparkContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> StreamingContext
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> StreamingExamples
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> String
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> StringEntity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Table
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> TableName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> TableOutputFormat
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> Unit
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> apache
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> apply
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> awaitTermination
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> binary
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> canBuildFrom
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> checkpoint
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> client
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> codec
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> commons
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> conforms
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> createStream
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> entity
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> group
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> hadoop
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> hbase
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> hive
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> http
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> impl
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> io
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> java
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> kafka
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> lineMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> log4j
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> map
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> mapred
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> mapreduce
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> materializeClassTag
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> methods
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> numThreads
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> org
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> package
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> rdd
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> refArrayOps
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> saveAsTextFiles
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> sc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> scala
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> setAppName
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> setMaster
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> setStreamingLogLevels
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> spark
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> split
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> sql
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> ssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> sssc
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> start
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> streaming
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> toInt
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> toMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> topic
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> topicMap
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> types
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> util
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> zkQuorum
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> +
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> <init>
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> AnyRef
@@ -396,31 +880,47 @@ used names:
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> spark
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> unary_!
 product stamps:
-20 items
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$$anonfun$main$1.class -> lastModified(1483340523000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$.class -> lastModified(1483340523000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$Message$$anonfun$run$1.class -> lastModified(1483340523000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$Message.class -> lastModified(1483340523000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer.class -> lastModified(1483340523000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$1.class -> lastModified(1483342548000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$2.class -> lastModified(1483342548000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$3.class -> lastModified(1483342548000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$4.class -> lastModified(1483342548000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$.class -> lastModified(1483342548000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming.class -> lastModified(1483342548000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$1.class -> lastModified(1483338733000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$2.class -> lastModified(1483338733000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$3.class -> lastModified(1483338733000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$main$1.class -> lastModified(1483338733000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$.class -> lastModified(1483338733000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase.class -> lastModified(1483338733000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples$$anonfun$setStreamingLogLevels$1.class -> lastModified(1483083772000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples$.class -> lastModified(1483083772000)
-/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples.class -> lastModified(1483083772000)
+32 items
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$$anonfun$main$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$Message$$anonfun$run$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer$Message.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogProducer.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$2.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$3.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$$anonfun$4.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreaming.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRQ$$anonfun$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRQ$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRQ.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRS$$anonfun$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRS$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingDRS.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRQ$$anonfun$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRQ$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRQ.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRS$$anonfun$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRS$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/LogStreamingHRS.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$2.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$3.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$$anonfun$main$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/Off2HBase.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples$$anonfun$setStreamingLogLevels$1.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples$.class -> lastModified(1483423751000)
+/usr/local/spark/mycode/DBNS/target/scala-2.10/classes/StreamingExamples.class -> lastModified(1483423751000)
 source stamps:
-4 items
+8 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> hash(f4073fecd56174995db9c4a37bf959f764385ee3)
-/usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> hash(dc23d6539083142aaf4919d36dba0a59bd7eb999)
+/usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> hash(a3d1e8fb65cf45e3f83c2a8eabf344168ae07155)
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> hash(983495786b4703ea2aab751367dfc26aca4e8ffb)
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> hash(f91f4101cb08b96c668e312df62832b40085a582)
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> hash(8fa75430704c62a6cf2231a996aa6be8c625ef0a)
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> hash(712b3de12c5b6a25a634458faf295c3f490bbd03)
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> hash(b1ad6a17a9be74887789391a52019d00119c81a8)
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> hash(3f3ca6f479b2a9f5b72302701e8a7b715ce45340)
 binary stamps:
@@ -442,51 +942,67 @@ binary stamps:
 /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar -> lastModified(1466377260000)
 /root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar -> lastModified(1466377439000)
 /root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar -> lastModified(1425002069000)
-/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> lastModified(1481716832000)
+/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar -> lastModified(1479258684000)
 class names:
 18 items
 /root/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar -> org.apache.commons.codec.binary.Base64
-/root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> org.apache.log4j.Logger
+/root/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> org.apache.log4j.Category
 /root/.ivy2/cache/org.apache.hadoop/hadoop-common/jars/hadoop-common-2.2.0.jar -> org.apache.hadoop.conf.Configuration
 /root/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/jars/hadoop-mapreduce-client-core-2.2.0.jar -> org.apache.hadoop.mapreduce.Job
-/root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar -> org.apache.hadoop.hbase.client.Connection
-/root/.ivy2/cache/org.apache.hbase/hbase-common/jars/hbase-common-1.1.2.jar -> org.apache.hadoop.hbase.HBaseConfiguration
+/root/.ivy2/cache/org.apache.hbase/hbase-client/jars/hbase-client-1.1.2.jar -> org.apache.hadoop.hbase.client.Table
+/root/.ivy2/cache/org.apache.hbase/hbase-common/jars/hbase-common-1.1.2.jar -> org.apache.hadoop.hbase.io.ImmutableBytesWritable
 /root/.ivy2/cache/org.apache.hbase/hbase-server/jars/hbase-server-1.1.2.jar -> org.apache.hadoop.hbase.mapreduce.TableOutputFormat
-/root/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar -> org.apache.http.client.methods.HttpPut
-/root/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.4.jar -> org.apache.http.HttpResponse
-/root/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-0.8.2.1.jar -> org.apache.kafka.clients.producer.KafkaProducer
+/root/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.2.jar -> org.apache.http.client.methods.CloseableHttpResponse
+/root/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.4.jar -> org.apache.http.entity.StringEntity
+/root/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-0.8.2.1.jar -> org.apache.kafka.clients.producer.ProducerConfig
 /root/.ivy2/cache/org.apache.spark/spark-catalyst_2.10/jars/spark-catalyst_2.10-1.6.2.jar -> org.apache.spark.sql.Row$
-/root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar -> org.apache.spark.SparkConf
-/root/.ivy2/cache/org.apache.spark/spark-hive_2.10/jars/spark-hive_2.10-1.2.1.jar -> org.apache.spark.sql.hive.HiveContext$
+/root/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.6.2.jar -> org.apache.spark.Logging
+/root/.ivy2/cache/org.apache.spark/spark-hive_2.10/jars/spark-hive_2.10-1.2.1.jar -> org.apache.spark.sql.hive.HiveContext
 /root/.ivy2/cache/org.apache.spark/spark-sql_2.10/jars/spark-sql_2.10-1.6.2.jar -> org.apache.spark.sql.SQLContext
 /root/.ivy2/cache/org.apache.spark/spark-streaming-kafka_2.10/jars/spark-streaming-kafka_2.10-1.6.2.jar -> org.apache.spark.streaming.kafka.KafkaUtils$
-/root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar -> org.apache.spark.streaming.dstream.ReceiverInputDStream
-/root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar -> scala.Int
-/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> java.lang.Object
+/root/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.6.2.jar -> org.apache.spark.streaming.StreamingContext$
+/root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar -> scala.Unit
+/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar -> java.lang.Object
 internal apis:
-4 items
+8 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHAKqzuIAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAGHNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cJrplYF0AAZub3RpZnlzcQB+AAzlwKXPdAAEd2FpdHNxAH4ADLo+YxF0AA0kYXNJbnN0YW5jZU9mc3EAfgAMb3wETnQABmVxdWFsc3NxAH4ADDnaoHN0AAxhc0luc3RhbmNlT2ZzcQB+AAwe8VFbdAADcnVuc3EAfgAME4q2MXQADHN5bmNocm9uaXplZHNxAH4ADIRHWfR0AA0kaXNJbnN0YW5jZU9mc3EAfgAMkZ6jcnQABG1haW5zcQB+AAzsIDikdAAJbm90aWZ5QWxsc3EAfgAMw8DsHnQADGlzSW5zdGFuY2VPZnNxAH4ADAXog510AAY8aW5pdD5zcQB+AAzt4ZgGdAACPT1zcQB+AAwtehVhdAAFY2xvbmVzcQB+AAwe9QR4dAAHTWVzc2FnZXNxAH4ADNUgeCF0AAh0b1N0cmluZ3NxAH4ADP2jdpx0AAIhPXNxAH4ADJ6PRzx0AAhnZXRDbGFzc3NxAH4ADOEjOXN0AAJuZXNxAH4ADGJ4x/50AAJlcXNxAH4ADMFkSk50AAIjI3NxAH4ADCwSqKB0AAhmaW5hbGl6ZXNxAH4ADCjHdeJ0AAhoYXNoQ29kZXNxAH4ADBdiQBl0AAtMb2dQcm9kdWNlcnNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEd4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4APXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AXnNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBHTAAJaW5oZXJpdGVkcQB+AEdMAAdwYXJlbnRzcQB+AEd4cQB+AGNzcQB+AF51cQB+AEIAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEhxAH4AUXVxAH4AUgAAAABzcQB+AFQAcQB+AB91cQB+AFYAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AYnQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGJzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AH51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBreHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBZdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgByWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBic3EAfgBxdAAFQXJyYXlxAH4Ad3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBxdAAGU3RyaW5nc3EAfgB1c3EAfgB4dXEAfgB7AAAAA3NxAH4AfXQABGphdmFzcQB+AH10AARsYW5ncQB+AIJzcQB+AF51cQB+AEIAAAAAc3EAfgBedXEAfgCWAAAAAnNxAH4AcXQABk9iamVjdHEAfgCac3EAfgBxdAADQW55cQB+AHd1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWV38GPB1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU9Ac/7NVhdJlducSje/lZ92Q4XuM=
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHAKqzuIAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAGHNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cJrplYF0AAZub3RpZnlzcQB+AAzlwKXPdAAEd2FpdHNxAH4ADLo+YxF0AA0kYXNJbnN0YW5jZU9mc3EAfgAMb3wETnQABmVxdWFsc3NxAH4ADDnaoHN0AAxhc0luc3RhbmNlT2ZzcQB+AAwe8VFbdAADcnVuc3EAfgAME4q2MXQADHN5bmNocm9uaXplZHNxAH4ADIRHWfR0AA0kaXNJbnN0YW5jZU9mc3EAfgAMkZ6jcnQABG1haW5zcQB+AAzsIDikdAAJbm90aWZ5QWxsc3EAfgAMw8DsHnQADGlzSW5zdGFuY2VPZnNxAH4ADAXog510AAY8aW5pdD5zcQB+AAzt4ZgGdAACPT1zcQB+AAwtehVhdAAFY2xvbmVzcQB+AAwe9QR4dAAHTWVzc2FnZXNxAH4ADNUgeCF0AAh0b1N0cmluZ3NxAH4ADP2jdpx0AAIhPXNxAH4ADJ6PRzx0AAhnZXRDbGFzc3NxAH4ADOEjOXN0AAJuZXNxAH4ADGJ4x/50AAJlcXNxAH4ADMFkSk50AAIjI3NxAH4ADCwSqKB0AAhmaW5hbGl6ZXNxAH4ADCjHdeJ0AAhoYXNoQ29kZXNxAH4ADBdiQBl0AAtMb2dQcm9kdWNlcnNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEd4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4APXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AXnNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBHTAAJaW5oZXJpdGVkcQB+AEdMAAdwYXJlbnRzcQB+AEd4cQB+AGNzcQB+AF51cQB+AEIAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEhxAH4AUXVxAH4AUgAAAABzcQB+AFQAcQB+AB91cQB+AFYAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AYnQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGJzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AH51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBreHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBZdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgByWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBic3EAfgBxdAAFQXJyYXlxAH4Ad3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBxdAAGU3RyaW5nc3EAfgB1c3EAfgB4dXEAfgB7AAAAA3NxAH4AfXQABGphdmFzcQB+AH10AARsYW5ncQB+AIJzcQB+AF51cQB+AEIAAAAAc3EAfgBedXEAfgCWAAAAAnNxAH4AcXQABk9iamVjdHEAfgCac3EAfgBxdAADQW55cQB+AHd1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU9Ac/7NVhdJlducSje/lZ92Q4XuM=
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBI+rLyAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cG/9ZUV0AAZub3RpZnlzcQB+AAwqj+lidAAEd2FpdHNxAH4ADHLIth10AA0kYXNJbnN0YW5jZU9mc3EAfgAMncjFiHQABmVxdWFsc3NxAH4ADCKdoMt0AAxhc0luc3RhbmNlT2ZzcQB+AAycLSJtdAAMTG9nU3RyZWFtaW5nc3EAfgAMzSdQw3QADHN5bmNocm9uaXplZHNxAH4ADJanL7p0AA0kaXNJbnN0YW5jZU9mc3EAfgAMRCDQ5XQABG1haW5zcQB+AAzcIeIldAAJbm90aWZ5QWxsc3EAfgAMJiwSdXQADGlzSW5zdGFuY2VPZnNxAH4ADPW7kh50AAI9PXNxAH4ADI2ECFF0AAVjbG9uZXNxAH4ADLy1Poh0AAh0b1N0cmluZ3NxAH4ADGuzgGl0AAIhPXNxAH4ADHTfIJt0AAhnZXRDbGFzc3NxAH4ADDyA8zN0AAJuZXNxAH4ADNFvWmp0AAJlcXNxAH4ADOWhEjx0AAIjI3NxAH4ADHTsFmh0AAhmaW5hbGl6ZXNxAH4ADAzayA50AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AGXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB91cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWV4a/nd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU3CPWU5CDFCqvSRnTbboKWb1+uZk=
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBI+rLyAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cG/9ZUV0AAZub3RpZnlzcQB+AAwqj+lidAAEd2FpdHNxAH4ADHLIth10AA0kYXNJbnN0YW5jZU9mc3EAfgAMncjFiHQABmVxdWFsc3NxAH4ADCKdoMt0AAxhc0luc3RhbmNlT2ZzcQB+AAycLSJtdAAMTG9nU3RyZWFtaW5nc3EAfgAMzSdQw3QADHN5bmNocm9uaXplZHNxAH4ADJanL7p0AA0kaXNJbnN0YW5jZU9mc3EAfgAMRCDQ5XQABG1haW5zcQB+AAzcIeIldAAJbm90aWZ5QWxsc3EAfgAMJiwSdXQADGlzSW5zdGFuY2VPZnNxAH4ADPW7kh50AAI9PXNxAH4ADI2ECFF0AAVjbG9uZXNxAH4ADLy1Poh0AAh0b1N0cmluZ3NxAH4ADGuzgGl0AAIhPXNxAH4ADHTfIJt0AAhnZXRDbGFzc3NxAH4ADDyA8zN0AAJuZXNxAH4ADNFvWmp0AAJlcXNxAH4ADOWhEjx0AAIjI3NxAH4ADHTsFmh0AAhmaW5hbGl6ZXNxAH4ADAzayA50AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AGXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB91cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUo9Ho+2XPReP4PCqOq/NEForgcVU=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHC2QPeyAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cEmNT2B0AAZub3RpZnlzcQB+AAylrTeRdAAEd2FpdHNxAH4ADKEluUF0AA0kYXNJbnN0YW5jZU9mc3EAfgAM6jWV+nQAD0xvZ1N0cmVhbWluZ0RSUXNxAH4ADFJh55l0AAZlcXVhbHNzcQB+AAy5LI6KdAAMYXNJbnN0YW5jZU9mc3EAfgAMnZe2x3QADHN5bmNocm9uaXplZHNxAH4ADPmKcth0AA0kaXNJbnN0YW5jZU9mc3EAfgAMEs2Q8nQABG1haW5zcQB+AAxmMwCSdAAJbm90aWZ5QWxsc3EAfgAMEWaflHQADGlzSW5zdGFuY2VPZnNxAH4ADMvHrMh0AAI9PXNxAH4ADLeGRbZ0AAVjbG9uZXNxAH4ADKnm8hZ0AAh0b1N0cmluZ3NxAH4ADGfnSjh0AAIhPXNxAH4ADHldCfp0AAhnZXRDbGFzc3NxAH4ADBsTWQx0AAJuZXNxAH4ADHgeGnF0AAJlcXNxAH4ADFRqj750AAIjI3NxAH4ADNd4TVR0AAhmaW5hbGl6ZXNxAH4ADCvjelR0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AFXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB91cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUmDSVeGtHA+oqq3UTZ9/CaspOj/s=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCntnXOAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cDa54Qh0AAZub3RpZnlzcQB+AAyoPcz5dAAEd2FpdHNxAH4ADCSZvLN0AA0kYXNJbnN0YW5jZU9mc3EAfgAMEMmckXQABmVxdWFsc3NxAH4ADHNI0LF0AAxhc0luc3RhbmNlT2ZzcQB+AAy4sGD5dAAMc3luY2hyb25pemVkc3EAfgAM6YJJuHQADSRpc0luc3RhbmNlT2ZzcQB+AAwG3m8sdAAEbWFpbnNxAH4ADAdUhYt0AAlub3RpZnlBbGxzcQB+AAzbpxJOdAAMaXNJbnN0YW5jZU9mc3EAfgAMujae6HQAAj09c3EAfgAM9RNKVnQABWNsb25lc3EAfgAMZhbBW3QAD0xvZ1N0cmVhbWluZ0RSU3NxAH4ADHidT5B0AAh0b1N0cmluZ3NxAH4ADNkyq1J0AAIhPXNxAH4ADMNjM4p0AAhnZXRDbGFzc3NxAH4ADIDfZVx0AAJuZXNxAH4ADBDYdvN0AAJlcXNxAH4ADO+QacF0AAIjI3NxAH4ADDaGv390AAhmaW5hbGl6ZXNxAH4ADDE9dJN0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AJ3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU+R9BAcsIuWxmjjEt9igytACFpYI=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBGe1b9AHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cG8y8n50AAZub3RpZnlzcQB+AAz9EGgydAAEd2FpdHNxAH4ADHssD6V0AA0kYXNJbnN0YW5jZU9mc3EAfgAMh3zHw3QAD0xvZ1N0cmVhbWluZ0hSUXNxAH4ADNevfbF0AAZlcXVhbHNzcQB+AAwkyM7odAAMYXNJbnN0YW5jZU9mc3EAfgAMfX8Q8nQADHN5bmNocm9uaXplZHNxAH4ADLpmK7F0AA0kaXNJbnN0YW5jZU9mc3EAfgAMfEUd+3QABG1haW5zcQB+AAxnDLirdAAJbm90aWZ5QWxsc3EAfgAMasTlD3QADGlzSW5zdGFuY2VPZnNxAH4ADFBSA9J0AAI9PXNxAH4ADEfHKW50AAVjbG9uZXNxAH4ADEAukqp0AAh0b1N0cmluZ3NxAH4ADMqRLvh0AAIhPXNxAH4ADDb1WjB0AAhnZXRDbGFzc3NxAH4ADEWgEud0AAJuZXNxAH4ADJhoyE90AAJlcXNxAH4ADO4Rrfd0AAIjI3NxAH4ADIpbWcF0AAhmaW5hbGl6ZXNxAH4ADPbyBex0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AFXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB91cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUj6dUMHBMYqbPIjGplqpr6MYl7wo=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBft/TqAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cHZdQYh0AAZub3RpZnlzcQB+AAzTVNB7dAAEd2FpdHNxAH4ADJ0eGUd0AA0kYXNJbnN0YW5jZU9mc3EAfgAMxWHb8nQABmVxdWFsc3NxAH4ADNNwF5p0AAxhc0luc3RhbmNlT2ZzcQB+AAzOlkmhdAAMc3luY2hyb25pemVkc3EAfgAMuIPFU3QADSRpc0luc3RhbmNlT2ZzcQB+AAwbmb7+dAAEbWFpbnNxAH4ADBC/aiR0AAlub3RpZnlBbGxzcQB+AAyqG5GjdAAMaXNJbnN0YW5jZU9mc3EAfgAMHurnGHQAAj09c3EAfgAM2ewvJnQABWNsb25lc3EAfgAMsC10qHQAD0xvZ1N0cmVhbWluZ0hSU3NxAH4ADOjVks10AAh0b1N0cmluZ3NxAH4ADANt5qB0AAIhPXNxAH4ADHYpLXd0AAhnZXRDbGFzc3NxAH4ADCb8gQF0AAJuZXNxAH4ADJ7EZJ90AAJlcXNxAH4ADKl2a/h0AAIjI3NxAH4ADMa5Lwt0AAhmaW5hbGl6ZXNxAH4ADAiRJ4p0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AJ3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUcSs94SxbaiWmNEWPrylcP0kLvQM=
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCF5J4eAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cIs7FJl0AAZub3RpZnlzcQB+AAwGRbQmdAAEd2FpdHNxAH4ADGBS3Gl0AA0kYXNJbnN0YW5jZU9mc3EAfgAMYqxj2HQABmVxdWFsc3NxAH4ADGhLJPp0AAxhc0luc3RhbmNlT2ZzcQB+AAyxqVFSdAAMc3luY2hyb25pemVkc3EAfgAMu2HcJXQADSRpc0luc3RhbmNlT2ZzcQB+AAzEM/ladAAEbWFpbnNxAH4ADLEZIJt0AAlPZmYySEJhc2VzcQB+AAzQniTgdAAJbm90aWZ5QWxsc3EAfgAMBJivR3QADGlzSW5zdGFuY2VPZnNxAH4ADI6jvuZ0AAI9PXNxAH4ADIwxSlp0AAVjbG9uZXNxAH4ADF7+ea10AAh0b1N0cmluZ3NxAH4ADCzVW7t0AAIhPXNxAH4ADJQZWFR0AAhnZXRDbGFzc3NxAH4ADInkRMR0AAJuZXNxAH4ADJHxmSh0AAJlcXNxAH4ADBdZvMt0AAIjI3NxAH4ADNY13WJ0AAhmaW5hbGl6ZXNxAH4ADPE7wc90AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AH3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWV3gwuB1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUsa1qF6m+dIh3iTkaUgGdABGcgag=
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCF5J4eAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cIs7FJl0AAZub3RpZnlzcQB+AAwGRbQmdAAEd2FpdHNxAH4ADGBS3Gl0AA0kYXNJbnN0YW5jZU9mc3EAfgAMYqxj2HQABmVxdWFsc3NxAH4ADGhLJPp0AAxhc0luc3RhbmNlT2ZzcQB+AAyxqVFSdAAMc3luY2hyb25pemVkc3EAfgAMu2HcJXQADSRpc0luc3RhbmNlT2ZzcQB+AAzEM/ladAAEbWFpbnNxAH4ADLEZIJt0AAlPZmYySEJhc2VzcQB+AAzQniTgdAAJbm90aWZ5QWxsc3EAfgAMBJivR3QADGlzSW5zdGFuY2VPZnNxAH4ADI6jvuZ0AAI9PXNxAH4ADIwxSlp0AAVjbG9uZXNxAH4ADF7+ea10AAh0b1N0cmluZ3NxAH4ADCzVW7t0AAIhPXNxAH4ADJQZWFR0AAhnZXRDbGFzc3NxAH4ADInkRMR0AAJuZXNxAH4ADJHxmSh0AAJlcXNxAH4ADBdZvMt0AAIjI3NxAH4ADNY13WJ0AAhmaW5hbGl6ZXNxAH4ADPE7wc90AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AH3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AWHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBBTAAJaW5oZXJpdGVkcQB+AEFMAAdwYXJlbnRzcQB+AEF4cQB+AF1zcQB+AFh1cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AXHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AFxzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AHh1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBleHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgBsWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBcc3EAfgBrdAAFQXJyYXlxAH4AcXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBrdAAGU3RyaW5nc3EAfgBvc3EAfgBydXEAfgB1AAAAA3NxAH4Ad3QABGphdmFzcQB+AHd0AARsYW5ncQB+AHxzcQB+AFh1cQB+ADwAAAAAc3EAfgBYdXEAfgCQAAAAAnNxAH4Aa3QABk9iamVjdHEAfgCUc3EAfgBrdAADQW55cQB+AHF1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA2L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUsa1qF6m+dIh3iTkaUgGdABGcgag=
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCGRnryAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAHnNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cCfTrEN0AAZub3RpZnlzcQB+AAyDYd5fdAAEd2FpdHNxAH4ADNadl8t0AA0kYXNJbnN0YW5jZU9mc3EAfgAMe6Q3G3QAFXNldFN0cmVhbWluZ0xvZ0xldmVsc3NxAH4ADFqnSMh0AAZlcXVhbHNzcQB+AAzk0kMGdAAMYXNJbnN0YW5jZU9mc3EAfgAMTvePOXQADHN5bmNocm9uaXplZHNxAH4ADDn74490AA0kaXNJbnN0YW5jZU9mc3EAfgAM2BKKwHQACGxvZ1RyYWNlc3EAfgAMaXClj3QADmlzVHJhY2VFbmFibGVkc3EAfgAMvNTeWXQAB2xvZ05hbWVzcQB+AAwAAUu9dAAJbm90aWZ5QWxsc3EAfgAMAQ+z1XQADGlzSW5zdGFuY2VPZnNxAH4ADDc5NzF0AAI9PXNxAH4ADO++TPF0AAVjbG9uZXNxAH4ADH5Codx0AAYkaW5pdCRzcQB+AAxnzlTYdAAIdG9TdHJpbmdzcQB+AAwwH8LtdAAIbG9nRXJyb3JzcQB+AAzYGWtvdAACIT1zcQB+AAyqUT8ZdAAIZ2V0Q2xhc3NzcQB+AAzFYLPkdAAKbG9nV2FybmluZ3NxAH4ADLKtLdl0AAJuZXNxAH4ADN/OeVV0AAJlcXNxAH4ADD/SwO90AANsb2dzcQB+AAzLkXpYdAARU3RyZWFtaW5nRXhhbXBsZXNzcQB+AAxaji/ZdAACIyNzcQB+AAzKT4RjdAAIZmluYWxpemVzcQB+AAz7sucRdAAIaGFzaENvZGVzcQB+AAxW1CDedAAIbG9nRGVidWdzcQB+AAypZCzMdAAHbG9nSW5mb3NyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AFN4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AP3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AanNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBTTAAJaW5oZXJpdGVkcQB+AFNMAAdwYXJlbnRzcQB+AFN4cQB+AG9zcQB+AGp1cQB+AE4AAAAAc3EAfgBqdXEAfgBOAAAAAHNxAH4AanVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAADc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AbnQAB0xvZ2dpbmdzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AG5zcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAARzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQAA29yZ3NxAH4Ah3QABmFwYWNoZXNxAH4Ah3QABXNwYXJrc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AIhzcQB+AHt0AAZPYmplY3RzcQB+AH9zcQB+AIJ1cQB+AIUAAAADc3EAfgCHdAAEamF2YXNxAH4Ah3QABGxhbmdxAH4AkHNxAH4Ae3QAA0FueXNxAH4Af3NxAH4AgnVxAH4AhQAAAAJzcQB+AId0AAVzY2FsYXEAfgCQdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVlOrlmHdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFD88pvR5sqn1tyMCcB6Ke3Fc5FNA
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCGRnryAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAHnNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cCfTrEN0AAZub3RpZnlzcQB+AAyDYd5fdAAEd2FpdHNxAH4ADNadl8t0AA0kYXNJbnN0YW5jZU9mc3EAfgAMe6Q3G3QAFXNldFN0cmVhbWluZ0xvZ0xldmVsc3NxAH4ADFqnSMh0AAZlcXVhbHNzcQB+AAzk0kMGdAAMYXNJbnN0YW5jZU9mc3EAfgAMTvePOXQADHN5bmNocm9uaXplZHNxAH4ADDn74490AA0kaXNJbnN0YW5jZU9mc3EAfgAM2BKKwHQACGxvZ1RyYWNlc3EAfgAMaXClj3QADmlzVHJhY2VFbmFibGVkc3EAfgAMvNTeWXQAB2xvZ05hbWVzcQB+AAwAAUu9dAAJbm90aWZ5QWxsc3EAfgAMAQ+z1XQADGlzSW5zdGFuY2VPZnNxAH4ADDc5NzF0AAI9PXNxAH4ADO++TPF0AAVjbG9uZXNxAH4ADH5Codx0AAYkaW5pdCRzcQB+AAxnzlTYdAAIdG9TdHJpbmdzcQB+AAwwH8LtdAAIbG9nRXJyb3JzcQB+AAzYGWtvdAACIT1zcQB+AAyqUT8ZdAAIZ2V0Q2xhc3NzcQB+AAzFYLPkdAAKbG9nV2FybmluZ3NxAH4ADLKtLdl0AAJuZXNxAH4ADN/OeVV0AAJlcXNxAH4ADD/SwO90AANsb2dzcQB+AAzLkXpYdAARU3RyZWFtaW5nRXhhbXBsZXNzcQB+AAxaji/ZdAACIyNzcQB+AAzKT4RjdAAIZmluYWxpemVzcQB+AAz7sucRdAAIaGFzaENvZGVzcQB+AAxW1CDedAAIbG9nRGVidWdzcQB+AAypZCzMdAAHbG9nSW5mb3NyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AFN4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cABxAH4AP3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AanNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBTTAAJaW5oZXJpdGVkcQB+AFNMAAdwYXJlbnRzcQB+AFN4cQB+AG9zcQB+AGp1cQB+AE4AAAAAc3EAfgBqdXEAfgBOAAAAAHNxAH4AanVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAADc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AbnQAB0xvZ2dpbmdzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AG5zcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAARzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQAA29yZ3NxAH4Ah3QABmFwYWNoZXNxAH4Ah3QABXNwYXJrc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AIhzcQB+AHt0AAZPYmplY3RzcQB+AH9zcQB+AIJ1cQB+AIUAAAADc3EAfgCHdAAEamF2YXNxAH4Ah3QABGxhbmdxAH4AkHNxAH4Ae3QAA0FueXNxAH4Af3NxAH4AgnVxAH4AhQAAAAJzcQB+AId0AAVzY2FsYXEAfgCQdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVli8gf2dXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFD88pvR5sqn1tyMCcB6Ke3Fc5FNA
 external apis:
 0 items
 source infos:
-4 items
+8 items
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaLogProducer.scala -> 
 AAAAAAAAAAA=
 /usr/local/spark/mycode/DBNS/src/main/scala/KafkaWordCount.scala -> 
+AAAAAAAAAAA=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRQ.scala -> 
+AAAAAAAAAAA=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerDRS.scala -> 
+AAAAAAAAAAA=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRQ.scala -> 
+AAAAAAAAAAA=
+/usr/local/spark/mycode/DBNS/src/main/scala/LogAnalyzerHRS.scala -> 
 AAAAAAAAAAA=
 /usr/local/spark/mycode/DBNS/src/main/scala/OfflineHbase.scala -> 
 AAAAAAAAAAcAAAEAAAAXAC0gIHZhbCBqb2IgPSBuZXcgSm9iKHNzc2MuaGFkb29wQ29uZmlndXJhdGlvbikBAAAEYgEAAAAMAQAMICAgICAgICAgICAgAQA+L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy9zcmMvbWFpbi9zY2FsYS9PZmZsaW5lSGJhc2Uuc2NhbGEBAD4vdXNyL2xvY2FsL3NwYXJrL215Y29kZS9EQk5TL3NyYy9tYWluL3NjYWxhL09mZmxpbmVIYmFzZS5zY2FsYQBbY29uc3RydWN0b3IgSm9iIGluIGNsYXNzIEpvYiBpcyBkZXByZWNhdGVkOiBzZWUgY29ycmVzcG9uZGluZyBKYXZhZG9jIGZvciBtb3JlIGluZm9ybWF0aW9uLgEAAAEAAAAdAE0gICAgcHV0LmFkZChCeXRlcy50b0J5dGVzKCJpbmZvIiksQnl0ZXMudG9CeXRlcygiVFRMIiksQnl0ZXMudG9CeXRlcyhyb3coMSkpKQEAAAWeAQAAAAgBAAggICAgICAgIAEAPi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvc3JjL21haW4vc2NhbGEvT2ZmbGluZUhiYXNlLnNjYWxhAQA+L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy9zcmMvbWFpbi9zY2FsYS9PZmZsaW5lSGJhc2Uuc2NhbGEAVm1ldGhvZCBhZGQgaW4gY2xhc3MgUHV0IGlzIGRlcHJlY2F0ZWQ6IHNlZSBjb3JyZXNwb25kaW5nIEphdmFkb2MgZm9yIG1vcmUgaW5mb3JtYXRpb24uAQAAAQAAAB4AUiAgICBwdXQuYWRkKEJ5dGVzLnRvQnl0ZXMoImluZm8iKSxCeXRlcy50b0J5dGVzKCJJUFNvdXJjZSIpLEJ5dGVzLnRvQnl0ZXMocm93KDIpKSkBAAAF7AEAAAAIAQAIICAgICAgICABAD4vdXNyL2xvY2FsL3NwYXJrL215Y29kZS9EQk5TL3NyYy9tYWluL3NjYWxhL09mZmxpbmVIYmFzZS5zY2FsYQEAPi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvc3JjL21haW4vc2NhbGEvT2ZmbGluZUhiYXNlLnNjYWxhAFZtZXRob2QgYWRkIGluIGNsYXNzIFB1dCBpcyBkZXByZWNhdGVkOiBzZWUgY29ycmVzcG9uZGluZyBKYXZhZG9jIGZvciBtb3JlIGluZm9ybWF0aW9uLgEAAAEAAAAfAFQgICAgcHV0LmFkZChCeXRlcy50b0J5dGVzKCJpbmZvIiksQnl0ZXMudG9CeXRlcygiUG9ydFNvdXJjZSIpLEJ5dGVzLnRvQnl0ZXMocm93KDMpKSkBAAAGPwEAAAAIAQAIICAgICAgICABAD4vdXNyL2xvY2FsL3NwYXJrL215Y29kZS9EQk5TL3NyYy9tYWluL3NjYWxhL09mZmxpbmVIYmFzZS5zY2FsYQEAPi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvc3JjL21haW4vc2NhbGEvT2ZmbGluZUhiYXNlLnNjYWxhAFZtZXRob2QgYWRkIGluIGNsYXNzIFB1dCBpcyBkZXByZWNhdGVkOiBzZWUgY29ycmVzcG9uZGluZyBKYXZhZG9jIGZvciBtb3JlIGluZm9ybWF0aW9uLgEAAAEAAAAgAFAgICAgcHV0LmFkZChCeXRlcy50b0J5dGVzKCJpbmZvIiksQnl0ZXMudG9CeXRlcygiSVBEZXN0IiksQnl0ZXMudG9CeXRlcyhyb3coNCkpKQEAAAaUAQAAAAgBAAggICAgICAgIAEAPi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvc3JjL21haW4vc2NhbGEvT2ZmbGluZUhiYXNlLnNjYWxhAQA+L3Vzci9sb2NhbC9zcGFyay9teWNvZGUvREJOUy9zcmMvbWFpbi9zY2FsYS9PZmZsaW5lSGJhc2Uuc2NhbGEAVm1ldGhvZCBhZGQgaW4gY2xhc3MgUHV0IGlzIGRlcHJlY2F0ZWQ6IHNlZSBjb3JyZXNwb25kaW5nIEphdmFkb2MgZm9yIG1vcmUgaW5mb3JtYXRpb24uAQAAAQAAACEAUiAgICBwdXQuYWRkKEJ5dGVzLnRvQnl0ZXMoImluZm8iKSxCeXRlcy50b0J5dGVzKCJQb3J0RGVzdCIpLEJ5dGVzLnRvQnl0ZXMocm93KDUpKSkBAAAG5QEAAAAIAQAIICAgICAgICABAD4vdXNyL2xvY2FsL3NwYXJrL215Y29kZS9EQk5TL3NyYy9tYWluL3NjYWxhL09mZmxpbmVIYmFzZS5zY2FsYQEAPi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvc3JjL21haW4vc2NhbGEvT2ZmbGluZUhiYXNlLnNjYWxhAFZtZXRob2QgYWRkIGluIGNsYXNzIFB1dCBpcyBkZXByZWNhdGVkOiBzZWUgY29ycmVzcG9uZGluZyBKYXZhZG9jIGZvciBtb3JlIGluZm9ybWF0aW9uLgEAAAEAAAAiAFQgICAgcHV0LmFkZChCeXRlcy50b0J5dGVzKCJpbmZvIiksQnl0ZXMudG9CeXRlcygicmV0dXJuQ29kZSIpLEJ5dGVzLnRvQnl0ZXMocm93KDYpKSkBAAAHOAEAAAAIAQAIICAgICAgICABAD4vdXNyL2xvY2FsL3NwYXJrL215Y29kZS9EQk5TL3NyYy9tYWluL3NjYWxhL09mZmxpbmVIYmFzZS5zY2FsYQEAPi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvc3JjL21haW4vc2NhbGEvT2ZmbGluZUhiYXNlLnNjYWxhAFZtZXRob2QgYWRkIGluIGNsYXNzIFB1dCBpcyBkZXByZWNhdGVkOiBzZWUgY29ycmVzcG9uZGluZyBKYXZhZG9jIGZvciBtb3JlIGluZm9ybWF0aW9uLgE=
 /usr/local/spark/mycode/DBNS/src/main/scala/StreamingExamples.scala -> 
 AAAAAAAAAAA=
 compilations:
-12 items
+21 items
 00 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWU6uWYd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
 01 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWU69HLN1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
 02 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWU6+SWJ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
@@ -499,3 +1015,12 @@ compilations:
 09 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWV4Ewzx1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
 10 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWV4TovZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
 11 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWV4a/nd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+12 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWKRpIZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+13 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWKjVs11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+14 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWKpxap1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+15 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWKuREV1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+16 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWK8M491cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+17 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLDi451cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+18 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLgbgx1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+19 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLnR3x1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+20 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWWLyB/Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQANi91c3IvbG9jYWwvc3BhcmsvbXljb2RlL0RCTlMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=

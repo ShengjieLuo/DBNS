@@ -5,6 +5,8 @@ import thread
 def streamingTask(args):
 	os.system("/usr/local/spark/bin/spark-submit --class \"LogStreaming\" /usr/local/spark/mycode/DBNSv02/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar")
 
+def streamingAdvancedTask(args,):
+	
 def HbaseTask(args):
 	count = 0
 	while count<10 :

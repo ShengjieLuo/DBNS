@@ -12,13 +12,13 @@ def cutshort(source,target):
 		count += 1
 		if count % 1000 == 0:
 			print str(count)+": line"
-		if count >= 1000000:
+		if count >= 500000:
 			break
 
 if __name__ == "__main__":
-	cutshort("/root/text/http_request.txt","/usr/local/spark/mycode/DBNS/sample/http_request.txt")
-	cutshort("/root/text/http_response.txt","/usr/local/spark/mycode/DBNS/sample/http_response.txt")
-	cutshort("/root/text/dns_request.txt","/usr/local/spark/mycode/DBNS/sample/dns_request.txt")
-	cutshort("/root/text/dns_response.txt","/usr/local/spark/mycode/DBNS/sample/dns_response.txt")
+	cutshort("/usr/local/spark/mycode/DBNS/sample/http_request.txt","/usr/local/spark/mycode/DBNS/sample/http_request2.txt")
+	#cutshort("/root/text/http_response.txt","/usr/local/spark/mycode/DBNS/sample/http_response.txt")
+	#cutshort("/root/text/dns_request.txt","/usr/local/spark/mycode/DBNS/sample/dns_request.txt")
+	#cutshort("/root/text/dns_response.txt","/usr/local/spark/mycode/DBNS/sample/dns_response.txt")
 
 
