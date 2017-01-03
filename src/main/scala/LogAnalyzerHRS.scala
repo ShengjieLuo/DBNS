@@ -68,7 +68,6 @@ def main(args:Array[String]){
   })
 
   //Step4: Write the statistical data into the SparkSQL --> mySQL
-  /*
   val sqlContext = new SQLContext(sssc)
   val ipsschema = StructType(List(StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
   val psschema  = StructType(List(StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
@@ -85,7 +84,13 @@ def main(args:Array[String]){
     val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
     val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
     val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
-    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))*/
+    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSips", prop)
+    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSps", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSipd", prop)
+    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSpd", prop)
+    //sqlContext.createDataFrame(returnCodeTop,rcschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/web", "stat.HRSrc", prop)
+    })
 
   //Step final: start the spark streaming context
   ssc.start
