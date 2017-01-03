@@ -58,16 +58,17 @@ def main(args:Array[String]){
   //step3: Write the original information into the Hive within SparkSQL
   val lines = lineMap.map(_._2).map(_.split("\t"))
   val hiveCtx = new HiveContext(sssc)
-  val schema = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("IPSource", StringType, true),StructField("PortSource", StringType, true),StructField("IPDest", StringType, true),StructField("PortDest", StringType, true)))
+  val schema = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("rc", StringType, true)))
   lines.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5))), schema)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim)), schema)
     //rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
-    hiveCtx.sql("insert into DBNS.httpRes select * from tempTable")
+    hiveCtx.sql("insert into HRS.original select * from tempTable")
   })
 
   //Step4: Write the statistical data into the SparkSQL --> mySQL
+  /*
   val sqlContext = new SQLContext(sssc)
   val ipsschema = StructType(List(StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
   val psschema  = StructType(List(StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
@@ -84,7 +85,7 @@ def main(args:Array[String]){
     val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
     val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
     val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
-    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))
+    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(p._2.trim,p._1.toInt))*/
 
   //Step final: start the spark streaming context
   ssc.start
