@@ -1,4 +1,4 @@
 #/usr/local/spark/bin/spark-submit --class "LogStreamingHRS" /usr/local/spark/mycode/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar &
 #/usr/local/spark/bin/spark-submit --class "LogStreamingHRQ" /usr/local/spark/mycode/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar &
-/usr/local/spark/bin/spark-submit --class "LogStreamingDRS" /usr/local/spark/mycode/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar
-#/usr/local/spark/bin/spark-submit --class "LogStreamingDRQ" /usr/local/spark/mycode/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar &
+#/usr/local/spark/bin/spark-submit --class "LogStreamingDRS" /usr/local/spark/mycode/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar &
+/usr/local/spark/bin/spark-submit --class "LogStreamingDRQ" /usr/local/spark/mycode/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar --jars /usr/local/spark/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar

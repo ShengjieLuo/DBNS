@@ -17,6 +17,10 @@ create table DRSname(name varchar(100),count int);
 create table DRStype(type varchar(20),count int);
 create table DRSurl(url varchar(100),count int);
 
+create table DRQips(IPSource varchar(20),count int);
+create table DRQipd(IPDest varchar(20),count int);
+create table DRQname(name varchar(100),count int);
+create table DRQtype(type varchar(20),count int);
 
 create database hive;
 grant all on *.* to hive@localhost identified by 'hive';
