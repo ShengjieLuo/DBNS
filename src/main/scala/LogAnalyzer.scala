@@ -129,7 +129,7 @@ def main(args:Array[String]){
   prop.put("user", "root")
   prop.put("password", "123456")
   prop.put("driver","com.mysql.jdbc.Driver")
-  val dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")  
+  val dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm")  
 
   lines1.foreachRDD(words =>
     {
