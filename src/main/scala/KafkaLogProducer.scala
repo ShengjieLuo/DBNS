@@ -16,7 +16,7 @@ object LogProducer {
         //println(topic+": "+line)
         val message = new ProducerRecord[String, String](topic, null, line)
         producer.send(message)
-        Thread.sleep(100)
+        Thread.sleep(10)
       }
     }
   }
