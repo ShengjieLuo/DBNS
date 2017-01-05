@@ -22,7 +22,3 @@ create table DRQipd(id varchar(20),IPDest varchar(20),count int);
 create table DRQname(id varchar(20),name varchar(100),count int);
 create table DRQtype(id varchar(20),type varchar(20),count int);
 
-create database hive;
-grant all on *.* to hive@localhost identified by 'hive';
-flush privileges;
-
