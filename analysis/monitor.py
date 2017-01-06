@@ -1,5 +1,6 @@
 import mysql.connector
 import datetime
+import sys
 
 def exeSQL(sql):
 	config = {
@@ -37,10 +38,14 @@ def exeSQLquery(sql):
 	return result_set
 
 def oneMinuteBatch():
+	
+	print "Begin one Minute Batch"
 	now = datetime.datetime.now()
 	delta = datetime.timedelta(minutes=1)
 	target = (now-delta).strftime('%Y-%m-%d %H:%M')
-	
+	#target = "2017-01-05 08:42:10"
+
+	print "Begin to truncate old batch"
 	exeSQL("TRUNCATE web.onHRSips")
 	exeSQL("TRUNCATE web.onHRSipd")
 	exeSQL("TRUNCATE web.onHRSps")
@@ -60,6 +65,7 @@ def oneMinuteBatch():
 	exeSQL("TRUNCATE web.onDRQname")
 	exeSQL("TRUNCATE web.onDRQtype")
 	
+	print "Begin to add new batch"
         exeSQL("insert into web.onHRSips(id,IPSource,count)select * from HRSips where id=\"" + target + "\";")
 	exeSQL("insert into web.onHRSipd(id,IPDest,count)select * from HRSipd where id=\"" + target + "\";")
 	exeSQL("insert into web.onHRSps(id,PortSource,count)select * from HRSps where id=\"" + target + "\";")
@@ -82,11 +88,17 @@ def oneMinuteBatch():
 	exeSQL("insert into web.onDRQname(id,name,count)select * from DRQname where id=\"" + target + "\";")
 	exeSQL("insert into web.onDRQtype(id,type,count)select * from DRQtype where id=\"" + target + "\";")	
 
-def oneHourBatch():
-	now = datatime.datetime.now()
-	delta = datetime.timedelta(minutes=10)
-	target = (now-delta).strfttime('%Y-%m-%d %H')
+	print "One-Minute Batch End!"
 
+def oneHourBatch():
+	
+	print "One-Hour Batch begin!"
+	now = datetime.datetime.now()
+	delta = datetime.timedelta(minutes=10)
+	target = (now-delta).strftime('%Y-%m-%d %H')
+	#target = "2017-01-05 08"
+
+	print "Begin to truncate data!"
 	exeSQL("TRUNCATE web.ofHRSips")
         exeSQL("TRUNCATE web.ofHRSipd")
         exeSQL("TRUNCATE web.ofHRSps")
@@ -106,6 +118,7 @@ def oneHourBatch():
         exeSQL("TRUNCATE web.ofDRQname")
         exeSQL("TRUNCATE web.ofDRQtype")
 
+	print "Begin to add data!"
         exeSQL("INSERT INTO web.ofHRSips(IPSource,count) SELECT IPSource,count FROM HRSips WHERE id LIKE \"" + target + "%\" GROUP BY IPSource ORDER BY count DESC LIMIT 30; ")
         exeSQL("INSERT INTO web.ofHRSipd(IPDest,count) SELECT IPDest,count FROM HRSipd WHERE id LIKE \"" + target + "%\" GROUP BY IPDest ORDER BY count DESC LIMIT 30; ")
         exeSQL("INSERT INTO web.ofHRSps(PortSource,count) SELECT PortSource,count FROM HRSps WHERE id LIKE \"" + target + "%\" GROUP BY PortSource ORDER BY count DESC LIMIT 30; ")
@@ -147,6 +160,7 @@ def oneHourBatch():
         exeSQL("update web.ofDRQipd set id=\"" + target + ":00\";")
         exeSQL("update web.ofDRQname set id=\"" + target + ":00\";")
         exeSQL("update web.ofDRQtype set id=\"" + target + ":00\";")
+	print "One day batch end!"
 
 def oneDayBatch():
 	exeSQL("TRUNCATE web.onHRSips")
@@ -188,4 +202,11 @@ def oneDayBatch():
         exeSQL("TRUNCATE web.ofDRQtype")
 
 if __name__=="__main__":
-	exeSQL("insert into web.onDRQipd(id,IPDest,count)select * from DRQipd where id=\"2017-01-05 08:42:10\";")
+	if sys.argv[1] == "minute" or sys.argv[1]=="1":
+		oneMinuteBatch()
+	elif sys.argv[1] == "hour" or sys.argv[1]=="2":
+		oneHourBatch()
+	elif sys.argv[1] == "day" or sys.argv[1] == "3":
+		oneDayBatch()
+	else:
+		print "[Error] Please use right parameter in monitor.py!"
