@@ -32,7 +32,7 @@ def MinuteBatch(args):
 
 def HourBatch(args):
 	schedule = sched.scheduler(time.time, time.sleep)
-	timming_exe(schedule,"python $DBNS_HOME/analysis/monitor.py hour", 3600)
+	timming_exe(schedule,"python $DBNS_HOME/analysis/monitor.py hour", 10)
 	
 def DayBatch(args):
 	schedule = sched.scheduler(time.time, time.sleep)
