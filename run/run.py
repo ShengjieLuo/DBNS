@@ -28,11 +28,13 @@ def LogProducer(args):
 
 def MinuteBatch(args):
 	schedule = sched.scheduler(time.time, time.sleep)
-	timming_exe(schedule,"python $DBNS_HOME/analysis/monitor.py minute", 60)
+	#print "Command: python $DBNS_HOME/analysis/monitor.py minute "+str(args)
+	timming_exe(schedule,"python $DBNS_HOME/analysis/monitor.py minute "+str(args), 60)
 
 def HourBatch(args):
 	schedule = sched.scheduler(time.time, time.sleep)
-	timming_exe(schedule,"python $DBNS_HOME/analysis/monitor.py hour", 3600)
+	#print "Command: python $DBNS_HOME/analysis/monitor.py hour "+str(args)
+	timming_exe(schedule,"python $DBNS_HOME/analysis/monitor.py hour "+str(args), 30)
 	
 def DayBatch(args):
 	schedule = sched.scheduler(time.time, time.sleep)
@@ -44,8 +46,8 @@ def main():
 	#thread.start_new_thread(HbaseTask,(args,))
 	#thread.start_new_thread(LogAnalyzer,(args,))
 	#thread.start_new_thread(LogProducer,(args,))
-	thread.start_new_thread(MinuteBatch,(args,))
-	thread.start_new_thread(HourBatch,(args,))
+	thread.start_new_thread(MinuteBatch,(0,))
+	thread.start_new_thread(HourBatch,(1,))
 	thread.start_new_thread(DayBatch,(args,))
 	while 1:
 		pass
