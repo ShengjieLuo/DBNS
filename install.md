@@ -84,7 +84,7 @@ flush privileges;
 ## Step3. 执行安装脚本
 将bin文件包解压到/usr/local后执行下列脚本，您可以选择手动输入以下指令，或者直接使用我们提供的安装脚本
 
-source $DBNS_HOME/install.sh
+source $DBNS_HOME/script/install.sh
 ```
 apt-get update
 apt-get install vim git htop -y
