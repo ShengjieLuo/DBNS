@@ -1,0 +1,49 @@
+#hdfs dfsadmin -report
+Configured Capacity: 1965797752832 (1.79 TB)
+Present Capacity: 1794627657728 (1.63 TB)
+DFS Remaining: 1794627608576 (1.63 TB)
+DFS Used: 49152 (48 KB)
+DFS Used%: 0.00%
+Under replicated blocks: 0
+Blocks with corrupt replicas: 0
+Missing blocks: 0
+Missing blocks (with replication factor 1): 0
+
+-------------------------------------------------
+Live datanodes (2):
+
+Name: 172.16.0.59:50010 (slave01)
+Hostname: kickseed
+Decommission Status : Normal
+Configured Capacity: 982898876416 (915.40 GB)
+DFS Used: 24576 (24 KB)
+Non DFS Used: 118384263168 (110.25 GB)
+DFS Remaining: 864514588672 (805.14 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 87.96%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 1
+Last contact: Sun Jan 22 16:37:24 CST 2017
+
+
+Name: 172.16.0.68:50010 (slave02)
+Hostname: kickseed
+Decommission Status : Normal
+Configured Capacity: 982898876416 (915.40 GB)
+DFS Used: 24576 (24 KB)
+Non DFS Used: 52785831936 (49.16 GB)
+DFS Remaining: 930113019904 (866.24 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 94.63%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 1
+Last contact: Sun Jan 22 16:37:24 CST 2017
+

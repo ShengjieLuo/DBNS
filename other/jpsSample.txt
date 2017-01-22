@@ -1,27 +1,16 @@
-#jps
-105185 Master
-110017 Kafka
-108160 RunJar
-103941 SecondaryNameNode
-104264 ResourceManager
-103592 DataNode
-111018 Kafka
-105455 Worker
-103440 NameNode
-104404 NodeManager
-104983 JobHistoryServer
-114713 SparkSubmit
-16152 Jps
-114712 SparkSubmit
-110011 QuorumPeerMain
-110013 Kafka
-108159 RunJar
+Master
+26789 SecondaryNameNode
+27065 ResourceManager
+26461 NameNode
+32446 Jps
 
-explanantion:
-DataNode,NameNode: HDFS Process
-Master,Work:  Spark Node Process
-ResourceManager, SecondaryManager: Yarn Process
-JobHistoryServer: Yarn History Process
-SparkSubmit: Spark Program Main Process
-Kafka: Kafka Process
+Slave01
+98318 DataNode
+98727 Jps
+98478 NodeManager
+
+Slave02
+45527 DataNode
+45907 Jps
+45669 NodeManager
 
