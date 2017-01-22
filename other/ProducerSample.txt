@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:752bcda341afd799a9a088b0f299549a4245c584b56eacb60e0d199439724f80
-size 3624
+httpRequest: 1480867248 1159    118.116.119.111 6195    202.121.66.102  80      G       adp.cnki.net.e-resource.shou.edu.cn     http://www.cnki.net.e-resource.shou.edu.cn/KCMS/detail/detail.aspx?QueryID=4&CurRec=11&filename=ZGDB201610046&dbname=CJFDTEMP&dbcode=CJFQ&pr=&urlid=&yx=&uid=WEEvREcwSlJHSldRa1FhdXNXZjJDbU1HWVV0cGhGTkx5Mkl1dFV0dHFMND0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MDM4NzBoMVQzcVRyV00xRnJDVVJMeWVaZVpxRmlua1VydlBQeXJQYkxHNEg5Zk5yNDlCWW9SOGVYMUx1eFlTN0Q=        Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14
+dnsResponse: 1480867205 202.121.209.11  101.7.8.9       .irs01.com      1       1       290     139.219.132.210
+httpResponse: 1480867257        307     54.93.94.126    47842   210.35.115.59   80      200     text/html
+dnsRequest: 1480867200  210.35.96.6     210.22.84.3     .danuoyinewns2.gds.alicdn.com   28      1
+httpRequest: 1480867249 358     202.121.66.144  59965   123.59.190.237  80      G       adm.leju.sina.com.cn    http://www.sina.com.cn/ Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36
+dnsResponse: 1480867205 202.121.209.11  101.7.8.9       .uconf.f.360.cn 1       1       269     111.206.62.244
+httpResponse: 1480867257        307     54.94.216.67    52033   210.35.115.59   80      200     text/html
+dnsRequest: 1480867200  178.254.216.120 202.121.64.5    .defcon.org     255     1
+httpRequest: 1480867249 339     210.35.115.58   54025   153.37.208.87   80      G       niu.ag.xldp.xunlei.com
+dnsResponse: 1480867205 202.121.209.11  101.7.8.9       .irs01.com      1       1       290     42.159.154.186
+httpResponse: 1480867257        307     54.94.216.67    52032   210.35.115.59   80      200     text/html
+dnsRequest: 1480867200  178.254.216.120 202.121.64.5    .defcon.org     255     1
+httpRequest: 1480867249 777     202.121.223.13  51995   211.80.158.18   80      G       hz.ftn.qq.com           Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729)
+dnsResponse: 1480867205 202.121.209.11  101.7.8.9       .irs01.com      1       1       290     139.219.131.65
+httpResponse: 1480867257        1046    202.121.64.138  22426   101.4.60.122    80      200     application/octet-stream
+dnsRequest: 1480867200  178.254.216.120 202.121.64.5    .defcon.org     255     1
+httpRequest: 1480867249 839     202.121.223.13  51992   211.80.158.18   80      G       hz.ftn.qq.com           Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729)
+dnsResponse: 1480867205 210.35.96.6     210.22.70.3     .log.stat.kugou.com     1       1       3170    42.62.20.200
+^ChttpResponse: 1480867257      934     210.35.99.251   25687   101.4.60.121    80      200     application/octet-stream
+dnsRequest: 1480867200  178.254.216.120 202.121.64.5    .defcon.org     255     1
+httpRequest: 1480867249 1195    202.121.66.102  53263   119.167.209.22  80      G       c61.cnki.net    http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=4&CurRec=11&filename=ZGDB201610046&dbname=CJFDTEMP&dbcode=CJFQ&pr=&urlid=&yx=&uid=WEEvREcwSlJHSldRa1FhdXNXZjJDbU1HWVV0cGhGTkx5Mkl1dFV0dHFMND0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MDM4NzBoMVQzcVRyV00xRnJDVVJMeWVaZVpxRmlua1VydlBQeXJQYkxHNEg5Zk5yNDlCWW9SOGVYMUx1eFlTN0Q=      Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14
+
