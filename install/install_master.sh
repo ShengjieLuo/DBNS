@@ -12,3 +12,5 @@ rm -rf $HADOOP_HOME/tmp
 hdfs namenode -format
 scp -r /usr/local/hadoop root@slave01:/usr/local
 scp -r /usr/local/hadoop root@slave02:/usr/local
+scp -r /usr/local/spark root@slave01:/usr/local
+scp -r /usr/local/spark root@slave02:/usr/local
