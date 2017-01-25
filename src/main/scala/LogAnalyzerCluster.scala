@@ -46,10 +46,10 @@ def main(args:Array[String]){
   val zkQuorum = "172.16.0.104:2182" //Zookeeper服务器地址
   val group = "1"  //topic所在的group，可以设置为自己想要的名称，比如不用1，而是val group = "test-consumer-group"
 
-  val topic1 = "http-request"   //topics的名
-  val topic2 = "http-response"
-  val topic3 = "dns-request"
-  val topic4 = "dns-response"
+  val topic1 = "httpRequest"   //topics的名
+  val topic2 = "httpResponse"
+  val topic3 = "dnsRequest"
+  val topic4 = "dnsResponse"
   val numThreads = 1  //每个topic的分区数
 
   val topicMap1 =topic1.split(",").map((_,numThreads.toInt)).toMap
