@@ -23,7 +23,7 @@ object LogProducer {
 
   def main(args: Array[String]) {
     val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
-    val sourcepool = Array("/usr/local/spark/mycode/DBNS/sample/http_response.txt","/usr/local/spark/mycode/DBNS/sample/http_request.txt","/usr/local/spark/mycode/DBNS/sample/dns_response.txt","/usr/local/spark/mycode/DBNS/sample/dns_request.txt")
+    val sourcepool = Array("/usr/local/DBNS/sample/http_response.txt","/usr/local/DBNS/sample/http_request.txt","/usr/local/DBNS/sample/dns_response.txt","/usr/local/DBNS/sample/dns_request.txt")
     val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest")
     //val sourcepool = Array("/usr/local/spark/mycode/DBNS/sample/http_request.txt")
     //val topicpool = Array("httpRequest")
