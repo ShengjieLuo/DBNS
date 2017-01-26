@@ -35,7 +35,7 @@ import java.text.SimpleDateFormat
 
 object LogStreamingAdvancedSparkCluster{
 
-def main(args:Array[int]){
+def main(args:Array[Int]){
   StreamingExamples.setStreamingLogLevels()
 
   //step0: Receive the information from Kafka
