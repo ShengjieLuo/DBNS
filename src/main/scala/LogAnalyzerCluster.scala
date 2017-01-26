@@ -1,4 +1,4 @@
-import org.apache.hadoop.hbase.HBaseConfiguration
+//import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.mapreduce.Job
 import org.apache.hadoop.mapred.JobConf
 import org.apache.spark._
@@ -24,8 +24,8 @@ import java.util.Calendar
 //import org.apache.http.impl.client.HttpClients
 import org.apache.log4j.Logger
 import java.util.Properties
-//import org.apache.spark.sql.{SQLContext, Row}
-//import org.apache.spark.sql.types._
+import org.apache.spark.sql.{SQLContext, Row}
+import org.apache.spark.sql.types._
 //import org.apache.spark.sql.hive.HiveContext
 //import org.apache.spark.sql.hive.HiveContext._
 import java.io.File
