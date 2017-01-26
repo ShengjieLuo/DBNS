@@ -35,7 +35,7 @@ import java.text.SimpleDateFormat
 
 object LogStreamingAdvancedSparkCluster{
 
-def main(args:Array[Int]){
+def main(args:Array[String]){
   StreamingExamples.setStreamingLogLevels()
 
   //step0: Receive the information from Kafka
@@ -45,7 +45,8 @@ def main(args:Array[Int]){
   ssc.checkpoint("/dbns/checkpoint")
   val zkQuorum = "172.16.0.104:2182" //Zookeeper服务器地址
   val group = "1"  //topic所在的group，可以设置为自己想要的名称，比如不用1，而是val group = "test-consumer-group"
-  val Array(thre1,thre2) = args
+  val Array(threA,threB) = args
+  val thre1 = threA.toInt
 
   val topic1 = "httpRequest"   //topics的名
   val topic2 = "httpResponse"
