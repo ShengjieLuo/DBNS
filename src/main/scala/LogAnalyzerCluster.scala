@@ -1,4 +1,4 @@
-import org.apache.hadoop.hbase.HBaseConfiguration
+//import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.mapreduce.Job
 import org.apache.hadoop.mapred.JobConf
 import org.apache.spark._
@@ -24,8 +24,8 @@ import java.util.Calendar
 //import org.apache.http.impl.client.HttpClients
 import org.apache.log4j.Logger
 import java.util.Properties
-//import org.apache.spark.sql.{SQLContext, Row}
-//import org.apache.spark.sql.types._
+import org.apache.spark.sql.{SQLContext, Row}
+import org.apache.spark.sql.types._
 //import org.apache.spark.sql.hive.HiveContext
 //import org.apache.spark.sql.hive.HiveContext._
 import java.io.File
@@ -45,6 +45,8 @@ def main(args:Array[String]){
   ssc.checkpoint("/dbns/checkpoint")
   val zkQuorum = "172.16.0.104:2182" //Zookeeper服务器地址
   val group = "1"  //topic所在的group，可以设置为自己想要的名称，比如不用1，而是val group = "test-consumer-group"
+  val Array(threA,threB) = args
+  val thre1 = threA.toInt
 
   val topic1 = "httpRequest"   //topics的名
   val topic2 = "httpResponse"
@@ -72,11 +74,12 @@ def main(args:Array[String]){
   lineMap4.saveAsTextFiles("/dbns/backup/drs.txt")
 
   //step3: Write the original information into the Hive within SparkSQL
-  /*
+  
   val lines1 = lineMap1.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines2 = lineMap2.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines3 = lineMap3.map(_._2).map(_.split("\t")).filter(_.length>=6)
   val lines4 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
+  /*
   val hiveCtx = new HiveContext(sssc)
   
   val schema1 = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("type", StringType, true)))
@@ -114,7 +117,7 @@ def main(args:Array[String]){
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into DRS.original select * from tempTable")
   })
-
+*/
   //Step4: Write the statistical data into the SparkSQL --> mySQL
   val sqlContext = new SQLContext(sssc)
   val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
@@ -138,30 +141,30 @@ def main(args:Array[String]){
     // Use Sort + Threshold to Implement
     val id1:String = dateFormat.format(new Date())
     words.map(a => a.map(b => println(b)))
-    val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id1,p._2.trim,p._1.toInt))
-    val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id1,p._2.trim,p._1.toInt))
-    val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id1,p._2.trim,p._1.toInt))
-    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id1,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRQips", prop)
-    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRQps", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRQipd", prop)
-    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRQpd", prop)
+    val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
+    val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
+    val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
+    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQips", prop)
+    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQps", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQipd", prop)
+    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQpd", prop)
     })
 
   lines2.foreachRDD(words =>
     {
     // Use Sort + Threshold to Implement
     val id2:String = dateFormat.format(new Date())
-    val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
+    val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
+    val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
+    val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
+    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
     val rcTop     = words.map(x => (x(6),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSips", prop)
-    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSps", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSipd", prop)
-    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSpd", prop)
-    sqlContext.createDataFrame(rcTop,rcschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.HRSrc", prop)
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSips", prop)
+    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSps", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSipd", prop)
+    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSpd", prop)
+    sqlContext.createDataFrame(rcTop,rcschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSrc", prop)
     })
   
   lines3.foreachRDD(words =>
@@ -169,14 +172,14 @@ def main(args:Array[String]){
     // Use Sort + Threshold to Implement
     val id3:String = dateFormat.format(new Date())
     words.map(a => a.map(b => println(b)))
-    val IPSourceTop     = words.map(x => (x(1),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id3,p._2.trim,p._1.toInt))
-    val IPDestTop	= words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id3,p._2.trim,p._1.toInt))
-    val nameTop		= words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id3,p._2.trim,p._1.toInt))
-    val typeTop		= words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id3,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRQips", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRQipd", prop)
-    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRQname", prop)
-    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRQtype", prop)
+    val IPSourceTop     = words.map(x => (x(1),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
+    val IPDestTop	= words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
+    val nameTop		= words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
+    val typeTop		= words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQips", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQipd", prop)
+    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQname", prop)
+    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQtype", prop)
     })
 
   lines4.foreachRDD(words =>
@@ -184,17 +187,17 @@ def main(args:Array[String]){
     // Use Sort + Threshold to Implement
     val id4:String = dateFormat.format(new Date())
     words.map(a => a.map(b => println(b)))
-    val IPSourceTop     = words.map(x => (x(1),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val IPDestTop   = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val nameTop       = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val typeTop     = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val urlTop     = words.map(x => (x(7),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id4,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRSips", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRSipd", prop)
-    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRSname", prop)
-    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRStype", prop)
-    sqlContext.createDataFrame(urlTop,urlschema).write.mode("append").jdbc("jdbc:mysql://localhost:3306/stat", "stat.DRSurl", prop)
-    })*/
+    val IPSourceTop     = words.map(x => (x(1),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
+    val IPDestTop   = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
+    val nameTop       = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
+    val typeTop     = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
+    val urlTop     = words.map(x => (x(7),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSips", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSipd", prop)
+    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSname", prop)
+    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRStype", prop)
+    sqlContext.createDataFrame(urlTop,urlschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSurl", prop)
+    })
 
   //Step final: start the spark streaming context
   ssc.start
