@@ -72,11 +72,12 @@ def main(args:Array[String]){
   lineMap4.saveAsTextFiles("/dbns/backup/drs.txt")
 
   //step3: Write the original information into the Hive within SparkSQL
-  /*
+  
   val lines1 = lineMap1.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines2 = lineMap2.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines3 = lineMap3.map(_._2).map(_.split("\t")).filter(_.length>=6)
   val lines4 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
+  /*
   val hiveCtx = new HiveContext(sssc)
   
   val schema1 = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("type", StringType, true)))
