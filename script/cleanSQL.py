@@ -10,7 +10,7 @@ def exeSQL(sql):
 	config = {
         	  'user':'root', 
 	          'password':'123456', 
-	          'host':'127.0.0.1', 
+	          'host':'172.16.0.104', 
 	          'port':3306,  
 	          'database':'stat'}
 	conn = mysql.connector.connect(**config)
