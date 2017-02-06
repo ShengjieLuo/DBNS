@@ -69,5 +69,12 @@
 # - SPARK_NICENESS      The scheduling priority for daemons. (Default: 0)
 
 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
+export SPARK_CLASSPATH=$SPARK_CLASSPATH:/usr/local/spark/lib/kafka/*
+export SPARK_CLASSPATH=$SPARK_CLASSPATH:/usr/local/spark/lib/mysql-connector/*
+export SPARK_CLASSPATH=$SPARK_CLASSPATH:/usr/local/spark/lib/hive/*
+#export SPARK_CLASSPATH=$SPARK_CLASSPATH:/usr/local/hive/conf/hive-site.xml
+#export HIVE_CONF_DIR=/usr/local/hive/conf
 export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 export SPARK_MASTER_IP=172.16.0.104
+export SPARK_EXECUTOR_CORES=24
+export SPARK_EXECUTOR_MEMORY=10G
