@@ -26,8 +26,8 @@ import org.apache.log4j.Logger
 import java.util.Properties
 import org.apache.spark.sql.{SQLContext, Row}
 import org.apache.spark.sql.types._
-//import org.apache.spark.sql.hive.HiveContext
-//import org.apache.spark.sql.hive.HiveContext._
+import org.apache.spark.sql.hive.HiveContext
+import org.apache.spark.sql.hive.HiveContext._
 import java.io.File
 import java.util.Date
 import java.text.SimpleDateFormat
@@ -79,7 +79,7 @@ def main(args:Array[String]){
   val lines2 = lineMap2.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines3 = lineMap3.map(_._2).map(_.split("\t")).filter(_.length>=6)
   val lines4 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
-  /*
+  
   val hiveCtx = new HiveContext(sssc)
   
   val schema1 = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("type", StringType, true)))
@@ -117,7 +117,7 @@ def main(args:Array[String]){
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into DRS.original select * from tempTable")
   })
-*/
+
   //Step4: Write the statistical data into the SparkSQL --> mySQL
   val sqlContext = new SQLContext(sssc)
   val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
