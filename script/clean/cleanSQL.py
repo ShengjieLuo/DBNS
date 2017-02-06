@@ -22,6 +22,26 @@ def exeSQL(sql):
 	return 1
 
 def truncateTable():
+
+	
+	exeSQL("TRUNCATE stat.HRSips")
+        exeSQL("TRUNCATE stat.HRSipd")
+        exeSQL("TRUNCATE stat.HRSps")
+        exeSQL("TRUNCATE stat.HRSpd")
+        exeSQL("TRUNCATE stat.HRSrc")
+        exeSQL("TRUNCATE stat.HRQips")
+        exeSQL("TRUNCATE stat.HRQipd")
+        exeSQL("TRUNCATE stat.HRQps")
+        exeSQL("TRUNCATE stat.HRQpd")
+        exeSQL("TRUNCATE stat.DRSips")
+        exeSQL("TRUNCATE stat.DRSipd")
+        exeSQL("TRUNCATE stat.DRSname")
+        exeSQL("TRUNCATE stat.DRStype")
+        exeSQL("TRUNCATE stat.DRSurl")
+        exeSQL("TRUNCATE stat.DRQips")
+        exeSQL("TRUNCATE stat.DRQipd")
+        exeSQL("TRUNCATE stat.DRQname")
+        exeSQL("TRUNCATE stat.DRQtype")
 	
 	exeSQL("TRUNCATE web.onHRSips")
         exeSQL("TRUNCATE web.onHRSipd")

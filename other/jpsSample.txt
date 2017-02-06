@@ -1,16 +1,31 @@
 Master
-26789 SecondaryNameNode
-27065 ResourceManager
-26461 NameNode
-32446 Jps
+109633 Kafka		Kafka Log Sender 1
+97643 Jps		Java Process Query
+92298 RunJar		Hive metastore service
+109962 Kafka		Kafka Log Sender 2
+37198 NameNode		Hadoop hdfs namenode
+123182 Master		Spark Master
+37715 ResourceManager	Yarn Resource Manager
+95381 SparkSubmit	Spark Submit Task
+46613 JobHistoryServer	Yarn History Server
+37462 SecondaryNameNode	Hadoop hdfs secondary name node
+95382 SparkSubmit	Spark Submit Task
+109341 QuorumPeerMain	ZooKeeper
+89118 RunJar		Hive hiveserver service
 
 Slave01
-98318 DataNode
-98727 Jps
-98478 NodeManager
+42378 NodeManager	Yarn node manager
+42245 DataNode		Hadoop hdfs datanode
+107257 CoarseGrainedExecutorBackend	Executor Daemon Process
+116252 Jps		Java Process Query
+74675 Worker		Spark Worker
 
 Slave02
-45527 DataNode
-45907 Jps
-45669 NodeManager
+Note: the same with Slave01
+49976 NodeManager
+49825 DataNode
+36989 Jps
+101809 Worker
+26432 CoarseGrainedExecutorBackend
+
 

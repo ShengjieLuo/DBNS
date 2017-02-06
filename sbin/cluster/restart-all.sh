@@ -53,22 +53,26 @@ beeline -u jdbc:hive2://172.16.0.104:10000 -n root -p 123456  -f $DBNS_HOME/scri
 echo  -e "\033[31m Clean data in hive database......done \033[0m"
 
 
+echo  -e "\033[31m Clean logs                 ......begin \033[0m"
+rm -f $DBNS_LOG/*
+echo  -e "\033[31m Clean logs                 ......done \033[0m"
+
 echo  -e "\033[31m******************************************* \033[0m"
 echo  -e "\033[31m**         Execute DBNS Task             ** \033[0m"
 echo  -e "\033[31m******************************************* \033[0m"
 
 echo  -e "\033[31m Send Network Package       ......begin \033[0m"
-nohup run/runSenderCluster.sh 2>$DBNS_LOG/SenderErr.txt 1>$DBNS_LOG/SenderLog.txt &
+nohup $DBNS_HOME/run/runSenderCluster.sh 2>$DBNS_LOG/SenderErr.txt 1>$DBNS_LOG/SenderLog.txt &
 sleep 3s
 echo  -e "\033[31m Send Network Package       ......success \033[0m"
 
 echo  -e "\033[31m Launch Streaming Analyzer  ......begin \033[0m"
-nohup run/runAnalyzerCluster.sh 2>$DBNS_LOG/AnalyzerErr.txt 1>$DBNS_LOG/AnalyzerLog.txt &
+nohup $DBNS_HOME/run/runAnalyzerCluster.sh 2>$DBNS_LOG/AnalyzerErr.txt 1>$DBNS_LOG/AnalyzerLog.txt &
 sleep 3s
 echo  -e "\033[31m Launch Streaming Analyzer  ......success \033[0m"
 
 echo  -e "\033[31m Launch Network Monitor     ......begin \033[0m"
-nohup python run/run.py 2>$DBNS_LOG/MonitorErr.txt 1>$DBNS_LOG/MonitorLog.txt &
+nohup python $DBNS_HOME/run/run.py 2>$DBNS_LOG/MonitorErr.txt 1>$DBNS_LOG/MonitorLog.txt &
 sleep 3s
 echo  -e "\033[31m Launch Network Monitor     ......success \033[0m"
 
