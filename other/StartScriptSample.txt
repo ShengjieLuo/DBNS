@@ -1,0 +1,85 @@
+*******************************************
+**         Welcome to use DBNS!          **
+** This script is used to restart DBNS   **
+** 1. Stop running DBNS Process          **
+** 2. Source Environment Var             **
+** 3. Clean Previous Data                **
+** 4. Execute DBNS Task                  **
+** 5. DBNS Launch Conclusion             **
+** Shanghai Jiao Tong University         **
+** Network Computing Lab                 **
+** https://github.com/ShengjieLuo/DBNS   **
+*******************************************
+*******************************************
+**         Stop running DBNS Process     **
+*******************************************
+ Kill Netowrk Package Sender Process:
+root     112802  100  0.9 6089896 1248976 pts/2 Sl   14:22   1:26 /usr/lib/jvm/java-8-oracle/bin/java -cp /usr/local/spark/lib/kafka/*:/usr/local/spark/lib/mysql-connector/*:/usr/local/spark/lib/hive/*:/usr/local/spark/conf/:/usr/local/spark/lib/spark-assembly-1.6.3-hadoop2.6.0.jar:/usr/local/spark/lib/datanucleus-core-3.2.10.jar:/usr/local/spark/lib/datanucleus-rdbms-3.2.9.jar:/usr/local/spark/lib/datanucleus-api-jdo-3.2.6.jar:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs/:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/usr/local/hadoop/contrib/capacity-scheduler/*.jar -Xms1g -Xmx1g org.apache.spark.deploy.SparkSubmit --class LogProducer --executor-memory 1.5G /usr/local/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar 172.16.0.104:9092 http
+ Kill Streaming Analyzer Process:
+root     112927 80.2  0.7 15362000 1024364 pts/2 Sl  14:22   1:06 /usr/lib/jvm/java-8-oracle/bin/java -cp /usr/local/spark/lib/kafka/*:/usr/local/spark/lib/mysql-connector/*:/usr/local/spark/lib/hive/*:/usr/local/spark/conf/:/usr/local/spark/lib/spark-assembly-1.6.3-hadoop2.6.0.jar:/usr/local/spark/lib/datanucleus-core-3.2.10.jar:/usr/local/spark/lib/datanucleus-rdbms-3.2.9.jar:/usr/local/spark/lib/datanucleus-api-jdo-3.2.6.jar:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs/:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/usr/local/hadoop/contrib/capacity-scheduler/*.jar -Xms1g -Xmx1g org.apache.spark.deploy.SparkSubmit --master spark://spark-master:7077 --class LogStreamingAdvancedSparkCluster /usr/local/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar 15 20
+[4]   Exit 137                nohup $DBNS_HOME/run/runSenderCluster.sh 2> $DBNS_LOG/SenderErr.txt > $DBNS_LOG/SenderLog.txt
+ Kill Security Monitor Process:
+[5]-  Exit 137                nohup $DBNS_HOME/run/runAnalyzerCluster.sh 2> $DBNS_LOG/AnalyzerErr.txt > $DBNS_LOG/AnalyzerLog.txt
+[6]+  Killed                  nohup python $DBNS_HOME/run/run.py 2> $DBNS_LOG/MonitorErr.txt > $DBNS_LOG/MonitorLog.txt
+*******************************************
+**         Source Environment Var        **
+*******************************************
+-bash: env.rc: No such file or directory
+Spark Home:,/usr/local/spark
+Hadoop Home:,/usr/local/hadoop
+Hive Home:,/usr/local/hive
+Kafka Home:,/usr/local/kafka
+DBNS Home:,/usr/local/DBNS
+DBNS logs:,/usr/local/DBNS/log
+*******************************************
+**         Clean Previous Data           **
+*******************************************
+ Clean data in mysql database......begin
+ Clean data in mysql database......done
+ Clean data in hive database......begin
+Connecting to jdbc:hive2://172.16.0.104:10000
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/spark/lib/kafka/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/spark/lib/spark-assembly-1.6.3-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Connected to: Apache Hive (version 1.2.1)
+Driver: Hive JDBC (version 1.2.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+0: jdbc:hive2://172.16.0.104:10000> truncate table drq.original;
+OK
+No rows affected (0.196 seconds)
+0: jdbc:hive2://172.16.0.104:10000> truncate table drs.original;
+OK
+No rows affected (0.145 seconds)
+0: jdbc:hive2://172.16.0.104:10000> truncate table hrq.original;
+OK
+No rows affected (0.221 seconds)
+0: jdbc:hive2://172.16.0.104:10000> truncate table hrs.original;
+OK
+No rows affected (0.576 seconds)
+0: jdbc:hive2://172.16.0.104:10000>
+Closing: 0: jdbc:hive2://172.16.0.104:10000
+ Clean data in hive database......done
+ Clean logs                 ......begin
+ Clean logs                 ......done
+*******************************************
+**         Execute DBNS Task             **
+*******************************************
+ Send Network Package       ......begin
+ Send Network Package       ......success
+ Launch Streaming Analyzer  ......begin
+ Launch Streaming Analyzer  ......success
+ Launch Network Monitor     ......begin
+ Launch Network Monitor     ......success
+*******************************************
+**         DBNS Launch Conclusion        **
+*******************************************
+Sender Log: /usr/local/DBNS/log/SenderLog.txt
+Analyzer Log: /usr/local/DBNS/log/AnalyzerLog.txt
+Monitor Log: /usr/local/DBNS/log/MonitorLog.txt
+Sender Error: /usr/local/DBNS/log/SenderErr.txt
+Analyzer Error: /usr/local/DBNS/log/AnalyzerErr.txt
+Monitor Error: /usr/local/DBNS/log/MonitorErr.txt
+*******************************************
