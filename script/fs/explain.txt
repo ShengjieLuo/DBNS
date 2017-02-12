@@ -1,0 +1,12 @@
+In file system, sometimes the file system would be interrupted because of too many open files, especially in hive join operation. Usually, this error is happend when the cross-table operation is executed.
+
+To solve this problem,
+
+First, run the c program to query the file number limit of current system
+# ./query.o
+If the file number limit in your system is like 1024 or 2048, then you need to expand this system to meet the requirement of DBNS system.
+
+Second, run "ulimit -n" command to expand it. However, it is important to note that you must restart the process after execute the "ulimit" command to enable the change.
+
+# ulimit -n 65536
+

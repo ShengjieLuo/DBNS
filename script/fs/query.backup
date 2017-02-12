@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <sys/resource.h>
+#include <unistd.h>
+
+int main()
+{	
+	struct rlimit limit;
+	getrlimit(RLIMIT_NOFILE, &limit);
+	int a = limit.rlim_cur;
+	printf ("this process can open %d files \n",a);
+	printf ("sleep 10 seconds, and ulimit -n in another terminal now \n");
+ 	sleep(20);
+	int b = limit.rlim_cur;
+	printf ("this process can open %d files \n",b);
+	if (a == b)
+	{
+		printf("The process do not change! \n");
+		printf("ulimit -n does not have effect for a running process \n");
+		printf("Use ulimit -n , and relaunch the program, you can find the change");
+	}
+	return 0;
+}
