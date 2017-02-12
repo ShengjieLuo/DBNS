@@ -22,12 +22,12 @@ echo -e "\033[31m Start Spark-related Process: \033[0m"
 $DBNS_HOME/sbin/cluster/start-spark.sh
 sleep 3s
 
-echo -e "\033[31m Start Kafka-related Process: \033[0m"
-$DBNS_HOME/sbin/cluster/start-kafka.sh
-sleep 3s
-
 echo -e "\033[31m Start Hive-related Process: \033[0m"
 $DBNS_HOME/sbin/cluster/start-hive.sh
+sleep 5s
+
+echo -e "\033[31m Start Kafka-related Process: \033[0m"
+$DBNS_HOME/sbin/cluster/start-kafka.sh
 sleep 3s
 
 echo -e "\033[31m Current JAVA Process: \033[0m"
