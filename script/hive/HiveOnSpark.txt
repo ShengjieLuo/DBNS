@@ -1,0 +1,27 @@
+How to run hive on spark
+
+There are two different method to run Hive statistical function. The first is to use the map-reduce(MRv2)framework, usually it is based on Hadoop Distributed Computation Framework. The second one is to use the Spark-RDD framework, usually it is based on Spark.
+
+Problem1. Hive on Spark vs. Hive on MR
+Within comparison, the second one Hive on Spark is much quicker than Hive on MR, since it use rdd and memory to do calculation, while Hive on MR mostly depends on disk IO. For example, if we select the object most frequently occurred in the list, such as the content presented by SQL "SELECT ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50;", Hive on Spark use less than 10 seconds in 100k items, while Hive on MR use longer than 3 minutes.
+
+Problem2. Hive on Spark vs. Spark Standalone
+Spark Standalone means that we get the original data from hive as an RDD data structure, and then we do RDD calculation by a scala program. For example rdd.map(t=>(t,1)).filter(***).sortBykey(***). Compared with it, Hive on Spark has two main advantages,
+1. Hive on Spark use SQL command, this command is convenient in most cases, and accelerate the program developing.
+2. Hive on Spark automatically optimize the SQL operation.
+Basiclly, Hive on Spark also uses the rdd operation to execute the transformation, but Hive on Spark transforms the SQL command into RDD operation automatically, generally and intelligently.
+
+Problem3. Hive on Spark Tools
+1. If the user would like to debug the hive and test the command, the "beeline" is a better choice. "Beeline" is an application provided by spark ($SPARK_HOME/bin/beeline), it provides a convenient method to have access to hive and a comforablet user interface like SQL.
+2. If the user would like to do statistical work in hive tables and insert the result into another hivetables, I recommend to use the python/shell to write a beeline script.
+3. If the user would like to do statistical work and export the result into mySQL, a sprk program is convenient because it provides the dataframe to be a bridge. The dataframe is a general data structure designed for popular databases, whether is is SQL or NoSQL, single node or multi modes.
+
+Problem4. How to use Hive on Spark
+1. Install a normal Hive, and test whether it works.
+2. Start the thrift server, $SPARK_HOME/sbin/start_thrift_server.sh
+Note: Ref to the copy of configuration in /script/hive and /script/spark
+3. Use beelien to connect, observe whether you use SparkSQL
+
+Problem5. A frequent file system problem
+Spark shuffle need a lot of files in computing, especially a cross-table operation, like join. Users should expand the file number limit before launching the spark process. See more in /script/fs.
+

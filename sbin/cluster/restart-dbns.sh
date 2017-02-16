@@ -79,10 +79,10 @@ echo  -e "\033[31m Launch Network Monitor     ......success \033[0m"
 echo  -e "\033[31m******************************************* \033[0m"
 echo  -e "\033[31m**         DBNS Launch Conclusion        ** \033[0m"
 echo  -e "\033[31m******************************************* \033[0m"
-echo "Sender Log:" $DBNS_LOG/SenderLog.txt
-echo "Analyzer Log:" $DBNS_LOG/AnalyzerLog.txt
-echo "Monitor Log:" $DBNS_LOG/MonitorLog.txt
-echo "Sender Error:" $DBNS_LOG/SenderErr.txt
-echo "Analyzer Error:" $DBNS_LOG/AnalyzerErr.txt
-echo "Monitor Error:" $DBNS_LOG/MonitorErr.txt
+echo "Sender Log:" $DBNS_LOG/Sender.log
+echo "Analyzer Log:" $DBNS_LOG/Analyzer.log
+echo "Monitor Log:" $DBNS_LOG/Monitor.log
+echo "Sender Error:" $DBNS_LOG/Sender.err
+echo "Analyzer Error:" $DBNS_LOG/Analyzer.err
+echo "Monitor Error:" $DBNS_LOG/Monitor.err
 echo  -e "\033[31m******************************************* \033[0m"

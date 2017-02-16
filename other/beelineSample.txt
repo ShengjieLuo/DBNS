@@ -1,0 +1,58 @@
+root@spark-master:~# beeline
+Beeline version 1.2.1 by Apache Hive
+beeline> !connect jdbc:hive2://172.16.0.104:10000
+Connecting to jdbc:hive2://172.16.0.104:10000
+Enter username for jdbc:hive2://172.16.0.104:10000: root
+Enter password for jdbc:hive2://172.16.0.104:10000: ******
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/spark/lib/kafka/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/spark/lib/spark-assembly-1.6.3-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Connected to: Spark SQL (version 1.6.3)
+Driver: Hive JDBC (version 1.2.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+0: jdbc:hive2://172.16.0.104:10000> SELECT ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50;
++------------------+--------+--+
+|       ipd        | count  |
++------------------+--------+--+
+| 202.121.64.5     | 85909  |
+| 211.80.112.2     | 41863  |
+| 202.121.244.200  | 5736   |
+| 101.7.8.9        | 4983   |
+| 202.121.244.201  | 4624   |
+| 202.120.2.101    | 4055   |
+| 210.35.112.1     | 4019   |
+| 111.73.45.18     | 3789   |
+| 202.96.209.5     | 2698   |
+| 173.245.58.217   | 2370   |
+| 58.198.131.118   | 2182   |
+| 8.8.8.8          | 2049   |
+| 173.245.59.107   | 1977   |
+| 168.95.1.1       | 1651   |
+| 180.168.255.18   | 1636   |
+| 210.22.84.3      | 1615   |
+| 210.22.70.3      | 1442   |
+| 116.228.111.118  | 1427   |
+| 210.35.96.6      | 1246   |
+| 202.96.209.133   | 1174   |
+| 210.35.96.2      | 1111   |
+| 219.228.171.11   | 993    |
+| 219.220.176.67   | 965    |
+| 219.228.171.12   | 944    |
+| 219.220.176.66   | 930    |
+| 211.80.112.201   | 859    |
+| 202.121.244.98   | 766    |
+| 202.121.245.71   | 759    |
+| 202.121.66.19    | 685    |
+| 202.121.64.63    | 660    |
+| 202.121.66.104   | 653    |
+| 202.121.66.11    | 644    |
+| 202.121.66.200   | 371    |
+| 202.121.209.11   | 318    |
+| 111.73.45.171    | 222    |
++------------------+--------+--+
+35 rows selected (11.592 seconds)
+0: jdbc:hive2://172.16.0.104:10000> !exit
+
