@@ -1,0 +1,4 @@
+Report
+===========
+
+Date: {header::time}

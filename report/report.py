@@ -2,18 +2,39 @@
 '''
 
 import os
+import re
+import time
+import datetime
 
-
+def sub(string,var,new):
+	return re.sub("{"+var+"}",new,string)
+	
 class Header:
 	def __init__(self):
-		pass
+		self.template = "header.template.md"
+		self._load()
 
-	def flash(self):
-		pass
+	def setTemplate(self,name):
+		self.template = name
+
+	def getTemplate(self):
+		return self.template
+
+	def _load(self):
+		fp = open(self.template)		
+		self.md = fp.read()
+		fp.close()		
+
+	def _flash(self):
+		time = datetime.datetime.now()
+		timestamp = str(time.strftime("%Y-%m-%d %H:%M"))
+		print timestamp
+		self.md = sub(self.md,"header::time",timestamp)
 	
 	def getmd(self):
-		md = "Report of Intellegent Maintain System \n=================================\n"
-		return md
+		self._flash()	
+		#md = "Report of Intellegent Maintain System \n=================================\n"
+		return self.md
 
 class Conclusion:
 	def __init__(self):
