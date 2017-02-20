@@ -17,7 +17,7 @@
 <p>The offline report is built for user of DBNS and established each day. The report is composed of two parts, monitor part and probe part. The monitor serverd as netflow monitor, and the probe serverd as hazard detection.
 The report information:</p>
 
-<p>Build Time: 2017-02-20 19:11</p>
+<p>Build Time: 2017-02-20 19:56</p>
 
 <p>Component: Monitor &amp; Probe</p>
 
@@ -55,11 +55,14 @@ The report information:</p>
 
 <h2>Monitor Report</h2>
 
-<p>Monitor Function is used to monitor the network flow from the backbone router. In this report, we would include four message resources,
-- <strong>DRQ</strong>: DNS request package
-- <strong>DRS</strong>: DNS response package
-- <strong>HRQ</strong>: HTTP request package
-- <strong>HRS</strong>: HTTP response package</p>
+<p>Monitor Function is used to monitor the network flow from the backbone router. In this report, we would include four message resources,</p>
+
+<ul>
+<li><p><strong>DRQ</strong>: DNS request package</p></li>
+<li><p><strong>DRS</strong>: DNS response package</p></li>
+<li><p><strong>HRQ</strong>: HTTP request package</p></li>
+<li><p><strong>HRS</strong>: HTTP response package</p></li>
+</ul>
 
 <h3>DRQ report</h3>
 
@@ -67,7 +70,7 @@ The report information:</p>
 
 <p>DNS request report is the package sent to the DNS server to query the IP address of the URL.</p>
 
-<p>Total Number of the DRQ package:{Monitor::all:number}</p>
+<p>Total Number of the DRQ package:{Monitor::DRQ::number}</p>
 
 <h4>Who send the DRQ package?</h4>
 
@@ -89,6 +92,8 @@ The report information:</p>
 
 <p>DNS response report is the package reponsed by the DNS server. DNS server would inform the IP address to the server who sent the DNS query request.</p>
 
+<p>Total Number of the DRS package:{Monitor::DRS::number}</p>
+
 <h4>Who send the DRS package?</h4>
 
 <p>{Monitor::DRS::table1}
@@ -109,6 +114,8 @@ The report information:</p>
 
 <p>Http request package is one of the most popular package type in Network. For example, if you want to get a net page from www.baidu.com, you would send a HTTP request to the baidu server to fetch the net page.</p>
 
+<p>Total Number of the DRQ package:{Monitor::HRQ::number}</p>
+
 <h4>Who send the HRQ package?</h4>
 
 <p>{Monitor::HRQ::table1}
@@ -128,6 +135,8 @@ The report information:</p>
 <h4>Overall situation:</h4>
 
 <p>HTTP response package is one of the most popular package type in Internet. For example, if you want to get a net page from www.baidu.com, then baidu server would send you a HTTP response package including the netpage you want.</p>
+
+<p>Total Number of the DRQ package:{Monitor::HRS:number}</p>
 
 <h4>Who send the HRQ package?</h4>
 
