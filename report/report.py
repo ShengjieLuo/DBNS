@@ -112,9 +112,9 @@ class Monitor:
 
 	def _flashHtml(self):
 		table = draw_table("select * from DBNS.DRSipd;",None,"DRS IP destination","First Occurred Time","IPaddress","Frequency",10)[1]
-		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::table",table)
 		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[1]
-		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::table",table)
 		
 
 	def getmd(self):
