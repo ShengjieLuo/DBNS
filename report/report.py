@@ -5,44 +5,9 @@ import os
 import re
 import time
 import datetime
-import mysql.connector
-
-def exeSQL(sql):
-        config = {
-                  'user':'root',
-                  'password':'123456',
-                  'host':'172.16.0.104',
-                  'port':3306,
-                  'database':'stat'}
-        conn = mysql.connector.connect(**config)
-        cur = conn.cursor()
-        cur.execute(sql)
-        conn.commit()
-        cur.close()
-        conn.close()
-
-def exeSQLquery(sql):
-        config = {
-                  'user':'root',
-                  'password':'123456',
-                  'host':'172.16.0.104',
-                  'port':3306,
-                  'database':'stat'}
-        conn = mysql.connector.connect(**config)
-        cur = conn.cursor()
-        cur.execute(sql)
-        result_set = cur.fetchall()
-        '''
-        if result_set:
-                for row in result_set:
-                        print "%s, %s, %d" % (row[0],row[1],row[2])
-        '''
-        cur.close()
-        conn.close()
-        return result_set
-
-def sub(string,var,new):
-	return re.sub("{"+var+"}",new,string)
+from tools import *
+from table import *
+from image import *
 
 class DBNS:
 	def __init__(self):
@@ -69,7 +34,7 @@ class DBNS:
 
 class Header:
 	def __init__(self):
-		self.template = "header.template.md"
+		self.template = os.environ.get('DBNS_HOME')+"/report/header.template.md"
 		self._load()
 
 	def setTemplate(self,name):
@@ -121,15 +86,54 @@ class Conclusion:
 
 class Monitor:
 	def __init__(self):
-		pass
+		self.template = os.environ.get('DBNS_HOME')+"/report/monitor.template.md"
+		self._load()
 
-	def flash(self):
-		pass
-	
-	def getmd(self):
-		md = "Monitor Report \n===================================== \n"
-		return md
+	def setTemplate(self,name):
+		self.template = name
+
+	def getTemplate(self):
+		return self.template
+
+	def _load(self):
+		fp = open(self.template)		
+		self.md = fp.read()
+		self.mdhtml = self.md
+		fp.close()		
+
+	def _flash(self):
+		table = draw_table("select * from DBNS.DRSipd;",None,"DRS IP destination","First Occurred Time","IPaddress","Frequency",10)[0]
+		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
+		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[0]
+		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
+		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","Frequency",10)
+		self.md = sub(self.md,"Monitor::DRS::DRSips::image",image)
+		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","Frequency",10)
+		self.md = sub(self.md,"Monitor::DRS::DRSipd::image",image)
+		#table = draw_table("select * from DBNS.DRSpd;",None,"DRS Port destination","First Occurred Time","Port Address","Frequency",10)[0]
+                #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)
+		#table = draw_table("select * from DBNS.DRSps;",None,"DRS Port source","First Occurred Time","Port Address","Frequency",10)[0]
+                #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)	
+
+	def _flashHtml(self):
+		table = draw_table("select * from DBNS.DRSipd;",None,"DRS IP destination","First Occurred Time","IPaddress","Frequency",10)[1]
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::table",table)
+		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[1]
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::table",table)
+		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","Frequency",10)
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::image",image)
+		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","Frequency",10)
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::image",image)
 		
+
+	def getmd(self):
+		self._flash()	
+		return self.md
+
+        def getmdHtml(self):
+		self._flashHtml()
+		return self.mdhtml
+
 class Probe:
 	def __init__(self):
 		pass
@@ -155,11 +159,11 @@ class Report:
 	
 	def build(self,buildtype,filename):
 		if buildtype == "md" or buildtype == "MD" or buildtype == "markdown":
-			self._buildMD(filename)
+			self._buildMD(os.environ.get('DBNS_HOME')+'/report/'+filename)
 		elif buildtype == "html" or buildtype == "HTML":
-			self._buildHTML(filename)
+			self._buildHTML(os.environ.get('DBNS_HOME')+'/report/'+filename)
 		elif buildtype == "pdf" or buildtype == "PDF":
-			self._buildPDF(filename)
+			self._buildPDF(os.environ.get('DBNS_HOME')+'/report/'+filename)
 		else:
 			self._throwError("buildtype")
 	
@@ -179,9 +183,16 @@ class Report:
 		fp.close()
 		print "Build Markdown Report ------------------ finish"
 	
-	def _buildHTML(self,filename):
-		self._buildMD(filename)
-		mdname = filename + ".md"
+	def _buildHTML(self,filename):	
+		head = self.header.getmd()
+		conc = self.conclusion.getmd()
+		moni = self.monitor.getmdHtml()
+		prob = self.probe.getmd()
+		html = head+conc+moni+prob
+		mdname = filename+".md.tmp"
+                fp = open(mdname,'w')
+                fp.write(html)
+                fp.close()
 		htmlname = filename + ".html"		
 		os.system("markdown2 " + mdname +" > "+ htmlname)
 		print "Build Html Report ---------------------- finish"	
@@ -196,3 +207,4 @@ class Report:
 if __name__=="__main__":
 	report = Report()
 	report.build("pdf","sample") 
+	report.build("md","sample") 
