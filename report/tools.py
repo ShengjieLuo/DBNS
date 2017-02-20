@@ -37,3 +37,7 @@ def exeSQLquery(sql):
 
 def sub(string,var,new):
 	return re.sub("{"+var+"}",new,string)
+
+
+def sub2(string,var,new):
+	return re.sub(var,new,string)

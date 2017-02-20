@@ -47,7 +47,7 @@ def main():
 	#thread.start_new_thread(LogAnalyzer,(args,))
 	#thread.start_new_thread(LogProducer,(args,))
 	thread.start_new_thread(MinuteBatch,(0,))
-	thread.start_new_thread(HourBatch,(1,))
+	thread.start_new_thread(HourBatch,(0,))
 	thread.start_new_thread(DayBatch,(args,))
 	while 1:
 		pass

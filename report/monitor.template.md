@@ -35,16 +35,16 @@ DNS response report is the package reponsed by the DNS server. DNS server would 
 Total Number of the DRS package:{Monitor::DRS::number}
 
 #### Who send the DRS package?
-{Monitor::DRS::table1}
-{Monitor::DRS::table2}
-{Monitor::DRS::image1}
-{Monitor::DRS::image2}
+{Monitor::DRS::DRSips::table}
+{Monitor::DRS::DRSps::table}
+{Monitor::DRS::DRSips::image}
+{Monitor::DRS::DRSps::image}
 
 #### Who receive the DRS package?
-{Monitor::DRS::table3}
-{Monitor::DRS::table4}
-{Monitor::DRS::image3}
-{Monitor::DRS::image4}
+{Monitor::DRS::DRSipd::table}
+{Monitor::DRS::DRSpd::table}
+{Monitor::DRS::DRSips::image}
+{Monitor::DRS::DRSps::image}
 
 ### HRQ report
 #### Overall situation:

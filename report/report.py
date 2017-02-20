@@ -6,6 +6,7 @@ import re
 import time
 import datetime
 from tools import *
+from table import *
 
 class DBNS:
 	def __init__(self):
@@ -96,34 +97,30 @@ class Monitor:
 	def _load(self):
 		fp = open(self.template)		
 		self.md = fp.read()
+		self.mdhtml = self.md
 		fp.close()		
 
 	def _flash(self):
+		table = draw_table("select * from DBNS.DRSipd;",None,"DRS IP destination","First Occurred Time","IPaddress","Frequency",10)[0]
+		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
+		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[0]
+                print table
+		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
+		#table = draw_table("select * from DBNS.DRSpd;",None,"DRS Port destination","First Occurred Time","Port Address","Frequency",10)[0]
+                #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)
+		#table = draw_table("select * from DBNS.DRSps;",None,"DRS Port source","First Occurred Time","Port Address","Frequency",10)[0]
+                #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)	
+
+	def _flashHtml(self):
 		pass
-		'''
-                time = datetime.datetime.now()
-		timestamp = str(time.strftime("%Y-%m-%d %H:%M"))
-		metadata = DBNS()
-		self.md = sub(self.md,"header::time",timestamp)
-		self.md = sub(self.md,"header::DBNS::version",metadata.version)
-		self.md = sub(self.md,"header::DBNS::frame",metadata.frame)
-		self.md = sub(self.md,"header::DBNS::master",metadata.master)
-		self.md = sub(self.md,"header::DBNS::slaves",metadata.slaves)
-		self.md = sub(self.md,"header::DBNS::stream",metadata.stream)
-		self.md = sub(self.md,"header::DBNS::message",metadata.messageio)
-		self.md = sub(self.md,"header::DBNS::online",metadata.online)
-		self.md = sub(self.md,"header::DBNS::offline",metadata.offline)
-		self.md = sub(self.md,"header::DBNS::meta",metadata.meta)
-		self.md = sub(self.md,"header::DBNS::temp",metadata.temp)
-		self.md = sub(self.md,"header::DBNS::basic",metadata.basic)
-		self.md = sub(self.md,"header::DBNS::stream-cores",metadata.streamcores)
-		self.md = sub(self.md,"header::DBNS::online-cores",metadata.onlinecores)
-		self.md = sub(self.md,"header::DBNS::offline-cores",metadata.offlinecores)
-		'''
 
 	def getmd(self):
 		self._flash()	
 		return self.md
+
+        def getmdHtml(self):
+		self._flashHtml()
+		return self.mdhtml
 
 class Probe:
 	def __init__(self):
