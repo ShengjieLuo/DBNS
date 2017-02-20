@@ -187,11 +187,11 @@ class Report:
 	
 	def build(self,buildtype,filename):
 		if buildtype == "md" or buildtype == "MD" or buildtype == "markdown":
-			self._buildMD(filename)
+			self._buildMD(os.environ.get('DBNS_HOME')+'/report/'+filename)
 		elif buildtype == "html" or buildtype == "HTML":
-			self._buildHTML(filename)
+			self._buildHTML(os.environ.get('DBNS_HOME')+'/report/'+filename)
 		elif buildtype == "pdf" or buildtype == "PDF":
-			self._buildPDF(filename)
+			self._buildPDF(os.environ.get('DBNS_HOME')+'/report/'+filename)
 		else:
 			self._throwError("buildtype")
 	

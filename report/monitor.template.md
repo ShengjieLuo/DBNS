@@ -1,10 +1,10 @@
 ## Monitor Report
 
 Monitor Function is used to monitor the network flow from the backbone router. In this report, we would include four message resources,
-1. DRQ: DNS request package
-2. DRS: DNS response package
-3. HRQ: HTTP request package
-4. HRS: HTTP response package
+* DRQ: DNS request package
+* DRS: DNS response package
+* HRQ: HTTP request package
+* HRS: HTTP response package
 
 ### DRQ report
 #### Overall situation:
