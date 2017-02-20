@@ -34,36 +34,36 @@ def main(args:Array[String]){
   val dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm") 
   val time:String = dateFormat.format(new Date())
   
-  val HRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRQpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrq.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRQps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrq.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRQpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrq.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRQps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrq.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
     
-  val HRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   
-  val DRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRQname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drq.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRQtype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drq.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRQname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drq.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRQtype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drq.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
 
-  val DRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRSname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drs.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRStype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drs.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRSname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drs.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRStype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drs.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
+  val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
 
-  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",StringType,true)))
-  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",StringType,true)))
-  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",StringType,true)))
-  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",StringType,true)))
-  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",StringType,true)))
-  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",StringType,true)))
-  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",StringType,true)))
-  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",StringType,true)))
+  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
+  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
+  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
+  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
+  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
+  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
+  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
+  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
 
   sqlContext.createDataFrame(HRQips,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.HRQips", prop)
   sqlContext.createDataFrame(HRQps,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.HRQps", prop)
