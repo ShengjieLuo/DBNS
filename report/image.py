@@ -21,7 +21,7 @@ def stat_image(data,title,output,c1,num):
 		order.append(str(count))
 		if count>=num:
 			break
-	dot_chart = pygal.Dot(x_label_rotation=30,style=LightStyle,height=100)
+	dot_chart = pygal.Dot(x_label_rotation=30,style=LightStyle,height=30)
 	dot_chart.title = title
 	dot_chart.x_labels = key
 	dot_chart.add(c1, value)
