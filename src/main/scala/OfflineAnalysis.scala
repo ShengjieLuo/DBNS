@@ -22,7 +22,7 @@ object OfflineAnalysis{
 
 def main(args:Array[String]){
   StreamingExamples.setStreamingLogLevels()
-  val sc = new SparkConf().setAppName("LogStreamingAdvancedSparkCluster").setMaster("spark://172.16.0.104:7077")
+  val sc = new SparkConf().setAppName("OfflineAnalysisCluster").setMaster("spark://172.16.0.104:7077")
   val sssc = new SparkContext(sc)
   val ssc = new StreamingContext(sssc,Seconds(60))
   val sqlContext = new SQLContext(sssc)
