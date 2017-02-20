@@ -1,0 +1,148 @@
+<h1>DBNS Offline Report</h1>
+
+<h2>Report Overview</h2>
+
+<h3>DBNS Overview</h3>
+
+<p>Data-Based Network Security system, (aka DBNS)  is a network security system composed of latest opensource big data components. Within the architecture building and efficiency optimization, the DBNS system can afford various methods to analysis 1GBPS network flow within a single node server, and up to 10GBPS network flow within a three-node server cluster.</p>
+
+<p>DBNS Home:<a href="https://github.com/ShengjieLuo/DBNS/">https://github.com/ShengjieLuo/DBNS/</a></p>
+
+<p>DBNS Document:<a href="http://dbnsdoc.readthedocs.io/en/latest">http://dbnsdoc.readthedocs.io/en/latest</a></p>
+
+<p>DBNS system is developed by Network Computing Center of Department of Computer Science and Engineering, Shanghai Jiao Tong University. You can contact luoshengjie@sjtu.edu.cn for more information.</p>
+
+<h3>Offline Report Overview</h3>
+
+<p>The offline report is built for user of DBNS and established each day. The report is composed of two parts, monitor part and probe part. The monitor serverd as netflow monitor, and the probe serverd as hazard detection.
+The report information:</p>
+
+<p>Build Time: 2017-02-20 18:51</p>
+
+<p>Component: Monitor &amp; Probe</p>
+
+<p>DBNS Version: 0.2.0</p>
+
+<p>DBNS Framework: spark-based</p>
+
+<p>DBNS Master: 172.16.0.104</p>
+
+<p>DBNS Slaves: 172.16.0.59 172.16.0.68 </p>
+
+<p>DBNS Component:</p>
+
+<p>DBNS Message Forwarding Component: kafka</p>
+
+<p>DBNS Streaming Computation Component: spark-streaming</p>
+
+<p>DBNS Online Computation Component: Python on mySQL</p>
+
+<p>DBNS Offline Computation Component: Hive on Spark</p>
+
+<p>DBNS Metadata Store Component: mysql::DBNS::metadata</p>
+
+<p>DBNS Tempdata Store Component: mysql::web</p>
+
+<p>DBNS Basic Data Store Component: HDFS</p>
+
+<p>DBNS Distribution:</p>
+
+<p>Streaming Task Cores: 48</p>
+
+<p>Online Analysis Cores: 1</p>
+
+<p>Offline Analysis Cores: 10</p>
+
+<h2>Monitor Report</h2>
+
+<p>Monitor Function is used to monitor the network flow from the backbone router. In this report, we would include four message resources,
+1. DRQ: DNS request package
+2. DRS: DNS response package
+3. HRQ: HTTP request package
+4. HRS: HTTP response package</p>
+
+<h3>DRQ report</h3>
+
+<h4>Overall situation:</h4>
+
+<p>DNS request report is the package sent to the DNS server to query the IP address of the URL.</p>
+
+<p>Total Number of the DRQ package:{Monitor::all:number}</p>
+
+<h4>Who send the DRQ package?</h4>
+
+<p>{Monitor::DRQ::table1}
+{Monitor::DRQ::table2}
+{Monitor::DRQ::image1}
+{Monitor::DRQ::image2}</p>
+
+<h4>Who receive the DRQ package?</h4>
+
+<p>{Monitor::DRQ::table3}
+{Monitor::DRQ::table4}
+{Monitor::DRQ::image3}
+{Monitor::DRQ::image4}</p>
+
+<h3>DRS report</h3>
+
+<h4>Overall situation:</h4>
+
+<p>DNS response report is the package reponsed by the DNS server. DNS server would inform the IP address to the server who sent the DNS query request.</p>
+
+<h4>Who send the DRS package?</h4>
+
+<p>{Monitor::DRS::table1}
+{Monitor::DRS::table2}
+{Monitor::DRS::image1}
+{Monitor::DRS::image2}</p>
+
+<h4>Who receive the DRS package?</h4>
+
+<p>{Monitor::DRS::table3}
+{Monitor::DRS::table4}
+{Monitor::DRS::image3}
+{Monitor::DRS::image4}</p>
+
+<h3>HRQ report</h3>
+
+<h4>Overall situation:</h4>
+
+<p>Http request package is one of the most popular package type in Network. For example, if you want to get a net page from www.baidu.com, you would send a HTTP request to the baidu server to fetch the net page.</p>
+
+<h4>Who send the HRQ package?</h4>
+
+<p>{Monitor::HRQ::table1}
+{Monitor::HRQ::table2}
+{Monitor::HRQ::image1}
+{Monitor::DRS::image2}</p>
+
+<h4>Who receive the HRQ package?</h4>
+
+<p>{Monitor::DRS::table3}
+{Monitor::DRS::table4}
+{Monitor::DRS::image3}
+{Monitor::DRS::image4}</p>
+
+<h3>HRS report</h3>
+
+<h4>Overall situation:</h4>
+
+<p>HTTP response package is one of the most popular package type in Internet. For example, if you want to get a net page from www.baidu.com, then baidu server would send you a HTTP response package including the netpage you want.</p>
+
+<h4>Who send the HRQ package?</h4>
+
+<p>{Monitor::HRQ::table1}
+{Monitor::HRQ::table2}
+{Monitor::HRQ::image1}
+{Monitor::DRS::image2}</p>
+
+<h4>Who receive the HRQ package?</h4>
+
+<p>{Monitor::DRS::table3}
+{Monitor::DRS::table4}
+{Monitor::DRS::image3}
+{Monitor::DRS::image4}</p>
+
+<h1>Probe Report </h1>
+
+<h1>Conclusion of Intellegent Maintain System </h1>

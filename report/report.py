@@ -69,7 +69,7 @@ class DBNS:
 
 class Header:
 	def __init__(self):
-		self.template = "header.template.md"
+		self.template = os.environ.get('DBNS_HOME')+"/report/header.template.md"
 		self._load()
 
 	def setTemplate(self,name):
@@ -121,15 +121,47 @@ class Conclusion:
 
 class Monitor:
 	def __init__(self):
-		pass
+		self.template = os.environ.get('DBNS_HOME')+"/report/monitor.template.md"
+		self._load()
 
-	def flash(self):
+	def setTemplate(self,name):
+		self.template = name
+
+	def getTemplate(self):
+		return self.template
+
+	def _load(self):
+		fp = open(self.template)		
+		self.md = fp.read()
+		fp.close()		
+
+	def _flash(self):
 		pass
-	
+		'''
+                time = datetime.datetime.now()
+		timestamp = str(time.strftime("%Y-%m-%d %H:%M"))
+		metadata = DBNS()
+		self.md = sub(self.md,"header::time",timestamp)
+		self.md = sub(self.md,"header::DBNS::version",metadata.version)
+		self.md = sub(self.md,"header::DBNS::frame",metadata.frame)
+		self.md = sub(self.md,"header::DBNS::master",metadata.master)
+		self.md = sub(self.md,"header::DBNS::slaves",metadata.slaves)
+		self.md = sub(self.md,"header::DBNS::stream",metadata.stream)
+		self.md = sub(self.md,"header::DBNS::message",metadata.messageio)
+		self.md = sub(self.md,"header::DBNS::online",metadata.online)
+		self.md = sub(self.md,"header::DBNS::offline",metadata.offline)
+		self.md = sub(self.md,"header::DBNS::meta",metadata.meta)
+		self.md = sub(self.md,"header::DBNS::temp",metadata.temp)
+		self.md = sub(self.md,"header::DBNS::basic",metadata.basic)
+		self.md = sub(self.md,"header::DBNS::stream-cores",metadata.streamcores)
+		self.md = sub(self.md,"header::DBNS::online-cores",metadata.onlinecores)
+		self.md = sub(self.md,"header::DBNS::offline-cores",metadata.offlinecores)
+		'''
+
 	def getmd(self):
-		md = "Monitor Report \n===================================== \n"
-		return md
-		
+		self._flash()	
+		return self.md
+
 class Probe:
 	def __init__(self):
 		pass

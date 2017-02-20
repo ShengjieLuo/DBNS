@@ -1,1 +1,1 @@
-python report.py pdf sample
+python $DBNS_HOME/report/report.py pdf sample
