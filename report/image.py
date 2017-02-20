@@ -6,7 +6,7 @@ from pygal.style import LightStyle
 def draw_image(cmd,output,title,c1,num):
 	data = stat_data(cmd)
 	stat_image(data,title,output,c1,num)
-	return "![]file://"+os.environ.get('DBNS_HOME')+"/report/image/"+output
+	return "![](file://"+os.environ.get('DBNS_HOME')+"/report/image/"+output+")"
 
 def stat_data(cmd):
 	return exeSQLquery(cmd)

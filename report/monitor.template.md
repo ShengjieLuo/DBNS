@@ -36,15 +36,13 @@ Total Number of the DRS package:{Monitor::DRS::number}
 
 #### Who send the DRS package?
 {Monitor::DRS::DRSips::table}
-{Monitor::DRS::DRSps::table}
+
 {Monitor::DRS::DRSips::image}
-{Monitor::DRS::DRSps::image}
 
 #### Who receive the DRS package?
 {Monitor::DRS::DRSipd::table}
-{Monitor::DRS::DRSpd::table}
+
 {Monitor::DRS::DRSips::image}
-{Monitor::DRS::DRSps::image}
 
 ### HRQ report
 #### Overall situation:
