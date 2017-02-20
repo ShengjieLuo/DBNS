@@ -34,27 +34,27 @@ def main(args:Array[String]){
   val dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm") 
   val time:String = dateFormat.format(new Date())
   
-  val HRQipd = hiveCtx.sql("SELECT time,ipd,count(*) as count FROM hrq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRQips = hiveCtx.sql("SELECT time,ips,count(*) as count FROM hrq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRQpd = hiveCtx.sql("SELECT time,pd,count(*) as count FROM hrq.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRQps = hiveCtx.sql("SELECT time,ps,count(*) as count FROM hrq.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRQpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrq.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRQps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrq.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
     
-  val HRSipd = hiveCtx.sql("SELECT time,ipd,count(*) as count FROM hrs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSips = hiveCtx.sql("SELECT time,ips,count(*) as count FROM hrs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSpd = hiveCtx.sql("SELECT time,pd,count(*) as count FROM hrs.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSps = hiveCtx.sql("SELECT time,ps,count(*) as count FROM hrs.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSrc = hiveCtx.sql("SELECT time,rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50;").rdd
+  val HRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50;").rdd
   
-  val DRQips = hiveCtx.sql("SELECT time,ips,count(*) as count FROM drq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRQipd = hiveCtx.sql("SELECT time,ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRQname = hiveCtx.sql("SELECT time,name,count(*) as count FROM drq.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRQtype = hiveCtx.sql("SELECT time,type,count(*) as count FROM drq.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRQname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drq.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRQtype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drq.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
 
-  val DRSips = hiveCtx.sql("SELECT time,ips,count(*) as count FROM drs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRSipd = hiveCtx.sql("SELECT time,ipd,count(*) as count FROM drs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRSname = hiveCtx.sql("SELECT time,name,count(*) as count FROM drs.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRStype = hiveCtx.sql("SELECT time,type,count(*) as count FROM drs.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val DRSurl = hiveCtx.sql("SELECT time,url,count(*) as count FROM drs.original GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drs.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRSname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drs.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRStype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drs.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
+  val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd
 
   val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
   val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
