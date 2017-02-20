@@ -104,7 +104,6 @@ class Monitor:
 		table = draw_table("select * from DBNS.DRSipd;",None,"DRS IP destination","First Occurred Time","IPaddress","Frequency",10)[0]
 		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
 		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[0]
-                print table
 		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
 		#table = draw_table("select * from DBNS.DRSpd;",None,"DRS Port destination","First Occurred Time","Port Address","Frequency",10)[0]
                 #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)
@@ -112,7 +111,11 @@ class Monitor:
                 #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)	
 
 	def _flashHtml(self):
-		pass
+		table = draw_table("select * from DBNS.DRSipd;",None,"DRS IP destination","First Occurred Time","IPaddress","Frequency",10)[1]
+		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
+		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[1]
+		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
+		
 
 	def getmd(self):
 		self._flash()	
@@ -171,9 +174,16 @@ class Report:
 		fp.close()
 		print "Build Markdown Report ------------------ finish"
 	
-	def _buildHTML(self,filename):
-		self._buildMD(filename)
-		mdname = filename + ".md"
+	def _buildHTML(self,filename):	
+		head = self.header.getmd()
+		conc = self.conclusion.getmd()
+		moni = self.monitor.getmdHtml()
+		prob = self.probe.getmd()
+		html = head+conc+moni+prob
+		mdname = filename+".md.tmp"
+                fp = open(mdname,'w')
+                fp.write(html)
+                fp.close()
 		htmlname = filename + ".html"		
 		os.system("markdown2 " + mdname +" > "+ htmlname)
 		print "Build Html Report ---------------------- finish"	
