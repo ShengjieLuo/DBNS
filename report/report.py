@@ -106,9 +106,9 @@ class Monitor:
 		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
 		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[0]
 		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
-		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","IPaddress","Frequency")
+		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","Frequency",10)
 		self.md = sub(self.md,"Monitor::DRS::DRSips::image",image)
-		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","IPaddress","Frequency")
+		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","Frequency",10)
 		self.md = sub(self.md,"Monitor::DRS::DRSipd::image",image)
 		#table = draw_table("select * from DBNS.DRSpd;",None,"DRS Port destination","First Occurred Time","Port Address","Frequency",10)[0]
                 #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)
@@ -120,9 +120,9 @@ class Monitor:
 		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::table",table)
 		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[1]
 		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::table",table)
-		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","IPaddress","Frequency")
+		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","Frequency",10)
 		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::image",image)
-		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","IPaddress","Frequency")
+		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","Frequency",10)
 		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::image",image)
 		
 
