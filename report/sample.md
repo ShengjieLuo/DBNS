@@ -15,7 +15,7 @@ DBNS system is developed by Network Computing Center of Department of Computer S
 The offline report is built for user of DBNS and established each day. The report is composed of two parts, monitor part and probe part. The monitor serverd as netflow monitor, and the probe serverd as hazard detection.
 The report information:
 
-Build Time: 2017-02-20 19:07
+Build Time: 2017-02-20 19:11
 
 Component: Monitor & Probe
 
@@ -55,10 +55,10 @@ Offline Analysis Cores: 10
 ## Monitor Report
 
 Monitor Function is used to monitor the network flow from the backbone router. In this report, we would include four message resources,
-* DRQ: DNS request package
-* DRS: DNS response package
-* HRQ: HTTP request package
-* HRS: HTTP response package
+- **DRQ**: DNS request package
+- **DRS**: DNS response package
+- **HRQ**: HTTP request package
+- **HRS**: HTTP response package
 
 ### DRQ report
 #### Overall situation:
