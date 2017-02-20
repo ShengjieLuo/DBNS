@@ -7,6 +7,7 @@ import time
 import datetime
 from tools import *
 from table import *
+from image import *
 
 class DBNS:
 	def __init__(self):
@@ -105,6 +106,10 @@ class Monitor:
 		self.md = sub(self.md,"Monitor::DRS::DRSipd::table",table)
 		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[0]
 		self.md = sub(self.md,"Monitor::DRS::DRSips::table",table)
+		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","IPaddress","Frequency")
+		self.md = sub(self.md,"Monitor::DRS::DRSips::image",image)
+		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","IPaddress","Frequency")
+		self.md = sub(self.md,"Monitor::DRS::DRSipd::image",image)
 		#table = draw_table("select * from DBNS.DRSpd;",None,"DRS Port destination","First Occurred Time","Port Address","Frequency",10)[0]
                 #self.md = sub(self.md,"monitor::DRS::DRSipd::table",table)
 		#table = draw_table("select * from DBNS.DRSps;",None,"DRS Port source","First Occurred Time","Port Address","Frequency",10)[0]
@@ -115,6 +120,10 @@ class Monitor:
 		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::table",table)
 		table = draw_table("select * from DBNS.DRSips;",None,"DRS IP source","First Occurred Time","IPaddress","Frequency",10)[1]
 		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::table",table)
+		image = draw_image("select * from DBNS.DRSips;","Monitor::DRS::DRSips::image.png","DRS IP source","IPaddress","Frequency")
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSips::image",image)
+		image = draw_image("select * from DBNS.DRSipd;","Monitor::DRS::DRSips::image.png","DRS IP destination","IPaddress","Frequency")
+		self.mdhtml = sub(self.mdhtml,"Monitor::DRS::DRSipd::image",image)
 		
 
 	def getmd(self):
@@ -198,3 +207,4 @@ class Report:
 if __name__=="__main__":
 	report = Report()
 	report.build("pdf","sample") 
+	report.build("md","sample") 
