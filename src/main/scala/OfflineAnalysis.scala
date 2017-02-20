@@ -43,7 +43,7 @@ def main(args:Array[String]){
   val HRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrs.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
   val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd
   val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd
-  val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50;").rdd
+  val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50").rdd
   
   val DRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drq.original GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd
   val DRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd
