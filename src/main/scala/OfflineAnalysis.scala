@@ -56,14 +56,14 @@ def main(args:Array[String]){
   val DRStype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drs.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd
   val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd
 
-  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
-  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
-  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
-  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
-  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
-  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
-  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
-  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
+  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",StringType,true)))
+  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",StringType,true)))
+  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",StringType,true)))
+  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",StringType,true)))
+  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",StringType,true)))
+  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",StringType,true)))
+  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",StringType,true)))
+  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",StringType,true)))
 
   sqlContext.createDataFrame(HRQips,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.HRQips", prop)
   sqlContext.createDataFrame(HRQps,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.HRQps", prop)
