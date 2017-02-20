@@ -1,5 +1,6 @@
 from tools import *
 import pygal
+from pygal.style import LightStyle
 
 def draw_image(cmd,title,output,c1,num):
 	data = stat_data(cmd)
@@ -11,6 +12,7 @@ def stat_data(cmd):
 def stat_image(data,title,output,c1,num):
 	time,key,value,order = [],[],[],[]
 	count = 0
+	print data
 	for item in data:
 		time.append(item[0].encode('utf-8'))
 		key.append(item[1].encode('utf-8'))
@@ -19,11 +21,11 @@ def stat_image(data,title,output,c1,num):
 		order.append(str(count))
 		if count>=num:
 			break
-	dot_chart = pygal.Dot(x_label_rotation=30)
+	dot_chart = pygal.Dot(x_label_rotation=30,style=LightStyle)
 	dot_chart.title = title
 	dot_chart.x_labels = key
 	dot_chart.add(c1, value)
 	dot_chart.render_to_png(output)
 
 if __name__=="__main__":
-	draw_image("select * from stat.DRSipd","DRS IP destination rank","test.png","count",10)
+	draw_image("select * from DBNS.DRSipd","DRS IP destination rank","test.png","count",10)
