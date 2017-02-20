@@ -15,7 +15,7 @@ DBNS system is developed by Network Computing Center of Department of Computer S
 The offline report is built for user of DBNS and established each day. The report is composed of two parts, monitor part and probe part. The monitor serverd as netflow monitor, and the probe serverd as hazard detection.
 The report information:
 
-Build Time: 2017-02-20 23:41
+Build Time: 2017-02-20 23:43
 
 Component: Monitor & Probe
 
