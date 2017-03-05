@@ -17,9 +17,6 @@ import org.apache.spark.sql.hive.HiveContext._
 import java.io.File
 import java.util.Date
 import java.text.SimpleDateFormat
-import org.kie.api.KieServices;
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
 
 object LogStreamingAdvancedSparkCluster{
 
