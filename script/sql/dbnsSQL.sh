@@ -1,4 +1,18 @@
 use DBNS;
+
+create table offstatus(analysisTime int, item varchar(5), firsttime int, lasttime int);
+insert into offstatus values (0,"DRQ",0,0);
+insert into offstatus values (0,"HRQ",0,0);
+insert into offstatus values (0,"HRS",0,0);
+insert into offstatus values (0,"DRS",0,0);
+
+create table latest(time int);
+insert into latest values (0);
+
+
+create table onstatus(analysisTime int, firsttime int, lasttime int);
+
+
 create table HRSips (id varchar(20),IPSource varchar(20),count int);
 create table HRSipd (id varchar(20),IPDest varchar(20),count int);
 create table HRSps (id varchar(20),PortSource varchar(20),count int);
@@ -39,3 +53,5 @@ truncate table DRQips;
 truncate table DRQipd;
 truncate table DRQname;
 truncate table DRQtype;
+truncate table offstatus;
+truncate table onstatus;
