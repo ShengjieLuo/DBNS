@@ -15,41 +15,65 @@ create table HRSipd (time int,IPDest varchar(20),count int);
 create table HRSps (time int,PortSource varchar(20),count int);
 create table HRSpd (time int,PortDest varchar(20),count int);
 create table HRSrc (time int,returnCode varchar(20),count int);
+create table HRSipds (time int,IP varchar(20),size int);
+create table HRSipss (time int,IP varchar(20),size int);
+create table HRSsum (time int, count int);
+create table HRScount (time int, count int);
 
 create table HRQips (time int, IPSource varchar(20),count int);
 create table HRQipd (time int,IPDest varchar(20),count int);
 create table HRQps (time int,PortSource varchar(20),count int);
 create table HRQpd (time int,PortDest varchar(20),count int);
+create table HRQipds (time int,IP varchar(20),size int);
+create table HRQipss (time int,IP varchar(20),size int);
+create table HRQsum (time int, count int);
+create table HRQcount (time int, count int);
 
 create table DRSips(time int,IPSource varchar(20),count int);
 create table DRSipd(time int,IPDest varchar(20),count int);
 create table DRSname(time int,name varchar(100),count int);
 create table DRStype(time int,type varchar(20),count int);
 create table DRSurl(time int,url varchar(100),count int);
+create table DRScount (time int, count int);
 
 create table DRQips(time int,IPSource varchar(20),count int);
 create table DRQipd(time int,IPDest varchar(20),count int);
 create table DRQname(time int,name varchar(100),count int);
 create table DRQtype(time int,type varchar(20),count int);
+create table DRQcount (time int, count int);
 
 truncate table HRSips;
 truncate table HRSipd;
 truncate table HRSps;
 truncate table HRSpd;
 truncate table HRSrc;
+truncate table HRSipss;
+truncate table HRSipds;
+truncate table HRSsum;
+truncate table HRScount;
+
 truncate table HRQips;
 truncate table HRQipd;
 truncate table HRQps;
 truncate table HRQpd;
+truncate table HRQipss;
+truncate table HRQipds;
+truncate table HRQsum;
+truncate table HRQcount;
+
 truncate table DRSips;
 truncate table DRSipd;
 truncate table DRSname;
 truncate table DRStype;
 truncate table DRSurl;
+truncate table DRScount;
+
 truncate table DRQips;
 truncate table DRQipd;
 truncate table DRQname;
 truncate table DRQtype;
+truncate table DRQcount;
+
 truncate table offstatus;
 truncate table onstatus;
 truncate table latest;
