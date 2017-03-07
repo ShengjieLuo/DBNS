@@ -25,19 +25,24 @@ echo  -e "\033[31m**         Execute DBNS Task             ** \033[0m"
 echo  -e "\033[31m******************************************* \033[0m"
 
 echo  -e "\033[31m Send Network Package       ......begin \033[0m"
-nohup $DBNS_HOME/run/runSenderCluster.sh 2>$DBNS_LOG/SenderErr.txt 1>$DBNS_LOG/SenderLog.txt &
+nohup $DBNS_HOME/run/runSenderCluster.sh 2>$DBNS_LOG/Sender.err 1>$DBNS_LOG/Sender.log &
 sleep 3s
 echo  -e "\033[31m Send Network Package       ......success \033[0m"
 
 echo  -e "\033[31m Launch Streaming Analyzer  ......begin \033[0m"
-nohup $DBNS_HOME/run/runAnalyzerCluster.sh 2>$DBNS_LOG/AnalyzerErr.txt 1>$DBNS_LOG/AnalyzerLog.txt &
+nohup $DBNS_HOME/run/runAnalyzerCluster.sh 2>$DBNS_LOG/Analyzer.err 1>$DBNS_LOG/Analyzer.log &
 sleep 3s
 echo  -e "\033[31m Launch Streaming Analyzer  ......success \033[0m"
 
 echo  -e "\033[31m Launch Network Monitor     ......begin \033[0m"
-nohup python $DBNS_HOME/run/run.py 2>$DBNS_LOG/MonitorErr.txt 1>$DBNS_LOG/MonitorLog.txt &
+nohup python $DBNS_HOME/run/run.py 2>$DBNS_LOG/Monitor.err 1>$DBNS_LOG/Monitor.log &
 sleep 3s
 echo  -e "\033[31m Launch Network Monitor     ......success \033[0m"
+
+echo  -e "\033[31m Launch Offline Batch     ......begin \033[0m"
+nohup service cron start 2>$DBNS_LOG/Offline.err 1>$DBNS_LOG/Offline.log
+sleep 3s
+echo  -e "\033[31m Launch Offline Batch     ......success \033[0m"
 
 echo  -e "\033[31m******************************************* \033[0m"
 echo  -e "\033[31m**         DBNS Launch Conclusion        ** \033[0m"

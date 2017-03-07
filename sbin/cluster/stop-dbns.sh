@@ -24,6 +24,10 @@ echo -e "\033[31m Kill Security Monitor Process: \033[0m"
 ps -aux | grep 'python\ run/run.py'
 sudo kill -9 `ps -aux | grep run.py | awk '{print $2}'`
 
+
+echo -e "\033[31m Kill Offline Batch: \033[0m"
+service cron stop
+
 echo  -e "\033[31m******************************************* \033[0m"
 echo  -e "\033[31m**         Clean Previous Data           ** \033[0m"
 echo  -e "\033[31m******************************************* \033[0m"

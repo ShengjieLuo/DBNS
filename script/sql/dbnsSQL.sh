@@ -1,17 +1,14 @@
 use DBNS;
 
 create table offstatus(analysisTime int, item varchar(5), firsttime int, lasttime int);
+create table latest(time int);
+create table onstatus(analysisTime int, firsttime int, lasttime int);
+
 insert into offstatus values (0,"DRQ",0,0);
 insert into offstatus values (0,"HRQ",0,0);
 insert into offstatus values (0,"HRS",0,0);
 insert into offstatus values (0,"DRS",0,0);
-
-create table latest(time int);
 insert into latest values (0);
-
-
-create table onstatus(analysisTime int, firsttime int, lasttime int);
-
 
 create table HRSips (time int,IPSource varchar(20),count int);
 create table HRSipd (time int,IPDest varchar(20),count int);
