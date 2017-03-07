@@ -13,27 +13,27 @@ insert into latest values (0);
 create table onstatus(analysisTime int, firsttime int, lasttime int);
 
 
-create table HRSips (id varchar(20),IPSource varchar(20),count int);
-create table HRSipd (id varchar(20),IPDest varchar(20),count int);
-create table HRSps (id varchar(20),PortSource varchar(20),count int);
-create table HRSpd (id varchar(20),PortDest varchar(20),count int);
-create table HRSrc (id varchar(20),returnCode varchar(20),count int);
+create table HRSips (time int,IPSource varchar(20),count int);
+create table HRSipd (time int,IPDest varchar(20),count int);
+create table HRSps (time int,PortSource varchar(20),count int);
+create table HRSpd (time int,PortDest varchar(20),count int);
+create table HRSrc (time int,returnCode varchar(20),count int);
 
-create table HRQips (id varchar(20), IPSource varchar(20),count int);
-create table HRQipd (id varchar(20),IPDest varchar(20),count int);
-create table HRQps (id varchar(20),PortSource varchar(20),count int);
-create table HRQpd (id varchar(20),PortDest varchar(20),count int);
+create table HRQips (time int, IPSource varchar(20),count int);
+create table HRQipd (time int,IPDest varchar(20),count int);
+create table HRQps (time int,PortSource varchar(20),count int);
+create table HRQpd (time int,PortDest varchar(20),count int);
 
-create table DRSips(id varchar(20),IPSource varchar(20),count int);
-create table DRSipd(id varchar(20),IPDest varchar(20),count int);
-create table DRSname(id varchar(20),name varchar(100),count int);
-create table DRStype(id varchar(20),type varchar(20),count int);
-create table DRSurl(id varchar(20),url varchar(100),count int);
+create table DRSips(time int,IPSource varchar(20),count int);
+create table DRSipd(time int,IPDest varchar(20),count int);
+create table DRSname(time int,name varchar(100),count int);
+create table DRStype(time int,type varchar(20),count int);
+create table DRSurl(time int,url varchar(100),count int);
 
-create table DRQips(id varchar(20),IPSource varchar(20),count int);
-create table DRQipd(id varchar(20),IPDest varchar(20),count int);
-create table DRQname(id varchar(20),name varchar(100),count int);
-create table DRQtype(id varchar(20),type varchar(20),count int);
+create table DRQips(time int,IPSource varchar(20),count int);
+create table DRQipd(time int,IPDest varchar(20),count int);
+create table DRQname(time int,name varchar(100),count int);
+create table DRQtype(time int,type varchar(20),count int);
 
 truncate table HRSips;
 truncate table HRSipd;
@@ -55,3 +55,27 @@ truncate table DRQname;
 truncate table DRQtype;
 truncate table offstatus;
 truncate table onstatus;
+truncate table latest;
+
+DROP table HRSips;
+DROP table HRSipd;
+DROP table HRSps;
+DROP table HRSpd;
+DROP table HRSrc;
+DROP table HRQips;
+DROP table HRQipd;
+DROP table HRQps;
+DROP table HRQpd;
+DROP table DRSips;
+DROP table DRSipd;
+DROP table DRSname;
+DROP table DRStype;
+DROP table DRSurl;
+DROP table DRQips;
+DROP table DRQipd;
+DROP table DRQname;
+DROP table DRQtype;
+DROP table offstatus;
+DROP table onstatus;
+DROP table latest;
+

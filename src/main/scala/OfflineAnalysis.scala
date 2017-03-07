@@ -21,7 +21,7 @@ object OfflineAnalysis{
 
 def main(args:Array[String]){
   StreamingExamples.setStreamingLogLevels()
-  val sc = new SparkConf().setAppName("OfflineAnalysisCluster").setMaster("spark://172.16.0.104:7077")
+  val sc = new SparkConf().setAppName("OfflineAnalysisCluster").setMaster("spark://spark-master:7077")
   val sssc = new SparkContext(sc)
   val ssc = new StreamingContext(sssc,Seconds(60))
   val sqlContext = new SQLContext(sssc)
@@ -76,14 +76,14 @@ def main(args:Array[String]){
   val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original WHERE time> "+DRSlast+" GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRSlast = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM DRS.original").rdd.map(p=>Row(timestamp,"DRS",p(0).toString().toInt,p(1).toString().toInt))
 
-  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
-  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
-  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
-  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
-  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
-  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
-  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
-  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
+  val ipsschema = StructType(List(StructField("time",IntegerType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
+  val ipdschema = StructType(List(StructField("time",IntegerType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
+  val nameschema  = StructType(List(StructField("time",IntegerType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
+  val typeschema  = StructType(List(StructField("time",IntegerType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
+  val psschema  = StructType(List(StructField("time",IntegerType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
+  val pdschema  = StructType(List(StructField("time",IntegerType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
+  val urlschema  = StructType(List(StructField("time",IntegerType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
+  val rcschema  = StructType(List(StructField("time",IntegerType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
   val lastschema = StructType(List(StructField("analysisTime",IntegerType,true),StructField("item",StringType,true),StructField("firsttime",IntegerType,true),StructField("lasttime",IntegerType,true)))
 
   val timeRow = sssc.parallelize(List(timestamp.toInt)).map(p=>Row(p))
