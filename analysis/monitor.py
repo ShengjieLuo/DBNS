@@ -134,6 +134,7 @@ def oneHourBatch(removeOld):
 		return 0
 	removeOld = int(removeOld)
 	#print "removeOld: "+str(removeOld)
+                
 
 	if removeOld!=0:
 		print "Begin to truncate data!"

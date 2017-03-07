@@ -21,9 +21,8 @@ object OfflineAnalysis{
 
 def main(args:Array[String]){
   StreamingExamples.setStreamingLogLevels()
-  val sc = new SparkConf().setAppName("OfflineAnalysisCluster").setMaster("spark://172.16.0.104:7077")
+  val sc = new SparkConf().setAppName("OfflineAnalysisCluster").setMaster("spark://spark-master:7077")
   val sssc = new SparkContext(sc)
-  val ssc = new StreamingContext(sssc,Seconds(60))
   val sqlContext = new SQLContext(sssc)
   val hiveCtx = new HiveContext(sssc)
   val prop = new Properties()
@@ -54,36 +53,36 @@ def main(args:Array[String]){
   val HRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRQpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRQps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
-  val HRQlast = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM HRQ.original").rdd.map(p=>Row(timestamp,"HRQ",p(0).toString().toInt,p(1).toString().toInt))
+  val HRQlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM HRQ.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,"HRQ",p(0).toString().toInt,p(1).toString().toInt))
     
   val HRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
-  val HRSlast = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM HRS.original").rdd.map(p=>Row(timestamp,"HRS",p(0).toString().toInt,p(1).toString().toInt))
+  val HRSlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM HRS.original WHERE time> "+HRSlast).rdd.map(p=>Row(timestamp,"HRS",p(0).toString().toInt,p(1).toString().toInt))
   
   val DRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drq.original WHERE time> "+DRQlast+" GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drq.original WHERE time> "+DRQlast+" GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRQname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drq.original WHERE time> "+DRQlast+" GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRQtype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drq.original WHERE time> "+DRQlast+" GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
-  val DRQlast = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM DRQ.original").rdd.map(p=>Row(timestamp,"DRQ",p(0).toString().toInt,p(1).toString().toInt))
+  val DRQlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM DRQ.original WHERE time> "+DRQlast).rdd.map(p=>Row(timestamp,"DRQ",p(0).toString().toInt,p(1).toString().toInt))
 
   val DRSips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM drs.original WHERE time> "+DRSlast+" GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRSipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drs.original WHERE time> "+DRSlast+" GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRSname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drs.original WHERE time> "+DRSlast+" GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRStype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drs.original WHERE time> "+DRSlast+" GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original WHERE time> "+DRSlast+" GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
-  val DRSlast = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM DRS.original").rdd.map(p=>Row(timestamp,"DRS",p(0).toString().toInt,p(1).toString().toInt))
+  val DRSlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM DRS.original WHERE time> "+DRSlast).rdd.map(p=>Row(timestamp,"DRS",p(0).toString().toInt,p(1).toString().toInt))
 
-  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
-  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
-  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
-  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
-  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
-  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
-  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
-  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
+  val ipsschema = StructType(List(StructField("time",IntegerType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
+  val ipdschema = StructType(List(StructField("time",IntegerType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
+  val nameschema  = StructType(List(StructField("time",IntegerType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
+  val typeschema  = StructType(List(StructField("time",IntegerType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
+  val psschema  = StructType(List(StructField("time",IntegerType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
+  val pdschema  = StructType(List(StructField("time",IntegerType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
+  val urlschema  = StructType(List(StructField("time",IntegerType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
+  val rcschema  = StructType(List(StructField("time",IntegerType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
   val lastschema = StructType(List(StructField("analysisTime",IntegerType,true),StructField("item",StringType,true),StructField("firsttime",IntegerType,true),StructField("lasttime",IntegerType,true)))
 
   val timeRow = sssc.parallelize(List(timestamp.toInt)).map(p=>Row(p))
@@ -108,14 +107,10 @@ def main(args:Array[String]){
   sqlContext.createDataFrame(DRSname,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.DRSname", prop)
   sqlContext.createDataFrame(DRStype,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.DRStype", prop)
   sqlContext.createDataFrame(DRSurl,urlschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.DRSurl", prop)
-  sqlContext.createDataFrame(HRQlast,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
-  sqlContext.createDataFrame(DRQlast,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
-  sqlContext.createDataFrame(HRSlast,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
-  sqlContext.createDataFrame(DRSlast,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
+  sqlContext.createDataFrame(HRQlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
+  sqlContext.createDataFrame(DRQlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
+  sqlContext.createDataFrame(HRSlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
+  sqlContext.createDataFrame(DRSlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/DBNS", "DBNS.offstatus", prop)
     
-
-  //Step final: start the spark streaming context
-  ssc.start
-  ssc.awaitTermination
   }
 }
