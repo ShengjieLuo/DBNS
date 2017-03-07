@@ -34,10 +34,10 @@ nohup $DBNS_HOME/run/runAnalyzerCluster.sh 2>$DBNS_LOG/Analyzer.err 1>$DBNS_LOG/
 sleep 3s
 echo  -e "\033[31m Launch Streaming Analyzer  ......success \033[0m"
 
-echo  -e "\033[31m Launch Network Monitor     ......begin \033[0m"
-nohup python $DBNS_HOME/run/run.py 2>$DBNS_LOG/Monitor.err 1>$DBNS_LOG/Monitor.log &
-sleep 3s
-echo  -e "\033[31m Launch Network Monitor     ......success \033[0m"
+#echo  -e "\033[31m Launch Network Monitor     ......begin \033[0m"
+#nohup python $DBNS_HOME/run/run.py 2>$DBNS_LOG/Monitor.err 1>$DBNS_LOG/Monitor.log &
+#sleep 3s
+#echo  -e "\033[31m Launch Network Monitor     ......success \033[0m"
 
 echo  -e "\033[31m Launch Offline Batch     ......begin \033[0m"
 nohup service cron start 2>$DBNS_LOG/Offline.err 1>$DBNS_LOG/Offline.log

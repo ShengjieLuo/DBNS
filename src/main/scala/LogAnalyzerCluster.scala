@@ -102,7 +102,7 @@ def main(args:Array[String]){
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into DRS.original select * from tempTable")
   })
-
+  /*
   //Step4: Write the statistical data into the SparkSQL --> mySQL
   val sqlContext = new SQLContext(sssc)
   val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
@@ -182,7 +182,7 @@ def main(args:Array[String]){
     sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSname", prop)
     sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRStype", prop)
     sqlContext.createDataFrame(urlTop,urlschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSurl", prop)
-    })
+    })*/
 
   //Step final: start the spark streaming context
   ssc.start
