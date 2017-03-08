@@ -135,7 +135,7 @@ def main(args:Array[String]){
   lines6.foreachRDD(rdd =>
   {
     val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim)), schema6)
-    //rowrdd.map(p=>println(p))
+    rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into SYS.original select * from tempTable")
   })

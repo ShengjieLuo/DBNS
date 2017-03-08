@@ -7,6 +7,9 @@ $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replica
 $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replication-factor 1 --partitions 1 --topic httpRequest
 $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replication-factor 1 --partitions 1 --topic dnsResponse
 $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replication-factor 1 --partitions 1 --topic dnsRequest
+$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replication-factor 1 --partitions 1 --topic natlog
+$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replication-factor 1 --partitions 1 --topic syslog
+$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper 172.16.0.104:2182 --replication-factor 1 --partitions 1 --topic netflow
 
 #查询topic情况
 $KAFKA_HOME/bin/kafka-topics.sh --list --zookeeper 172.16.0.104:2182
