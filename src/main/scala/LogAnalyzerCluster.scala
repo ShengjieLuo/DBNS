@@ -144,7 +144,7 @@ def main(args:Array[String]){
   val schema7 = StructType(List(StructField("time", IntegerType, true),StructField("bytes", StringType, true),StructField("packets", StringType, true),StructField("src_ip", StringType, true),StructField("dst_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true)))
   lines7.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7)), schema6)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim)), schema7)
     //rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into NET.original select * from tempTable")
