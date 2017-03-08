@@ -23,7 +23,7 @@ object LogProducer {
 
   def main(args: Array[String]) {
     val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
-    val sourcepool = Array("/usr/local/sample/http_response.txt","/usr/local/sample/http_request.txt","/usr/local/sample/dns_response.txt","/usr/local/sample/dns_request.txt","/usr/local/sample/natlog.txt","/usr/local/sample/syslog.txt","/usr/local/sample/netflow.txt")
+    val sourcepool = Array("/usr/local/DBNS/sample/http_response.txt","/usr/local/DBNS/sample/http_request.txt","/usr/local/DBNS/sample/dns_response.txt","/usr/local/DBNS/sample/dns_request.txt","/usr/local/DBNS/sample/natlog.txt","/usr/local/DBNS/sample/syslog.txt","/usr/local/DBNS/sample/netflow.txt")
     val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest","natlog","syslog","netflow")
     val Array(brokers, topic) = args
     val props = new HashMap[String, Object]()
