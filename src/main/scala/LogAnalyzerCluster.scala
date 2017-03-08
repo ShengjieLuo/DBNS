@@ -37,17 +37,26 @@ def main(args:Array[String]){
   val topic2 = "httpResponse"
   val topic3 = "dnsRequest"
   val topic4 = "dnsResponse"
+  val topic5 = "natlog"
+  val topic6 = "syslog"
+  val topic7 = "netflow"
   val numThreads = 1  //每个topic的分区数
 
-  val topicMap1 =topic1.split(",").map((_,numThreads.toInt)).toMap
-  val topicMap2 =topic2.split(",").map((_,numThreads.toInt)).toMap
-  val topicMap3 =topic3.split(",").map((_,numThreads.toInt)).toMap
-  val topicMap4 =topic4.split(",").map((_,numThreads.toInt)).toMap
-  
+  val topicMap1 = topic1.split(",").map((_,numThreads.toInt)).toMap
+  val topicMap2 = topic2.split(",").map((_,numThreads.toInt)).toMap
+  val topicMap3 = topic3.split(",").map((_,numThreads.toInt)).toMap
+  val topicMap4 = topic4.split(",").map((_,numThreads.toInt)).toMap  
+  val topicMap5 = topic5.split(",").map((_,numThreads.toInt)).toMap  
+  val topicMap6 = topic6.split(",").map((_,numThreads.toInt)).toMap
+  val topicMap7 = topic7.split(",").map((_,numThreads.toInt)).toMap
+
   val lineMap1 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap1)
   val lineMap2 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap2)
   val lineMap3 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap3)
   val lineMap4 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap4)
+  val lineMap5 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap5)
+  val lineMap6 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap6)
+  val lineMap7 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap7)
 
 
   //step1: Save the original information into the file system
@@ -57,16 +66,26 @@ def main(args:Array[String]){
   lineMap2.saveAsTextFiles("/dbns/backup/hrs.txt")
   lineMap3.saveAsTextFiles("/dbns/backup/drq.txt")
   lineMap4.saveAsTextFiles("/dbns/backup/drs.txt")
+  lineMap5.saveAsTextFiles("/dbns/backup/nat.txt")
+  lineMap6.saveAsTextFiles("/dbns/backup/sys.txt")
+  lineMap7.saveAsTextFiles("/dbns/backup/net.txt")
+
+  //Use Regular Expression to resolve the natlog and syslog
+  val natlogPattern = ("<(\\d+)>([A-Za-z]{3})  (\\d{1,2}) "+"(\\d\\d:\\d\\d:\\d\\d) .*?NAT: ((?:\\d{1,3}\\.){3}\\d{1,3}):"+"(\\d{1,5})->((?:\\d{1,3}\\.){3}\\d{1,3}):(\\d{1,5})\\((\\w+)\\),"+" ([sd]nat) to ((?:\\d{1,3}\\.){3}\\d{1,3}):(\\d{1,5}), .*").r
+  val syslogPattern = ("<(\\d+)>([A-Za-z]{3})  (\\d{1,2}) (\\d{4}) "+"(\\d\\d:\\d\\d:\\d\\d) ([A-Za-z\\d\\-]+) (?:%%\\d+)?(\\w+)/(\\d)/" +"([A-Z]+(?:\\([a-z]\\))?)(?:\\[\\d+\\])?:(?:[A-Za-z\\d=,]+)?;?(.*)").r  
+  
 
   //step3: Write the original information into the Hive within SparkSQL
-  
   val lines1 = lineMap1.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines2 = lineMap2.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines3 = lineMap3.map(_._2).map(_.split("\t")).filter(_.length>=6)
   val lines4 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
+  val lines5 = lineMap5.map(_._2).map(p => {val natlogPattern(number, month, day, time, src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port) = p;Array(number,month,day,time,src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port);}).filter(_.length>=2) 
+  val lines6 = lineMap6.map(_._2).map(p => {val syslogPattern(number, month, day, year, time, hostname, module, severity, program, message) = p;Array(number, month, day, year, time, hostname, module, severity, program, message)}).filter(_.length>=2)
+  val lines7 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
   
+
   val hiveCtx = new HiveContext(sssc)
-  
   val schema1 = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("type", StringType, true)))
   lines1.foreachRDD(rdd =>
   {
@@ -102,87 +121,34 @@ def main(args:Array[String]){
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into DRS.original select * from tempTable")
   })
-  /*
-  //Step4: Write the statistical data into the SparkSQL --> mySQL
-  val sqlContext = new SQLContext(sssc)
-  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
-  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
-  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
-  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
-  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
-  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
-  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
-  val rcschema  = StructType(List(StructField("id",StringType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
 
+  val schema5 = StructType(List(StructField("number", IntegerType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("time", StringType, true),StructField("src_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_ip", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true),StructField("nat_type", StringType, true),StructField("nat_ip", StringType, true),StructField("nat_port", StringType, true)))
+  lines5.foreachRDD(rdd =>
+  {
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim,p(10).trim,p(11).trim)), schema5)
+    //rowrdd.map(p=>println(p))
+    rowrdd.registerTempTable("tempTable")
+    hiveCtx.sql("insert into NAT.original select * from tempTable")
+  })
 
-  val prop = new Properties()
-  prop.put("user", "root")
-  prop.put("password", "123456")
-  prop.put("driver","com.mysql.jdbc.Driver")
-  val dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm")  
+  val schema6 = StructType(List(StructField("number", IntegerType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("year", StringType, true),StructField("time", StringType, true),StructField("hostname", StringType, true),StructField("module", StringType, true),StructField("serverity", StringType, true),StructField("program", StringType, true),StructField("message", StringType, true)))
+  lines6.foreachRDD(rdd =>
+  {
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim)), schema6)
+    //rowrdd.map(p=>println(p))
+    rowrdd.registerTempTable("tempTable")
+    hiveCtx.sql("insert into SYS.original select * from tempTable")
+  })
 
-  lines1.foreachRDD(words =>
-    {
-    // Use Sort + Threshold to Implement
-    val id1:String = dateFormat.format(new Date())
-    words.map(a => a.map(b => println(b)))
-    val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
-    val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
-    val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
-    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQips", prop)
-    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQps", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQipd", prop)
-    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQpd", prop)
-    })
-
-  lines2.foreachRDD(words =>
-    {
-    // Use Sort + Threshold to Implement
-    val id2:String = dateFormat.format(new Date())
-    val IPSourceTop     = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
-    val rcTop     = words.map(x => (x(6),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSips", prop)
-    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSps", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSipd", prop)
-    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSpd", prop)
-    sqlContext.createDataFrame(rcTop,rcschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSrc", prop)
-    })
   
-  lines3.foreachRDD(words =>
-    {
-    // Use Sort + Threshold to Implement
-    val id3:String = dateFormat.format(new Date())
-    words.map(a => a.map(b => println(b)))
-    val IPSourceTop     = words.map(x => (x(1),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
-    val IPDestTop	= words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
-    val nameTop		= words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
-    val typeTop		= words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQips", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQipd", prop)
-    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQname", prop)
-    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQtype", prop)
-    })
-
-  lines4.foreachRDD(words =>
-    {
-    // Use Sort + Threshold to Implement
-    val id4:String = dateFormat.format(new Date())
-    words.map(a => a.map(b => println(b)))
-    val IPSourceTop     = words.map(x => (x(1),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val IPDestTop   = words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val nameTop       = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val typeTop     = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
-    val urlTop     = words.map(x => (x(7),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSips", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSipd", prop)
-    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSname", prop)
-    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRStype", prop)
-    sqlContext.createDataFrame(urlTop,urlschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSurl", prop)
-    })*/
+  val schema7 = StructType(List(StructField("time", IntegerType, true),StructField("bytes", StringType, true),StructField("packets", StringType, true),StructField("src_ip", StringType, true),StructField("dst_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true)))
+  lines7.foreachRDD(rdd =>
+  {
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7)), schema6)
+    //rowrdd.map(p=>println(p))
+    rowrdd.registerTempTable("tempTable")
+    hiveCtx.sql("insert into NET.original select * from tempTable")
+  })
 
   //Step final: start the spark streaming context
   ssc.start
