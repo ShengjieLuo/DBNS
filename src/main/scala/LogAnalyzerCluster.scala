@@ -82,7 +82,7 @@ def main(args:Array[String]){
   val lines4 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
   val lines5 = lineMap5.map(_._2).map(p => {try{val natlogPattern(number, month, day, time, src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port) = p;Array(number,month,day,time,src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port);} catch {case e:MatchError => {Array(0);}}}).filter(_.length>=2) 
   val lines6 = lineMap6.map(_._2).map(p => {try{val syslogPattern(number, month, day, year, time, hostname, module, severity, program, message) = p;Array(number, month, day, year, time, hostname, module, severity, program, message);}catch {case e:MatchError => {Array(0);}}}).filter(_.length>=2)
-  val lines7 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
+  val lines7 = lineMap7.map(_._2).map(_.split("\t")).filter(_.length>=8)
   
 
   val hiveCtx = new HiveContext(sssc)
