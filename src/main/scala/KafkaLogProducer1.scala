@@ -24,9 +24,9 @@ object LogProducer_1 {
 
   def main(args: Array[String]) {
     val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
-    val sourcepool = Array("/usr/local/DBNS/sample/http_response.txt","/usr/local/DBNS/sample/http_request.txt","/usr/local/DBNS/sample/dns_response.txt","/usr/local/DBNS/sample/dns_request.txt")
+    val Array(brokers, speed,hrs,hrq,drs,drq) = args
+    val sourcepool = Array(hrs,hrq,drs,drq)
     val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest")
-    val Array(brokers, speed) = args
     val props = new HashMap[String, Object]()
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,

@@ -17,16 +17,16 @@ object LogProducer_2 {
         //println(topic+": "+line)
         val message = new ProducerRecord[String, String](topic, null, line)
         producer.send(message)
-        Thread.sleep(100)
+        Thread.sleep(speed)
       }
     }
   }
 
   def main(args: Array[String]) {
     val threadPool:ExecutorService=Executors.newFixedThreadPool(3)
-    val sourcepool = Array("/usr/local/DBNS/sample/netflow.txt","/usr/local/DBNS/sample/natlog.txt","/usr/local/DBNS/sample/syslog.txt")
+    val Array(brokers, speed,net,nat,sys) = args
+    val sourcepool = Array(net,nat,sys)
     val topicpool = Array("netflow","natlog","syslog")
-    val Array(brokers, speed) = args
     val props = new HashMap[String, Object]()
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
