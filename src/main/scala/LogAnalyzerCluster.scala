@@ -122,29 +122,29 @@ def main(args:Array[String]){
     hiveCtx.sql("insert into DRS.original select * from tempTable")
   })
 
-  val schema5 = StructType(List(StructField("number", IntegerType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("time", StringType, true),StructField("src_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_ip", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true),StructField("nat_type", StringType, true),StructField("nat_ip", StringType, true),StructField("nat_port", StringType, true)))
+  val schema5 = StructType(List(StructField("number", StringType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("time", StringType, true),StructField("src_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_ip", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true),StructField("nat_type", StringType, true),StructField("nat_ip", StringType, true),StructField("nat_port", StringType, true)))
   lines5.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim,p(10).trim,p(11).trim)), schema5)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim,p(10).trim,p(11).trim)), schema5)
     //rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into NAT.original select * from tempTable")
   })
 
-  val schema6 = StructType(List(StructField("number", IntegerType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("year", StringType, true),StructField("time", StringType, true),StructField("hostname", StringType, true),StructField("module", StringType, true),StructField("serverity", StringType, true),StructField("program", StringType, true),StructField("message", StringType, true)))
+  val schema6 = StructType(List(StructField("number", StringType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("year", StringType, true),StructField("time", StringType, true),StructField("hostname", StringType, true),StructField("module", StringType, true),StructField("serverity", StringType, true),StructField("program", StringType, true),StructField("message", StringType, true)))
   lines6.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim)), schema6)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim)), schema6)
     rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into SYS.original select * from tempTable")
   })
 
   
-  val schema7 = StructType(List(StructField("time", IntegerType, true),StructField("bytes", StringType, true),StructField("packets", StringType, true),StructField("src_ip", StringType, true),StructField("dst_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true)))
+  val schema7 = StructType(List(StructField("time", StringType, true),StructField("bytes", StringType, true),StructField("packets", StringType, true),StructField("src_ip", StringType, true),StructField("dst_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true)))
   lines7.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim.toInt, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim)), schema7)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim)), schema7)
     //rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into NET.original select * from tempTable")
