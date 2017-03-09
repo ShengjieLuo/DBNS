@@ -6,7 +6,7 @@ import org.apache.spark.SparkConf
 import scala.io.Source
 import java.util.concurrent.{Executors, ExecutorService}
 
-object LogProducer {
+object LogProducer_1 {
   
   class Message(props:HashMap[String,Object],source:String,topic:String) extends Runnable{
     def run(){
@@ -23,8 +23,8 @@ object LogProducer {
 
   def main(args: Array[String]) {
     val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
-    val sourcepool = Array("/usr/local/DBNS/sample/http_response.txt","/usr/local/DBNS/sample/http_request.txt","/usr/local/DBNS/sample/dns_response.txt","/usr/local/DBNS/sample/dns_request.txt","/usr/local/DBNS/sample/natlog.txt","/usr/local/DBNS/sample/syslog.txt","/usr/local/DBNS/sample/netflow.txt")
-    val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest","natlog","syslog","netflow")
+    val sourcepool = Array("/usr/local/DBNS/sample/http_response.txt","/usr/local/DBNS/sample/http_request.txt","/usr/local/DBNS/sample/dns_response.txt","/usr/local/DBNS/sample/dns_request.txt")
+    val topicpool = Array("httpResponse","httpRequest","dnsResponse","dnsRequest")
     val Array(brokers, topic) = args
     val props = new HashMap[String, Object]()
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
@@ -32,7 +32,7 @@ object LogProducer {
       "org.apache.kafka.common.serialization.StringSerializer")
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
       "org.apache.kafka.common.serialization.StringSerializer")
-    for (i <- 0 to 6){
+    for (i <- 0 to 3){
       threadPool.execute(new Message(props,sourcepool(i),topicpool(i)))
     }
   }
