@@ -80,8 +80,8 @@ def main(args:Array[String]){
   val lines2 = lineMap2.map(_._2).map(_.split("\t")).filter(_.length>=7)
   val lines3 = lineMap3.map(_._2).map(_.split("\t")).filter(_.length>=6)
   val lines4 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
-  val lines5 = lineMap5.map(_._2).map(p => {val natlogPattern(number, month, day, time, src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port) = p;Array(number,month,day,time,src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port);}).filter(_.length>=2) 
-  val lines6 = lineMap6.map(_._2).map(p => {val syslogPattern(number, month, day, year, time, hostname, module, severity, program, message) = p;Array(number, month, day, year, time, hostname, module, severity, program, message)}).filter(_.length>=2)
+  val lines5 = lineMap5.map(_._2).map(p => {try{val natlogPattern(number, month, day, time, src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port) = p;Array(number,month,day,time,src_ip, src_port, dst_ip, dst_port, protocol, nat_type, nat_ip, nat_port);} catch {case e:MatchError => {Array(0);}}}).filter(_.length>=2) 
+  val lines6 = lineMap6.map(_._2).map(p => {try{val syslogPattern(number, month, day, year, time, hostname, module, severity, program, message) = p;Array(number, month, day, year, time, hostname, module, severity, program, message);}catch {case e:MatchError => {Array(0);}}}).filter(_.length>=2)
   val lines7 = lineMap4.map(_._2).map(_.split("\t")).filter(_.length>=8)
   
 
@@ -125,7 +125,7 @@ def main(args:Array[String]){
   val schema5 = StructType(List(StructField("number", StringType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("time", StringType, true),StructField("src_ip", StringType, true),StructField("src_port", StringType, true),StructField("dst_ip", StringType, true),StructField("dst_port", StringType, true),StructField("protocol", StringType, true),StructField("nat_type", StringType, true),StructField("nat_ip", StringType, true),StructField("nat_port", StringType, true)))
   lines5.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim,p(10).trim,p(11).trim)), schema5)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).toString, p(1).toString, p(2).toString, p(3).toString,p(4).toString,p(5).toString,p(6).toString,p(7).toString,p(8).toString,p(9).toString,p(10).toString,p(11).toString)), schema5)
     //rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into NAT.original select * from tempTable")
@@ -134,7 +134,7 @@ def main(args:Array[String]){
   val schema6 = StructType(List(StructField("number", StringType, true),StructField("month", StringType, true),StructField("day", StringType, true),StructField("year", StringType, true),StructField("time", StringType, true),StructField("hostname", StringType, true),StructField("module", StringType, true),StructField("serverity", StringType, true),StructField("program", StringType, true),StructField("message", StringType, true)))
   lines6.foreachRDD(rdd =>
   {
-    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).trim, p(1).trim, p(2).trim, p(3).trim,p(4).trim,p(5).trim,p(6).trim,p(7).trim,p(8).trim,p(9).trim)), schema6)
+    val rowrdd = hiveCtx.createDataFrame(rdd.map(p => Row(p(0).toString, p(1).toString, p(2).toString, p(3).toString,p(4).toString,p(5).toString,p(6).toString,p(7).toString,p(8).toString,p(9).toString)), schema6)
     rowrdd.map(p=>println(p))
     rowrdd.registerTempTable("tempTable")
     hiveCtx.sql("insert into SYS.original select * from tempTable")
