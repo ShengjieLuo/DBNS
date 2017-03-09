@@ -42,4 +42,5 @@ echo  -e "\033[31m Clean data in hive database......done \033[0m"
 
 echo  -e "\033[31m Clean logs                 ......begin \033[0m"
 rm -f $DBNS_LOG/*
+rm -f $DBNS_HOME/derby.log
 echo  -e "\033[31m Clean logs                 ......done \033[0m"
