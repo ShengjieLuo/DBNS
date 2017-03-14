@@ -92,10 +92,10 @@ def main(args:Array[String]){
 
   val NETipd = hiveCtx.sql("SELECT dst_ip,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY dst_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toInt))
   val NETips = hiveCtx.sql("SELECT src_ip,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY src_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toInt))
-  val NETtype = hiveCtx.sql("SELECT protocol,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY ptotocol having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toInt))
+  val NETtype = hiveCtx.sql("SELECT protocol,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY protocol having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toInt))
   val NETipds = hiveCtx.sql("SELECT dst_ip,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY dst_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val NETipss = hiveCtx.sql("SELECT src_ip,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY src_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
-  val NETtypes = hiveCtx.sql("SELECT protocol,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY ptotocol having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
+  val NETtypes = hiveCtx.sql("SELECT protocol,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY protocol having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val NETcount = hiveCtx.sql("SELECT sum(packets) FROM net.original WHERE time> "+NETlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
   val NETsum = hiveCtx.sql("SELECT sum(bytes) FROM net.original WHERE time> "+NETlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
   val NETlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM net.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,"NET",p(0).toString().toInt,p(1).toString().toInt))
