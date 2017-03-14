@@ -24,11 +24,11 @@ def main(args:Array[String]){
   StreamingExamples.setStreamingLogLevels()
 
   //step0: Receive the information from Kafka
-  val sc = new SparkConf().setAppName("LogStreamingAdvancedSparkCluster").setMaster("spark://172.16.0.104:7077")
+  val sc = new SparkConf().setAppName("LogStreamingAdvancedSparkCluster").setMaster("spark://spark-master:7077")
   val sssc = new SparkContext(sc)
   val ssc = new StreamingContext(sssc,Seconds(60))
   ssc.checkpoint("/dbns/checkpoint")
-  val zkQuorum = "172.16.0.104:2182" //Zookeeper服务器地址
+  val zkQuorum = "spark-master:2182" //Zookeeper服务器地址
   val group = "1"  //topic所在的group，可以设置为自己想要的名称，比如不用1，而是val group = "test-consumer-group"
   val Array(threA,threB) = args
   val thre1 = threA.toInt
@@ -162,10 +162,10 @@ def main(args:Array[String]){
     val PortSourceTop   = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
     val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
     val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id1,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQips", prop)
-    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQps", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQipd", prop)
-    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRQpd", prop)
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRQips", prop)
+    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRQps", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRQipd", prop)
+    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRQpd", prop)
     })
 
   lines2.foreachRDD(words =>
@@ -177,11 +177,11 @@ def main(args:Array[String]){
     val IPDestTop       = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
     val PortDestTop     = words.map(x => (x(5),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id2,p._2.trim,p._1.toInt))
     val rcTop     = words.map(x => (x(6),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>5).map(p => Row(id2,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSips", prop)
-    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSps", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSipd", prop)
-    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSpd", prop)
-    sqlContext.createDataFrame(rcTop,rcschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.HRSrc", prop)
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRSips", prop)
+    sqlContext.createDataFrame(PortSourceTop,psschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRSps", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRSipd", prop)
+    sqlContext.createDataFrame(PortDestTop,pdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRSpd", prop)
+    sqlContext.createDataFrame(rcTop,rcschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.HRSrc", prop)
     })
   
   lines3.foreachRDD(words =>
@@ -193,10 +193,10 @@ def main(args:Array[String]){
     val IPDestTop	= words.map(x => (x(2),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
     val nameTop		= words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
     val typeTop		= words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id3,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQips", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQipd", prop)
-    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQname", prop)
-    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRQtype", prop)
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRQips", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRQipd", prop)
+    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRQname", prop)
+    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRQtype", prop)
     })
 
   lines4.foreachRDD(words =>
@@ -209,11 +209,11 @@ def main(args:Array[String]){
     val nameTop       = words.map(x => (x(3),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
     val typeTop     = words.map(x => (x(4),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
     val urlTop     = words.map(x => (x(7),1)).reduceByKey((x,y) => x + y).map(p => (p._2,p._1)).sortByKey().filter(_._1>thre1).map(p => Row(id4,p._2.trim,p._1.toInt))
-    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSips", prop)
-    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSipd", prop)
-    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSname", prop)
-    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRStype", prop)
-    sqlContext.createDataFrame(urlTop,urlschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/stat", "stat.DRSurl", prop)
+    sqlContext.createDataFrame(IPSourceTop,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRSips", prop)
+    sqlContext.createDataFrame(IPDestTop,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRSipd", prop)
+    sqlContext.createDataFrame(nameTop,nameschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRSname", prop)
+    sqlContext.createDataFrame(typeTop,typeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRStype", prop)
+    sqlContext.createDataFrame(urlTop,urlschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/stat", "stat.DRSurl", prop)
     })*/
 
   //Step final: start the spark streaming context

@@ -1,9 +1,9 @@
 root@spark-master:~# beeline
 Beeline version 1.2.1 by Apache Hive
-beeline> !connect jdbc:hive2://172.16.0.104:10000
-Connecting to jdbc:hive2://172.16.0.104:10000
-Enter username for jdbc:hive2://172.16.0.104:10000: root
-Enter password for jdbc:hive2://172.16.0.104:10000: ******
+beeline> !connect jdbc:hive2://spark-master:10000
+Connecting to jdbc:hive2://spark-master:10000
+Enter username for jdbc:hive2://spark-master:10000: root
+Enter password for jdbc:hive2://spark-master:10000: ******
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/usr/local/spark/lib/kafka/slf4j-log4j12-1.7.21.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/usr/local/spark/lib/spark-assembly-1.6.3-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
@@ -13,7 +13,7 @@ SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
 Connected to: Spark SQL (version 1.6.3)
 Driver: Hive JDBC (version 1.2.1)
 Transaction isolation: TRANSACTION_REPEATABLE_READ
-0: jdbc:hive2://172.16.0.104:10000> SELECT ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50;
+0: jdbc:hive2://spark-master:10000> SELECT ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50;
 +------------------+--------+--+
 |       ipd        | count  |
 +------------------+--------+--+
@@ -54,5 +54,5 @@ Transaction isolation: TRANSACTION_REPEATABLE_READ
 | 111.73.45.171    | 222    |
 +------------------+--------+--+
 35 rows selected (11.592 seconds)
-0: jdbc:hive2://172.16.0.104:10000> !exit
+0: jdbc:hive2://spark-master:10000> !exit
 

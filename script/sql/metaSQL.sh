@@ -3,7 +3,7 @@ use DBNS;
 create table metadata(name varchar(50),value varchar(50));
 INSERT INTO metadata (name,value) VALUES ("version","0.2.0");
 INSERT INTO metadata (name,value) VALUES ("frame","spark-based");
-INSERT INTO metadata (name,value) VALUES ("master","172.16.0.104");
+INSERT INTO metadata (name,value) VALUES ("master","spark-master");
 INSERT INTO metadata (name,value) VALUES ("slaves","172.16.0.59");
 INSERT INTO metadata (name,value) VALUES ("slaves","172.16.0.68");
 INSERT INTO metadata (name,value) VALUES ("message","kafka");

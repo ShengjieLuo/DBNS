@@ -37,7 +37,7 @@ python $DBNS_HOME/script/clean/cleanSQL.py
 echo  -e "\033[31m Clean data in mysql database......done \033[0m"
 
 echo  -e "\033[31m Clean data in hive database......begin \033[0m"
-beeline -u jdbc:hive2://172.16.0.104:10000 -n root -p 123456  -f $DBNS_HOME/script/clean/cleanHive.sql
+beeline -u jdbc:hive2://spark-master:10000 -n root -p 123456  -f $DBNS_HOME/script/clean/cleanHive.sql
 echo  -e "\033[31m Clean data in hive database......done \033[0m"
 
 echo  -e "\033[31m Clean logs                 ......begin \033[0m"
