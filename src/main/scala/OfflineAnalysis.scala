@@ -48,6 +48,7 @@ def main(args:Array[String]){
   val HRQlast = statusDF.filter("analysisTime = " + lastTime.toString).filter("item = 'HRQ'").take(1)(0)(3).toString
   val DRSlast = statusDF.filter("analysisTime = " + lastTime.toString).filter("item = 'DRS'").take(1)(0)(3).toString
   val HRSlast = statusDF.filter("analysisTime = " + lastTime.toString).filter("item = 'HRS'").take(1)(0)(3).toString
+  val NETlast = statusDF.filter("analysisTime = " + lastTime.toString).filter("item = 'NET'").take(1)(0)(3).toString
 
   val HRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRQips = hiveCtx.sql("SELECT FIRST(time),ips,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ips having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
@@ -55,6 +56,8 @@ def main(args:Array[String]){
   val HRQps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRQipds = hiveCtx.sql("SELECT ipd,cast(sum(TTL) as bigint) as sum FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ipd ORDER BY sum DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val HRQipss = hiveCtx.sql("SELECT ips,cast(sum(TTL) as bigint) as sum FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ips ORDER BY sum DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
+  val HRQtype = hiveCtx.sql("SELECT type,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY type ORDER BY count DESC").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toInt))
+  val HRQtypes = hiveCtx.sql("SELECT type,cast(sum(TTL) as bigint) as sum FROM hrq.original WHERE time> "+HRQlast+" GROUP BY type ORDER BY sum DESC").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val HRQcount = hiveCtx.sql("SELECT count(*) FROM hrq.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
   val HRQsum = hiveCtx.sql("SELECT cast(sum(TTL) as bigint) FROM hrq.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
   val HRQlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM HRQ.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,"HRQ",p(0).toString().toInt,p(1).toString().toInt))
@@ -64,6 +67,7 @@ def main(args:Array[String]){
   val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original WHERE time> "+HRSlast+" GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
+  val HRSrcs = hiveCtx.sql("SELECT FIRST(time),rc,cast(sum(TTL) as bigint) as sum FROM hrs.original WHERE time> "+HRSlast+" GROUP BY rc ORDER BY sum DESC").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toLong))
   val HRSipds = hiveCtx.sql("SELECT ipd,cast(sum(TTL) as bigint) as sum FROM hrs.original WHERE time> "+HRSlast+" GROUP BY ipd ORDER BY sum DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val HRSipss = hiveCtx.sql("SELECT ips,cast(sum(TTL) as bigint) as sum FROM hrs.original WHERE time> "+HRSlast+" GROUP BY ips ORDER BY sum DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val HRScount = hiveCtx.sql("SELECT count(*) FROM hrs.original WHERE time> "+HRSlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
@@ -85,14 +89,27 @@ def main(args:Array[String]){
   val DRScount = hiveCtx.sql("SELECT count(*) FROM drs.original WHERE time> "+DRSlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
   val DRSlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM DRS.original WHERE time> "+DRSlast).rdd.map(p=>Row(timestamp,"DRS",p(0).toString().toInt,p(1).toString().toInt))
 
+
+  val NETipd = hiveCtx.sql("SELECT dst_ip,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY dst_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toFloat.toInt))
+  val NETips = hiveCtx.sql("SELECT src_ip,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY src_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toFloat.toInt))
+  val NETtype = hiveCtx.sql("SELECT protocol,sum(packets) as count FROM net.original WHERE time> "+NETlast+" GROUP BY protocol having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toFloat.toInt))
+  val NETipds = hiveCtx.sql("SELECT dst_ip,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY dst_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toDouble.toLong))
+  val NETipss = hiveCtx.sql("SELECT src_ip,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY src_ip having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toDouble.toLong))
+  val NETtypes = hiveCtx.sql("SELECT protocol,cast(sum(bytes) as bigint) as count FROM net.original WHERE time> "+NETlast+" GROUP BY protocol having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toDouble.toLong))
+  val NETcount = hiveCtx.sql("SELECT sum(packets) FROM net.original WHERE time> "+NETlast).rdd.map(p=>Row(timestamp,p(0).toString().toDouble.toLong))
+  val NETsum = hiveCtx.sql("SELECT sum(bytes) FROM net.original WHERE time> "+NETlast).rdd.map(p=>Row(timestamp,p(0).toString().toDouble.toLong))
+  val NETlastTime = hiveCtx.sql("SELECT MIN(time),MAX(time) FROM net.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,"NET",p(0).toString().toInt,p(1).toString().toInt))
+
   val ipsschema = StructType(List(StructField("time",IntegerType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))
   val ipdschema = StructType(List(StructField("time",IntegerType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))
   val nameschema  = StructType(List(StructField("time",IntegerType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))
   val typeschema  = StructType(List(StructField("time",IntegerType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))
+  val typesschema = StructType(List(StructField("time",IntegerType,true),StructField("type",StringType,true),StructField("size",LongType,true)))
   val psschema  = StructType(List(StructField("time",IntegerType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))
   val pdschema  = StructType(List(StructField("time",IntegerType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))
   val urlschema  = StructType(List(StructField("time",IntegerType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))
   val rcschema  = StructType(List(StructField("time",IntegerType,true),StructField("returnCode",StringType,true),StructField("count",IntegerType,true)))
+  val rcsschema  = StructType(List(StructField("time",IntegerType,true),StructField("returnCode",StringType,true),StructField("size",LongType,true)))
   val lastschema = StructType(List(StructField("analysisTime",IntegerType,true),StructField("item",StringType,true),StructField("firsttime",IntegerType,true),StructField("lasttime",IntegerType,true)))
   val allschema = StructType(List(StructField("time",IntegerType,true),StructField("count",LongType,true)))
   val sizeschema = StructType(List(StructField("time",IntegerType,true),StructField("IP",StringType,true),StructField("size",LongType,true)))
@@ -107,6 +124,8 @@ def main(args:Array[String]){
   sqlContext.createDataFrame(HRQpd,pdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQpd", prop)
   sqlContext.createDataFrame(HRQipss,sizeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQipss", prop)
   sqlContext.createDataFrame(HRQipds,sizeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQipds", prop)
+  sqlContext.createDataFrame(HRQtype,typeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQtype", prop)
+  sqlContext.createDataFrame(HRQtypes,typesschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQtypes", prop)
   sqlContext.createDataFrame(HRQcount,allschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQcount", prop)
   sqlContext.createDataFrame(HRQsum,allschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRQsum", prop)
   
@@ -115,6 +134,7 @@ def main(args:Array[String]){
   sqlContext.createDataFrame(HRSipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRSipd", prop)
   sqlContext.createDataFrame(HRSpd,pdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRSpd", prop)
   sqlContext.createDataFrame(HRSrc,rcschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRSrc", prop)
+  sqlContext.createDataFrame(HRSrcs,rcsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRSrcs", prop)
   sqlContext.createDataFrame(HRSipss,sizeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRSipss", prop)
   sqlContext.createDataFrame(HRSipds,sizeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRSipds", prop)
   sqlContext.createDataFrame(HRScount,allschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.HRScount", prop)
@@ -133,10 +153,20 @@ def main(args:Array[String]){
   sqlContext.createDataFrame(DRSurl,urlschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.DRSurl", prop)
   sqlContext.createDataFrame(DRScount,allschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.DRScount", prop)
 
+  sqlContext.createDataFrame(NETips,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETips", prop)
+  sqlContext.createDataFrame(NETipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETipd", prop)
+  sqlContext.createDataFrame(NETipss,sizeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETipss", prop)
+  sqlContext.createDataFrame(NETipds,sizeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETipds", prop)
+  sqlContext.createDataFrame(NETtype,typeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETtype", prop)
+  sqlContext.createDataFrame(NETtypes,typesschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETtypes", prop)
+  sqlContext.createDataFrame(NETcount,allschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETcount", prop)
+  sqlContext.createDataFrame(NETsum,allschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.NETsum", prop)
+ 
   sqlContext.createDataFrame(HRQlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.offstatus", prop)
   sqlContext.createDataFrame(DRQlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.offstatus", prop)
   sqlContext.createDataFrame(HRSlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.offstatus", prop)
   sqlContext.createDataFrame(DRSlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.offstatus", prop)
+  sqlContext.createDataFrame(NETlastTime,lastschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/DBNS", "DBNS.offstatus", prop)
     
   }
 }

@@ -86,6 +86,7 @@ def truncateTable():
 	exeSQL("truncate table DBNS.HRSps")
 	exeSQL("truncate table DBNS.HRSpd")
 	exeSQL("truncate table DBNS.HRSrc")
+	exeSQL("truncate table DBNS.HRSrcs")
 	exeSQL("truncate table DBNS.HRSipss")
 	exeSQL("truncate table DBNS.HRSipds")
 	exeSQL("truncate table DBNS.HRSsum")
@@ -95,6 +96,8 @@ def truncateTable():
 	exeSQL("truncate table DBNS.HRQipd")
 	exeSQL("truncate table DBNS.HRQps")
 	exeSQL("truncate table DBNS.HRQpd")
+	exeSQL("truncate table DBNS.HRQtype")
+	exeSQL("truncate table DBNS.HRQtypes")
 	exeSQL("truncate table DBNS.HRQipss")
 	exeSQL("truncate table DBNS.HRQipds")
 	exeSQL("truncate table DBNS.HRQsum")
@@ -113,6 +116,17 @@ def truncateTable():
 	exeSQL("truncate table DBNS.DRQtype")
 	exeSQL("truncate table DBNS.DRQcount")
 
+	exeSQL("truncate table DBNS.NETips")
+	exeSQL("truncate table DBNS.NETipd")
+	exeSQL("truncate table DBNS.NETps")
+	exeSQL("truncate table DBNS.NETpd")
+	exeSQL("truncate table DBNS.NETtype")
+	exeSQL("truncate table DBNS.NETtypes")
+	exeSQL("truncate table DBNS.NETipss")
+	exeSQL("truncate table DBNS.NETipds")
+	exeSQL("truncate table DBNS.NETsum")
+	exeSQL("truncate table DBNS.NETcount")
+	
 	exeSQL("truncate table DBNS.offstatus")
 	exeSQL("truncate table DBNS.onstatus")
 	exeSQL("truncate table DBNS.latest")
@@ -121,6 +135,7 @@ def truncateTable():
 	exeSQL("insert into DBNS.offstatus values (0,\"HRQ\",0,0)")
 	exeSQL("insert into DBNS.offstatus values (0,\"HRS\",0,0)")
 	exeSQL("insert into DBNS.offstatus values (0,\"DRS\",0,0)")
+	exeSQL("insert into DBNS.offstatus values (0,\"NET\",0,0)")
 	exeSQL("insert into DBNS.latest values (0)")
 
 
