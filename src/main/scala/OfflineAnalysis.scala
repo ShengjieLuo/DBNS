@@ -56,7 +56,7 @@ def main(args:Array[String]){
   val HRQps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(1).toString(),p(2).toString().toInt))
   val HRQipds = hiveCtx.sql("SELECT ipd,cast(sum(TTL) as bigint) as sum FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ipd ORDER BY sum DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val HRQipss = hiveCtx.sql("SELECT ips,cast(sum(TTL) as bigint) as sum FROM hrq.original WHERE time> "+HRQlast+" GROUP BY ips ORDER BY sum DESC LIMIT 50").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
-  val HRQtype = hiveCtx.sql("SELECT type,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY type ORDER BY count DESC").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
+  val HRQtype = hiveCtx.sql("SELECT type,count(*) as count FROM hrq.original WHERE time> "+HRQlast+" GROUP BY type ORDER BY count DESC").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toInt))
   val HRQtypes = hiveCtx.sql("SELECT type,cast(sum(TTL) as bigint) as sum FROM hrq.original WHERE time> "+HRQlast+" GROUP BY type ORDER BY sum DESC").rdd.map(p=>Row(timestamp,p(0).toString(),p(1).toString().toLong))
   val HRQcount = hiveCtx.sql("SELECT count(*) FROM hrq.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
   val HRQsum = hiveCtx.sql("SELECT cast(sum(TTL) as bigint) FROM hrq.original WHERE time> "+HRQlast).rdd.map(p=>Row(timestamp,p(0).toString().toLong))
