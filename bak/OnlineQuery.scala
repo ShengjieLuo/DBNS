@@ -56,10 +56,10 @@ def main(args:Array[String]){
   val HRQips = hiveCtx.sql("SELECT ips,count(*) as count FROM hrq.original WHERE "+starttime+" <time and time<" + endtime +" GROUP BY ips ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString().toInt))
   val HRQpd = hiveCtx.sql("SELECT pd,count(*) as count FROM hrq.original WHERE "+starttime+" <time and time<" + endtime +" GROUP BY pd ORDER BY count DESC LIMIT 10").rdd.map(p=>Row(p(0).toString(),p(1).toString().toInt))
   val HRQps = hiveCtx.sql("SELECT ps,count(*) as count FROM hrq.original WHERE "+starttime+" <time and time<" + endtime +" GROUP BY ps ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString().toInt))
-  sqlContext.createDataFrame(HRQips,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRQips", prop)
-  sqlContext.createDataFrame(HRQps,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRQps", prop)
-  sqlContext.createDataFrame(HRQipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRQipd", prop)
-  sqlContext.createDataFrame(HRQpd,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRQpd", prop)
+  sqlContext.createDataFrame(HRQips,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRQips", prop)
+  sqlContext.createDataFrame(HRQps,psschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRQps", prop)
+  sqlContext.createDataFrame(HRQipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRQipd", prop)
+  sqlContext.createDataFrame(HRQpd,pdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRQpd", prop)
 }
 
   if (tablename=="HRS" & typenmae=="top")
@@ -69,11 +69,11 @@ def main(args:Array[String]){
   val HRSpd = hiveCtx.sql("SELECT FIRST(time),pd,count(*) as count FROM hrs.original GROUP BY pd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   val HRSps = hiveCtx.sql("SELECT FIRST(time),ps,count(*) as count FROM hrs.original GROUP BY ps having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   val HRSrc = hiveCtx.sql("SELECT FIRST(time),rc,count(*) as count FROM hrs.original GROUP BY rc having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
-  sqlContext.createDataFrame(HRSips,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRSips", prop)
-  sqlContext.createDataFrame(HRSps,psschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRSps", prop)
-  sqlContext.createDataFrame(HRSipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRSipd", prop)
-  sqlContext.createDataFrame(HRSpd,pdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRSpd", prop)
-  sqlContext.createDataFrame(HRSrc,rcschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.HRSrc", prop)
+  sqlContext.createDataFrame(HRSips,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRSips", prop)
+  sqlContext.createDataFrame(HRSps,psschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRSps", prop)
+  sqlContext.createDataFrame(HRSipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRSipd", prop)
+  sqlContext.createDataFrame(HRSpd,pdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRSpd", prop)
+  sqlContext.createDataFrame(HRSrc,rcschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.HRSrc", prop)
 }
 
   if (tablename=="DRQ" & typename=="top")
@@ -82,10 +82,10 @@ def main(args:Array[String]){
   val DRQipd = hiveCtx.sql("SELECT FIRST(time),ipd,count(*) as count FROM drq.original GROUP BY ipd having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   val DRQname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drq.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   val DRQtype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drq.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
-  sqlContext.createDataFrame(DRQips,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRQips", prop)
-  sqlContext.createDataFrame(DRQipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRQipd", prop)
-  sqlContext.createDataFrame(DRQname,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRQname", prop)
-  sqlContext.createDataFrame(DRQtype,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRQtype", prop)
+  sqlContext.createDataFrame(DRQips,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRQips", prop)
+  sqlContext.createDataFrame(DRQipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRQipd", prop)
+  sqlContext.createDataFrame(DRQname,nameschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRQname", prop)
+  sqlContext.createDataFrame(DRQtype,typeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRQtype", prop)
 }
 
   if (tablename=="DRS" & typename=="top")
@@ -95,11 +95,11 @@ def main(args:Array[String]){
   val DRSname = hiveCtx.sql("SELECT FIRST(time),name,count(*) as count FROM drs.original GROUP BY name having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   val DRStype = hiveCtx.sql("SELECT FIRST(time),type,count(*) as count FROM drs.original GROUP BY type having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
   val DRSurl = hiveCtx.sql("SELECT FIRST(time),url,count(*) as count FROM drs.original GROUP BY url having count > 100 ORDER BY count DESC LIMIT 50").rdd.map(p=>Row(p(0).toString(),p(1).toString(),p(2).toString().toInt))
-  sqlContext.createDataFrame(DRSips,ipsschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRSips", prop)
-  sqlContext.createDataFrame(DRSipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRSipd", prop)
-  sqlContext.createDataFrame(DRSname,nameschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRSname", prop)
-  sqlContext.createDataFrame(DRStype,typeschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRStype", prop)
-  sqlContext.createDataFrame(DRSurl,urlschema).write.mode("append").jdbc("jdbc:mysql://172.16.0.104:3306/query", "query.DRSurl", prop)
+  sqlContext.createDataFrame(DRSips,ipsschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRSips", prop)
+  sqlContext.createDataFrame(DRSipd,ipdschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRSipd", prop)
+  sqlContext.createDataFrame(DRSname,nameschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRSname", prop)
+  sqlContext.createDataFrame(DRStype,typeschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRStype", prop)
+  sqlContext.createDataFrame(DRSurl,urlschema).write.mode("append").jdbc("jdbc:mysql://spark-master:3306/query", "query.DRSurl", prop)
 }
 
 

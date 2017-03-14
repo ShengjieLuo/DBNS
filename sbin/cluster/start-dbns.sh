@@ -25,8 +25,8 @@ echo  -e "\033[31m**         Execute DBNS Task             ** \033[0m"
 echo  -e "\033[31m******************************************* \033[0m"
 
 echo  -e "\033[31m Send Network Package       ......begin \033[0m"
-nohup $DBNS_HOME/run/runSenderCluster.sh 2>$DBNS_LOG/Sender.err 1>$DBNS_LOG/Sender.log &
 sleep 3s
+nohup $DBNS_HOME/run/runSenderCluster.sh 2>$DBNS_LOG/Sender.err 1>$DBNS_LOG/Sender.log &
 echo  -e "\033[31m Send Network Package       ......success \033[0m"
 
 echo  -e "\033[31m Launch Streaming Analyzer  ......begin \033[0m"

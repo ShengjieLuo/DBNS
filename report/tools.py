@@ -5,7 +5,7 @@ def exeSQL(sql):
         config = {
                   'user':'root',
                   'password':'123456',
-                  'host':'172.16.0.104',
+                  'host':'spark-master',
                   'port':3306,
                   'database':'stat'}
         conn = mysql.connector.connect(**config)
@@ -19,7 +19,7 @@ def exeSQLquery(sql):
         config = {
                   'user':'root',
                   'password':'123456',
-                  'host':'172.16.0.104',
+                  'host':'spark-master',
                   'port':3306,
                   'database':'stat'}
         conn = mysql.connector.connect(**config)
