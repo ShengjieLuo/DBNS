@@ -8,6 +8,7 @@ insert into offstatus values (0,"DRQ",0,0);
 insert into offstatus values (0,"HRQ",0,0);
 insert into offstatus values (0,"HRS",0,0);
 insert into offstatus values (0,"DRS",0,0);
+insert into offstatus values (0,"NET",0,0);
 insert into latest values (0);
 
 create table HRSips (time int,IPSource varchar(20),count int);
@@ -45,6 +46,17 @@ create table DRQname(time int,name varchar(100),count int);
 create table DRQtype(time int,type varchar(20),count int);
 create table DRQcount (time int, count long);
 
+create table NETips (time int, IPSource varchar(20),count int);
+create table NETipd (time int,IPDest varchar(20),count int);
+create table NETps (time int,PortSource varchar(20),count int);
+create table NETpd (time int,PortDest varchar(20),count int);
+create table NETtype (time int, returnCode varchar(20),count int);
+create table NETtypes (time int, returnCode varchar(20),size long);
+create table NETipds (time int,IP varchar(20),size long);
+create table NETipss (time int,IP varchar(20),size long);
+create table NETsum (time int, count long);
+create table NETcount (time int, count long);
+
 truncate table HRSips;
 truncate table HRSipd;
 truncate table HRSps;
@@ -79,6 +91,15 @@ truncate table DRQipd;
 truncate table DRQname;
 truncate table DRQtype;
 truncate table DRQcount;
+
+truncate table NETips;
+truncate table NETipd;
+truncate table NETtype;
+truncate table NETtypes;
+truncate table NETipss;
+truncate table NETipds;
+truncate table NETsum;
+truncate table NETcount;
 
 truncate table offstatus;
 truncate table onstatus;
