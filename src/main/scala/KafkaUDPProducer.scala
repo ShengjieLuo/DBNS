@@ -29,8 +29,8 @@ object LogUDPProducer{
     val fg1:Int = flag1.toInt
     val fg2:Int = flag2.toInt
     
-    val threadPool:ExecutorService=Executors.newCachedThreadPool()
-    if (flag2 == 1) {val threadPool:ExecutorService=Executors.newFixedThreadPool(64)}
+    var threadPool:ExecutorService=Executors.newCachedThreadPool()
+    if (fg2 == 1) {var threadPool:ExecutorService=Executors.newFixedThreadPool(64)}
     
     val props = new HashMap[String, Object]()
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, broker)
