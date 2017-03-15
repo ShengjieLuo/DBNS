@@ -16,17 +16,22 @@ object LogUDPProducer{
   }
 
   def main(args: Array[String]) {
-    val Array(broker,flag,topic,port) = args
-    val threadPool:ExecutorService=Executors.newCachedThreadPool()
+    val Array(broker,flag1,flag2,topic,port) = args
 
     /*Defualt Configuration
     val topic:String = "test"
     val broker:String = "spark-master:9092"
-    val sleep:Int = 1
+    val flag1 = 1 //Show the screen flag
+    val flag2 = 1 //Use Fixed Pool
     val port:Int = 9999*/
 
     val portNum:Int = port.toInt
-    val fg:Int = flag.toInt
+    val fg1:Int = flag1.toInt
+    val fg2:Int = flag2.toInt
+    
+    val threadPool:ExecutorService=Executors.newCachedThreadPool()
+    if (flag2 == 1) {val threadPool:ExecutorService=Executors.newFixedThreadPool(64)}
+    
     val props = new HashMap[String, Object]()
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, broker)
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")
@@ -38,7 +43,7 @@ object LogUDPProducer{
       {
           val receivePacket:DatagramPacket = new DatagramPacket(receiveData, receiveData.length)
           serverSocket.receive(receivePacket)
-          threadPool.execute(new Message(producer,topic,receivePacket,fg))                
+          threadPool.execute(new Message(producer,topic,receivePacket,fg1))                
       }
   }
 }
