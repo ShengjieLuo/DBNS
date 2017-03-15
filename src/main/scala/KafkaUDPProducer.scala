@@ -8,8 +8,8 @@ object LogUDPProducer{
   class Message(producer:KafkaProducer[String,String],topic:String,packet:DatagramPacket) extends Runnable{
     def run(){
       val sentence:String = new String(packet.getData(),0,packet.getLength()-1)
-      println(Thread.currentThread().getName())
-      println(topic+": "+sentence)
+      //println(Thread.currentThread().getName())
+      //println(topic+": "+sentence)
       val message = new ProducerRecord[String, String](topic, null, sentence)
       producer.send(message)
     }
@@ -17,7 +17,7 @@ object LogUDPProducer{
 
   def main(args: Array[String]) {
     val Array(broker,sleep,topic,port) = args
-    val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
+    val threadPool:ExecutorService=Executors.newCachedThreadPool()
 
     /*Defualt Configuration
     val topic:String = "test"
