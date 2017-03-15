@@ -1,15 +1,23 @@
 import java.util.HashMap
 import org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}
-import org.apache.spark.streaming._
-import org.apache.spark.streaming.kafka._
-import org.apache.spark.SparkConf
 import java.util.concurrent.{Executors, ExecutorService}
 import java.net.{DatagramPacket,DatagramSocket,InetAddress}
 
 object LogUDPProducer{
   
+  class Message(producer:KafkaProducer[String,String],topic:String,packet:DatagramPacket) extends Runnable{
+    def run(){
+      val sentence:String = new String(packet.getData(),0,packet.getLength()-1)
+      println(Thread.currentThread().getName())
+      println(topic+": "+sentence)
+      val message = new ProducerRecord[String, String](topic, null, sentence)
+      producer.send(message)
+    }
+  }
+
   def main(args: Array[String]) {
     val Array(broker,sleep,topic,port) = args
+    val threadPool:ExecutorService=Executors.newFixedThreadPool(4)
 
     /*Defualt Configuration
     val topic:String = "test"
@@ -30,11 +38,7 @@ object LogUDPProducer{
           val receiveData = new Array[Byte](1024)
           val receivePacket:DatagramPacket = new DatagramPacket(receiveData, receiveData.length)
           serverSocket.receive(receivePacket)
-          val sentence:String = new String(receivePacket.getData(),0,receivePacket.getLength()-1)
-          //println(topic+": "+sentence)
-          val message = new ProducerRecord[String, String](topic, null, sentence)
-          producer.send(message)
-          //Thread.sleep(sleepNum)
+          threadPool.execute(new Message(producer,topic,receivePacket))                
       }
   }
 }
