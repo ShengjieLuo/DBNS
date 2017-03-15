@@ -31,10 +31,10 @@ object LogUDPProducer{
           val receivePacket:DatagramPacket = new DatagramPacket(receiveData, receiveData.length)
           serverSocket.receive(receivePacket)
           val sentence:String = new String(receivePacket.getData(),0,receivePacket.getLength()-1)
-          println(topic+": "+sentence)
+          //println(topic+": "+sentence)
           val message = new ProducerRecord[String, String](topic, null, sentence)
           producer.send(message)
-          Thread.sleep(sleepNum)
+          //Thread.sleep(sleepNum)
       }
   }
 }
