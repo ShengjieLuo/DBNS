@@ -5,4 +5,4 @@
 --class "LogUDPProducer" \
 --total-executor-cores 10 \
 /usr/local/DBNS/target/scala-2.10/simple-project_2.10-1.0.jar \
-spark-master:9092 0 1 test 9999
+spark-master:9092 0 0 test 9999
