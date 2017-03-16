@@ -10,8 +10,8 @@ object LogUDPProducer{
  
   class SharePool{
     var poolCount:Int = 0;
-    def send(){this.synchronized{poolCount = poolCount - 1;}; println("Num:" + poolCount.toString + "\tSend Package"); }
-    def receive(){this.synchronized{poolCount = poolCount + 1;}; println("Num:" + poolCount.toString+ "\tReceive Package"); }
+    def send(){this.synchronized{poolCount = poolCount - 1;}; if (poolCount>100){println("Num:" + poolCount.toString + "\tSend Package");} }
+    def receive(){this.synchronized{poolCount = poolCount + 1;}; if (poolCount>100){println("Num:" + poolCount.toString+ "\tReceive Package");} }
   }
 
   class Sender(producer:KafkaProducer[String,String],topic:String,fg:Int,queue:BlockingQueue[DatagramPacket],pool:SharePool) extends Runnable{
@@ -64,7 +64,7 @@ object LogUDPProducer{
     val producer = new KafkaProducer[String, String](props)// Send some messages
     val serverSocket:DatagramSocket = new DatagramSocket(portNum)
     val receiveData = new Array[Byte](1024)
-    val blockingQueue:BlockingQueue[DatagramPacket] = new LinkedBlockingQueue[DatagramPacket](1000)
+    val blockingQueue:BlockingQueue[DatagramPacket] = new LinkedBlockingQueue[DatagramPacket]()
     val threadPool:ExecutorService = Executors.newFixedThreadPool(ThreadNum)
     val dataPool:SharePool = new SharePool()
     if (modeNum == 1) {
