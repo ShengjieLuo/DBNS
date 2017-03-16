@@ -8,6 +8,8 @@
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvancedCluster$$anonfun$main$3.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$5$$anonfun$51.class[0m
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$main$5$$anonfun$51.class[0m
+[0m[[0mdebug[0m] [0m	LogUDPProducer$$anonfun$main$2.class[0m
+[0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogUDPProducer$$anonfun$main$2.class[0m
 [0m[[0mdebug[0m] [0m	OfflineAnalysis$.class[0m
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/OfflineAnalysis$.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedCluster$$anonfun$main$1$$anonfun$35.class[0m
@@ -370,6 +372,8 @@
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvanced$$anonfun$main$8$$anonfun$100.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedCluster$$anonfun$main$5$$anonfun$45.class[0m
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvancedCluster$$anonfun$main$5$$anonfun$45.class[0m
+[0m[[0mdebug[0m] [0m	LogUDPProducer$SharePool.class[0m
+[0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogUDPProducer$SharePool.class[0m
 [0m[[0mdebug[0m] [0m	OfflineAnalysis$$anonfun$14.class[0m
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/OfflineAnalysis$$anonfun$14.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvanced$$anonfun$main$8$$anonfun$94.class[0m
@@ -392,6 +396,8 @@
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvancedCluster$$anonfun$main$7$$anonfun$10.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedSparkCluster$$anonfun$main$2.class[0m
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvancedSparkCluster$$anonfun$main$2.class[0m
+[0m[[0mdebug[0m] [0m	LogUDPProducer$SenderSimple.class[0m
+[0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogUDPProducer$SenderSimple.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvanced$$anonfun$main$5$$anonfun$42.class[0m
 [0m[[0mdebug[0m] [0m	  /root/DBNS/target/scala-2.10/classes/LogStreamingAdvanced$$anonfun$main$5$$anonfun$42.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedCluster$$anonfun$main$6$$anonfun$8.class[0m
