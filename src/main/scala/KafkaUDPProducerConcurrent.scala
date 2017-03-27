@@ -2,11 +2,10 @@ import java.util.HashMap
 import org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}
 import java.util.concurrent.{Executors, ExecutorService}
 import java.net.{DatagramPacket,DatagramSocket,InetAddress}
-import java.util.concurrent.BlockingQueue
-import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent._
+import java.util.concurrent.ConcurrentLinkedQueue
 
-object LogUDPProducer{
+object LogUDPProducerConcurrent{
  
   class SharePool{
     var poolCount:Int = 0;
@@ -14,45 +13,36 @@ object LogUDPProducer{
     def receive(){this.synchronized{poolCount = poolCount + 1;}; if (poolCount>100){println("Num:" + poolCount.toString+ "\tReceive Package");} }
   }
 
-  class Sender(producer:KafkaProducer[String,String],topic:String,fg:Int,queue:BlockingQueue[DatagramPacket],pool:SharePool) extends Runnable{
+  class Sender(producer:KafkaProducer[String,String],topic:String,fg:Int,queue:ConcurrentLinkedQueue[DatagramPacket],pool:SharePool) extends Runnable{
     def run(){
-      while (true)
-      {
-        val packet = queue.take()
-        val sentence:String = new String(packet.getData(),0,packet.getLength()-1)
-        if (fg == 1) println(Thread.currentThread().getName())
-        if (fg == 2) println(topic+": "+sentence)
-        val message = new ProducerRecord[String, String](topic, null, sentence)
-        producer.send(message)
-	pool.send()
+      while (true){
+        while (!queue.isEmpty()){
+          val packet = queue.poll()
+          val sentence:String = new String(packet.getData(),0,packet.getLength()-1)
+          if (fg == 1) println(Thread.currentThread().getName())
+          if (fg == 2) println(topic+": "+sentence)
+          val message = new ProducerRecord[String, String](topic, null, sentence)
+          producer.send(message)
+	  pool.send()
+        }
       }
     }
   }
 
-  class SenderSimple(producer:KafkaProducer[String,String],topic:String,queue:BlockingQueue[DatagramPacket]) extends Runnable{
+  class SenderSimple(producer:KafkaProducer[String,String],topic:String,queue:ConcurrentLinkedQueue[DatagramPacket]) extends Runnable{
     def run(){
       while (true)
       {
-        val packet = queue.take()
-        val sentence:String = new String(packet.getData(),0,packet.getLength()-1)
-        val message = new ProducerRecord[String, String](topic, null, sentence)
-        producer.send(message)
+        while (!queue.isEmpty()){
+          val packet = queue.poll()
+          val sentence:String = new String(packet.getData(),0,packet.getLength()-1)
+          val message = new ProducerRecord[String, String](topic, null, sentence)
+          producer.send(message)
+        }
       }
     }
   }
   
-  /*def initQueue(type:String){
-    if (type=="Link-Block-Queue"){
-      val Queue:BlockingQueue[DatagramPacket] = new LinkedBlockingQueue[DatagramPacket]()
-    }else if (type=="Link-Unblock-Queue"){
-      val Queue:BlockingQueue[DatagramPacket] = new ConcurrentLinkedQueue[DatagramPacket]()
-    }else if (type=="Array-Block-Queue"){
-      val Queue:BlockingQueue[DatagramPacket] = new ArrayBlockingQueue[DatagramPacket]()
-    }else if (type=="Syn-Block-Queue"){
-      val Queue:BlockingQueue[DatagramPacket] = new SynchronousQueue[DatagramPacket]()
-    }
-    return Queue
-  }*/
     
   def main(args: Array[String]) {
     val Array(broker,flag1,flag2,topic,port,mode,queueType) = args
@@ -77,14 +67,13 @@ object LogUDPProducer{
     val producer = new KafkaProducer[String, String](props)// Send some messages
     val serverSocket:DatagramSocket = new DatagramSocket(portNum)
     val receiveData = new Array[Byte](1024)
-    //val blockingQueue:BlockingQueue[DatagramPacket] = new LinkedBlockingQueue[DatagramPacket]()
-    val blockingQueue:ConcurrentLinkedQueue[DatagramPacket] = new ConcurrentLinkedQueue[DatagramPacket]()
+    val concurrentQueue:ConcurrentLinkedQueue[DatagramPacket] = new ConcurrentLinkedQueue[DatagramPacket]()
     val threadPool:ExecutorService = Executors.newFixedThreadPool(ThreadNum)
     val dataPool:SharePool = new SharePool()
     if (modeNum == 1) {
-      for (i <- 0 to (ThreadNum-1)){threadPool.execute(new Sender(producer,topic,fg1,blockingQueue,dataPool))}
+      for (i <- 0 to (ThreadNum-1)){threadPool.execute(new Sender(producer,topic,fg1,concurrentQueue,dataPool))}
     }else{
-      for (i <- 0 to (ThreadNum-1)){threadPool.execute(new SenderSimple(producer,topic,blockingQueue))}
+      for (i <- 0 to (ThreadNum-1)){threadPool.execute(new SenderSimple(producer,topic,concurrentQueue))}
     }
     
     if (modeNum == 1){  
@@ -92,7 +81,7 @@ object LogUDPProducer{
         {
           val receivePacket:DatagramPacket = new DatagramPacket(receiveData, receiveData.length)
           serverSocket.receive(receivePacket)
-          blockingQueue.put(receivePacket)
+          concurrentQueue.offer(receivePacket)
           dataPool.receive()
         }
     }else{
@@ -100,7 +89,7 @@ object LogUDPProducer{
         {
           val receivePacket:DatagramPacket = new DatagramPacket(receiveData, receiveData.length)
           serverSocket.receive(receivePacket)
-          blockingQueue.put(receivePacket)
+          concurrentQueue.offer(receivePacket)
         }
     }
   }
