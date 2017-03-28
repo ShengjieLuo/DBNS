@@ -91,8 +91,15 @@ class tcpservice(){
   }
 
   //Compare the dowload and upload size (Use key to specific the type)
-  def SC_DOWLOAD_UPLOAD(key:String,index:String){
-     var external = new External(type="SC_DOWLOAD_UPLOAD",parameter=List(key,index))
+  def SC_TCP_DOWLOAD_UPLOAD_RATIO(key:String,index:String){
+     var external = new External(type="SC_TCP_DOWLOAD_UPLOAD_RATIO",parameter=List(key,index))
+     var internal:String = service.getInterface()
+     send_to_queue(internal)
+  }
+
+  //Compare the dowload and upload size (Use key to specific the type)
+  def SC_TCP_DOWLOAD_UPLOAD_ML(key:String,index:String){
+     var external = new External(type="SC_TCP_DOWLOAD_UPLOAD_ML",parameter=List(key,index))
      var internal:String = service.getInterface()
      send_to_queue(internal)
   }
