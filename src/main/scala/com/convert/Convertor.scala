@@ -1,6 +1,6 @@
 package com.convert
 
-class External(serviceName:String,para:List[String]){
+class Convertor(serviceName:String,para:List[String]){
 
    var service:String = serviceName
    var parameter:List[String] = para
@@ -12,6 +12,10 @@ class External(serviceName:String,para:List[String]){
    def getparameter():List[String] = {return parameter}
 
    //TODO
-   def getInterface():String={return service}
+   def getInterface():List[String]={
+	var externalService:ExternalElement = new ExternalElement(service,parameter)
+        externalService.convertToInternal()
+        var interface:List[String] = externalService.getInterface()
+        interface
+	}
 }
-
