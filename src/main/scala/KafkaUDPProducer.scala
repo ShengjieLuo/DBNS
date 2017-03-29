@@ -77,8 +77,8 @@ object LogUDPProducer{
     val producer = new KafkaProducer[String, String](props)// Send some messages
     val serverSocket:DatagramSocket = new DatagramSocket(portNum)
     val receiveData = new Array[Byte](1024)
-    //val blockingQueue:BlockingQueue[DatagramPacket] = new LinkedBlockingQueue[DatagramPacket]()
-    val blockingQueue:ConcurrentLinkedQueue[DatagramPacket] = new ConcurrentLinkedQueue[DatagramPacket]()
+    val blockingQueue:BlockingQueue[DatagramPacket] = new LinkedBlockingQueue[DatagramPacket]()
+    //val blockingQueue:ConcurrentLinkedQueue[DatagramPacket] = new ConcurrentLinkedQueue[DatagramPacket]()
     val threadPool:ExecutorService = Executors.newFixedThreadPool(ThreadNum)
     val dataPool:SharePool = new SharePool()
     if (modeNum == 1) {

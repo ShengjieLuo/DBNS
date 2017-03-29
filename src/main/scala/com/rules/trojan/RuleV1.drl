@@ -1,8 +1,7 @@
 package com.rules.trojan
 
 import com.model.problem.Trojan
-import com.model.other.BeginTime
-import com.model.other.EndTime
+import com.model.other.Time
 import com.model.other.Type
 import com.model.other.Item
 
@@ -24,27 +23,35 @@ import com.model.other.Item
 rule "SET: begin detection time"
    dialect "mvel"
    when
-     $beginTime : BeginTime()
+     $time : Time()
    then
-     $beginTime.setBeginTime("1490630400")
-     update($beginTime)
+     $time.setBeginTime(1490630400)
+     update($time)
 
 rule "SET: end detection time"
    dialect "mvel"
    when
-     $endTime : EndTime()
+     $time : EndTime()
    then
-     $endTime.setEndTime("1490634000")
-     update($endTime)
+     $time.setEndTime(1490634000)
+     update($time)
 
 rule "SET: detection type"
    dialect "mvel"
    when
-     detectionType : Type()
+     $type : Type()
    then
-     detectionType.setType("Trojan")
+     $type.setType("Trojan")
      update($detectionType)
 
+/*rule "SET: Item name"
+   dialect "mvel"
+   when
+     $item : Item()
+   then
+     $item.setname("IP-Hostmachine")
+     update($item)*/
+ 
 //==========================================================================
 // Set the statistical data required for judgement
 //==========================================================================
@@ -144,7 +151,11 @@ rule "Judgement: Show the judgement result"
                   problem contains "TCP upload size is obviously larger than average size"  &&
                   problem contains "TCP upload times is obviously more than average times")
    then
-     $trojan = new Trojan($item,$beginTime,$endTime)
+     $trojan = new Trojan($item,$time)
+     $trojan.insertProblem("TCP upload size is obviously larger than download size")
+     $trojan.insertProblem("TCP upload times is obviously more than download times")
+     $trojan.insertProblem("TCP upload size is obviously larger than average size")
+     $trojan.insertProblem("TCP upload times is obviously more than average times")
      insert($trojan)
 
 //==========================================================================
