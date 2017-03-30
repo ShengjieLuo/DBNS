@@ -1,7 +1,7 @@
 package com.convert
 
-import com.convert.Relation
-import com.convert.ExternalElement
+//import com.convert.Relation
+//import com.convert.ExternalElement
 
 object InternalNumber{
   var value = 0
@@ -10,15 +10,16 @@ object InternalNumber{
 
 class InternalElement (elementName:String,parameter:List[String]){
 
-  var name:String = elementname
+  var name:String = elementName
   var num:Int = InternalNumber.getValue()
   var para:List[String] = parameter
   var interface:String = buildInterface()
 
-  def buildInterface(){
+  def buildInterface():String = {
     var str = num.toString + " " + name + " "
-    para.foreach(pa => {str = str + p + " ";p})
+    para.foreach(pa => {str = str + pa + " ";pa})
     str = str + "\n"
+    return str
   }
 
   def getInterface():String = {return interface}

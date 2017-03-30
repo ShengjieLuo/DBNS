@@ -1,7 +1,7 @@
 package com.convert
 
-import com.convert.Relation
-import com.convert.InternalElement
+//import com.convert.Relation
+//import com.convert.InternalElement
 
 object ExternalNumber{
   var value = 0
@@ -10,21 +10,21 @@ object ExternalNumber{
 
 class ExternalElement (elementName:String,parameter:List[String]){
 
-  var name:String = elementname
-  var atom:Boolean = Relation.query_atom(name)
+  var name:String = elementName
+  var atom:Boolean = Relation.query_atom(this)
   var num:Int = ExternalNumber.getValue()
   var para:List[String] = parameter
   var atomTable:List[InternalElement] = List()
-  var interface:String =""
+  var interface:List[String] = List()
 
   def _convertToInternal(tempTable:List[ExternalElement]){
       tempTable.foreach( element => {
-        if (element.atom==True){
+        if (element.atom==true){
 	  val internalElement = new InternalElement(element.name,element.para) 
-          atomTable = internalElement::atomTable
+          atomTable = atomTable :+ internalElement
 	} else{
           val newTable = Relation.query_per(this)
-          newTable._convertToInternal
+          _convertToInternal(newTable)
         }  
       })
   }
@@ -37,11 +37,11 @@ class ExternalElement (elementName:String,parameter:List[String]){
 
   def buildInterface(){
     atomTable.foreach( element =>
-      interface = interface + element.getInterface()
+      interface = interface :+ element.getInterface()
     )
   }
 
-  def getInterface():String={return interface}
+  def getInterface():List[String]={return interface}
 
   def show(){
     println("External Service Number:" + num)
