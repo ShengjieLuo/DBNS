@@ -18,7 +18,7 @@ class InternalElement (elementName:String,parameter:List[String]){
   def buildInterface():String = {
     var str = num.toString + " " + name + " "
     para.foreach(pa => {str = str + pa + " ";pa})
-    str = str + "\n"
+    //str = str + "\n"
     return str
   }
 

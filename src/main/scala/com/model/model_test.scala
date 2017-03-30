@@ -13,10 +13,10 @@ object ModelTest{
     println("Time.BeginTime: \n" + time.getbeginTime())
     println("Time.EndTime: \n" + time.getendTime())
 
-    val item = new Item()
-    item.setname("IP-hostmachine")
+    val item = new Item("IP-hostmachine","202.120.37.78")
+    //item.setname("IP-hostmachine")
     item.insertProblem("TCP upload more network flow than download")
-    item.setobj("202.120.37.78")
+    //item.setobj("202.120.37.78")
     println("Item.printProblems: \n" + item.printProblems())
   
     var trojan = new Trojan(item,time)

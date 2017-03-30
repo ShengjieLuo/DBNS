@@ -37,35 +37,38 @@ object TrojanTest {
     val data = List("202.120.37.78","8.8.8.8")
     println("  [Debug] Begin Execution!")
 
-    val pairRDD = sc.parallelize(data.map(p=>p.trim))
+    val pairRDD = sc.parallelize(data.map(p=>p.trim),1)
 		    .mapPartitions{ partition => {
+				      println("  [Debug] Load the knowledge session");
 				      val ksession:StatefulKnowledgeSession = GetKnowledgeSession()
+				      val time = new Time();
+				      ksession.insert(time);
+				      val ty   = new Type();
+				      ksession.insert(ty);
+				      
                                       val newPartition = partition.map(p => {
 						println("  [Debug] Begin Dealing the element: "+p);
-						val time = new Time();
-						val ty   = new Type();
-				                val item = new Item();
-						item.setname("ip-hostmachine");
-						item.setobj(p);
-						ksession.insert(time,ty,item);
-                                                ksession.fireAllRules();
-						println("  [Debug] Finish Dealing the element: "+p);
+				                val item = new Item("ip-hostmachine",p.toString());
+						ksession.insert(item);
+                                      		ksession.fireAllRules();
+						//println("  [Debug] Finish Dealing the element: "+p);
 						(p,1)
 						})						
-    				      println("  [Debug] Finish the data partition!");
+    				      //println("  [Debug] Finish the data partition!");
 				      newPartition
                                     }
                                   }
                     .reduceByKey(_+_)
-                    .foreach{p => println("  [Debug] Detection Object: " + p._1.toString + ": Number :"+ p._2.toString+ "\n")}
+                    .foreach{p => println("  [Debug] Detection Object: " + p._1.toString + ": Number :"+ p._2.toString)}
   }
 
   def GetKnowledgeSession() : StatefulKnowledgeSession = {
     val config:KnowledgeBuilderConfiguration = KnowledgeBuilderFactory.newKnowledgeBuilderConfiguration()
     config.setProperty("drools.dialect.mvel.strict", "false")
     var kbuilder : KnowledgeBuilder  = KnowledgeBuilderFactory.newKnowledgeBuilder(config)
-    kbuilder.add(ResourceFactory.newFileResource("/root/DBNS/src/main/scala/com/rules/trojan/RuleV1.drl"), ResourceType.DRL)
-    println(kbuilder.getErrors().toString())
+    //kbuilder.add(ResourceFactory.newFileResource("/usr/local/DBNS/src/main/scala/com/rules/trojan/RuleV1.drl"), ResourceType.DRL)
+    kbuilder.add(ResourceFactory.newFileResource("/usr/local/DBNS/test.drl"), ResourceType.DRL)
+    println("  [Debug]  Rule Error:"+kbuilder.getErrors().toString())
     var kbase : KnowledgeBase = KnowledgeBaseFactory.newKnowledgeBase()
     kbase.addKnowledgePackages(kbuilder.getKnowledgePackages())
     var ksession : StatefulKnowledgeSession = kbase.newStatefulKnowledgeSession()
