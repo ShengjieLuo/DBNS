@@ -194,7 +194,6 @@ class TCPservice(itemobj:String) {
   }
 
   
-
   //TCP service 
   //Statistic the upload TCP size of high risk IP
   def SH_TCP_UPLOAD_SIZE_SRCIP_RISK(key:String,begin:String,end:String){

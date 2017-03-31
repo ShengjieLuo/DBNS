@@ -1,11 +1,25 @@
 package com.convert
 
-//import com.convert.ExternalElement
-//import ExternalElement
+import scala.io.Source
 
 object Relation{
 
-  //val RelationList:Map[String,List[String]] 
+  val sourceFile = sys.env("DBNS_HOME")+"/src/main/scala/com/convert/relation.txt"
+  val RelationList:Map[String,List[String]] = initRelationFromFile()
+
+  def initRelationFromFile{
+      val lines = Source.fromFile(sourceFile).getLines
+      var count = 0
+      for (line<-lines){
+        if (line.startsWith("//")){
+          count += 1
+        } else if (line.startsWith("Section")){
+ 	  val line
+        }
+	
+
+      }
+  }
 
   //TODO
   def query_atom(ele:ExternalElement):Boolean={
