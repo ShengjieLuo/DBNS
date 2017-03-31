@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/usr/local/DBNS/}dbns...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/root/DBNS/}dbns...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: simple-project#simple-project_2.10;1.0[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for simple-project#simple-project_2.10;1.0 [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies simple-project#simple-project_2.10;1.0->org.scala-lang#scala-library;2.10.5 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.5 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@63dcabc2[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@143100ea[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.5[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.5 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m	[2.10.5] org.scala-lang#scala-library;2.10.5[0m
@@ -3296,7 +3296,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-client/1.1.2/hbase-client-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-client/1.1.2/hbase-client-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-client/1.1.2/hbase-client-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-client;1.1.2!hbase-client.pom(pom.original) (4019ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-client;1.1.2!hbase-client.pom(pom.original) (946ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
@@ -3310,7 +3310,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase/1.1.2/hbase-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase/1.1.2/hbase-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase/1.1.2/hbase-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase;1.1.2!hbase.pom(pom.original) (31400ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase;1.1.2!hbase.pom(pom.original) (1299ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache#apache;12 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache#apache;12 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache#apache;12[0m
@@ -3322,9 +3322,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies simple-project#simple-project_2.10;1.0->org.apache.hbase#hbase-client;1.1.2 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.hbase#hbase-client;1.1.2->org.apache.hbase#hbase-annotations;1.1.2 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase-annotations;1.1.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@72a1785e[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@39c77ef7[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase-annotations;1.1.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@72a1785e[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@39c77ef7[0m
 [0m[[0mdebug[0m] [0m		tried /root/.ivy2/local/org.apache.hbase/hbase-annotations/1.1.2/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.apache.hbase#hbase-annotations;1.1.2[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/apache/hbase/hbase-annotations/1.1.2/hbase-annotations-1.1.2.pom[0m
@@ -3334,7 +3334,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-annotations/1.1.2/hbase-annotations-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-annotations/1.1.2/hbase-annotations-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-annotations/1.1.2/hbase-annotations-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-annotations;1.1.2!hbase-annotations.pom(pom.original) (3722ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-annotations;1.1.2!hbase-annotations.pom(pom.original) (732ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.hbase#hbase;1.1.2[0m
@@ -3388,7 +3388,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-protocol/1.1.2/hbase-protocol-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-protocol/1.1.2/hbase-protocol-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-protocol/1.1.2/hbase-protocol-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-protocol;1.1.2!hbase-protocol.pom(pom.original) (2766ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-protocol;1.1.2!hbase-protocol.pom(pom.original) (756ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.hbase#hbase;1.1.2[0m
@@ -3583,7 +3583,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-common/1.1.2/hbase-common-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-common/1.1.2/hbase-common-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-common/1.1.2/hbase-common-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-common;1.1.2!hbase-common.pom(pom.original) (2998ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-common;1.1.2!hbase-common.pom(pom.original) (772ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.hbase#hbase;1.1.2[0m
@@ -3664,7 +3664,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-server/1.1.2/hbase-server-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-server/1.1.2/hbase-server-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-server/1.1.2/hbase-server-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-server;1.1.2!hbase-server.pom(pom.original) (17929ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-server;1.1.2!hbase-server.pom(pom.original) (832ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.hbase#hbase;1.1.2[0m
@@ -3675,9 +3675,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.hbase#hbase-server;1.1.2->org.apache.hbase#hbase-protocol;1.1.2 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.apache.hbase#hbase-server;1.1.2->org.apache.hbase#hbase-procedure;1.1.2 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase-procedure;1.1.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@46d6dc55[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3e25954b[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase-procedure;1.1.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@46d6dc55[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@3e25954b[0m
 [0m[[0mdebug[0m] [0m		tried /root/.ivy2/local/org.apache.hbase/hbase-procedure/1.1.2/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.apache.hbase#hbase-procedure;1.1.2[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/apache/hbase/hbase-procedure/1.1.2/hbase-procedure-1.1.2.pom[0m
@@ -3687,7 +3687,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-procedure/1.1.2/hbase-procedure-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-procedure/1.1.2/hbase-procedure-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-procedure/1.1.2/hbase-procedure-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-procedure;1.1.2!hbase-procedure.pom(pom.original) (127144ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-procedure;1.1.2!hbase-procedure.pom(pom.original) (736ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.hbase#hbase;1.1.2[0m
@@ -3911,7 +3911,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-prefix-tree/1.1.2/hbase-prefix-tree-1.1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/apache/hbase/hbase-prefix-tree/1.1.2/hbase-prefix-tree-1.1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/apache/hbase/hbase-prefix-tree/1.1.2/hbase-prefix-tree-1.1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-prefix-tree;1.1.2!hbase-prefix-tree.pom(pom.original) (271360ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.apache.hbase#hbase-prefix-tree;1.1.2!hbase-prefix-tree.pom(pom.original) (746ms)[0m
 [0m[[0minfo[0m] [0mResolving org.apache.hbase#hbase;1.1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.apache.hbase#hbase;1.1.2 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.apache.hbase#hbase;1.1.2[0m
@@ -26956,21 +26956,21 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.5!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.5!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 511740ms :: artifacts dl 76ms[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 compile produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 runtime produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 test produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 provided produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 optional produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 compile-internal produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 runtime-internal produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 test-internal produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 plugin produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 sources produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 docs produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 pom produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 scala-tool produced in /usr/local/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (511740ms resolve - 76ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 17572ms :: artifacts dl 144ms[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 compile produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 runtime produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 test produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 provided produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 optional produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 compile-internal produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 runtime-internal produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 test-internal produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 plugin produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 sources produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 docs produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 pom produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for simple-project#simple-project_2.10;1.0 scala-tool produced in /root/DBNS/target/resolution-cache/reports/simple-project-simple-project_2.10-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (17572ms resolve - 144ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
 [0m[[33mwarn[0m] [0mThere may be incompatibilities among your library dependencies.[0m
 [0m[[33mwarn[0m] [0mHere are some of the libraries that were evicted:[0m

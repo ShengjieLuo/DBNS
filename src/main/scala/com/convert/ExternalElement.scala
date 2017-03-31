@@ -17,13 +17,15 @@ class ExternalElement (elementName:String,parameter:List[String]){
   var atomTable:List[InternalElement] = List()
   var interface:List[String] = List()
 
+  def getname():String = {return name}
+
   def _convertToInternal(tempTable:List[ExternalElement]){
       tempTable.foreach( element => {
         if (element.atom==true){
-	  val internalElement = new InternalElement(element.name,element.para) 
+	  val internalElement:InternalElement = Relation.query_internal(element) 
           atomTable = atomTable :+ internalElement
 	} else{
-          val newTable = Relation.query_per(this)
+          val newTable:List[ExternalElement] = Relation.query_per(element)
           _convertToInternal(newTable)
         }  
       })
