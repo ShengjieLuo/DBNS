@@ -25,16 +25,18 @@ rule "SET: begin detection time"
    when
      $time : Time()
    then
-     $time.setBeginTime(1490630400)
+     $time.setbeginTime(1490630400)
      update($time)
+end
 
 rule "SET: end detection time"
    dialect "mvel"
    when
-     $time : EndTime()
+     $time : Time()
    then
-     $time.setEndTime(1490634000)
+     $time.setendTime(1490634000)
      update($time)
+end
 
 rule "SET: detection type"
    dialect "mvel"
@@ -43,6 +45,7 @@ rule "SET: detection type"
    then
      $type.setType("Trojan")
      update($detectionType)
+end
 
 /*rule "SET: Item name"
    dialect "mvel"
@@ -60,8 +63,9 @@ rule "Action: Acquire the TCP upload flow amount for each IP"
    when
      $item : Item()
    then
-     $item.SS_TCP_UPLOAD_SIZE_SRCIP(beginTime,endTime)
+     $item.SS_TCP_UPLOAD_SIZE_SRCIP($time.beginTime,$time.endTime)
      update($item)
+end
 
 rule "Action: Acquire the TCP download flow amount for each IP"
    dialect "mvel"
@@ -70,6 +74,7 @@ rule "Action: Acquire the TCP download flow amount for each IP"
    then
      $item.SS_TCP_DOWNLOAD_SIZE_DSTIP(beginTime,endTime)
      update($item)
+end
 
 rule "Action: Acquire the TCP upload flow times for each IP"
    dialect "mvel"
@@ -78,6 +83,7 @@ rule "Action: Acquire the TCP upload flow times for each IP"
    then
      $item.SS_TCP_UPLOAD_COUNT_SRCIP(beginTime,endTime)
      update($item)
+end
 
 rule "Action: Acquire the TCP download flow times for each IP"
    dialect "mvel"
@@ -86,6 +92,7 @@ rule "Action: Acquire the TCP download flow times for each IP"
    then
      $item.SS_TCP_DOWNLOAD_COUNT_DSTIP(beginTime,endTime)
      update($item)
+end
 
 rule "Action: Acquire the average TCP upload flow size for all IP"
    dialect "mvel"
@@ -94,6 +101,7 @@ rule "Action: Acquire the average TCP upload flow size for all IP"
    then
      $item.SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP(beginTime,endTime)
      update($item)
+end
 
 rule "Action: Acquire the average TCP upload flow size for all IP"
    dialect "mvel"
@@ -102,6 +110,7 @@ rule "Action: Acquire the average TCP upload flow size for all IP"
    then
      $item.SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP(beginTime,endTime)
      update($item)
+end
 
 //==========================================================================
 // Finish the comparison between different data
@@ -114,6 +123,7 @@ rule "Comparison: Compare the TCP upload flow and TCP download flow size"
    then
      $item.SC_TCP_DOWLOAD_UPLOAD_RATIO(key="upload-download-size",index=5,problem="TCP upload size is obviously larger than download size",)
      update($item)
+end
 
 rule "Comparison: Compare the TCP upload flow and TCP download flow times"
    dialect "mvel"
@@ -122,6 +132,7 @@ rule "Comparison: Compare the TCP upload flow and TCP download flow times"
    then
      $item.SC_TCP_DOWLOAD_UPLOAD_RATIO(key="upload-download-count",index=3,problem="TCP upload times is obviously more than download times")
      update($item)
+end
 
 rule "Comparison: Compare the TCP upload flow and average upload flow size"
    dialect "mvel"
@@ -130,7 +141,7 @@ rule "Comparison: Compare the TCP upload flow and average upload flow size"
    then
      $item.SC_TCP_DOWLOAD_UPLOAD_RATIO(key="upload-average-size",index=5,problem="TCP upload size is obviously larger than average size")
      update($item)
-
+end
 
 rule "Comparison: Compare the TCP upload flow and average upload flow times"
    dialect "mvel"
@@ -139,6 +150,7 @@ rule "Comparison: Compare the TCP upload flow and average upload flow times"
    then
      $item.SC_TCP_DOWLOAD_UPLOAD_RATIO(key="upload-average-count",index=3,problem="TCP upload times is obviously more than average times")
      update($item)
+end
 
 //==========================================================================
 // Make the judgement of the Trojan
@@ -157,6 +169,7 @@ rule "Judgement: Show the judgement result"
      $trojan.insertProblem("TCP upload size is obviously larger than average size")
      $trojan.insertProblem("TCP upload times is obviously more than average times")
      insert($trojan)
+end
 
 //==========================================================================
 // Report the problem
@@ -167,3 +180,4 @@ rule "Report: Report a Trojan"
      $trojan : Trojan()
    then
      $trojan.reportProblem()
+end

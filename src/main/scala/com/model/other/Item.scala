@@ -1,15 +1,18 @@
 package com.model.other
 
-class Item(){
-  var name:String = ""
+import com.service.TCPservice
+
+class Item(itemname:String,itemobj:String) extends TCPservice(itemobj:String) {
+  
+  var name:String = itemname
   var problems:List[String] = List()
-  var obj:String = ""
+  override val obj:String = itemobj
 
   def getname():String = {return name}
-  def setname(itemname:String){name=itemname}
+  //def setname(itemname:String){name=itemname}
 
   def getobj():String = {return obj}
-  def setobj(objname:String){obj = objname}
+  //def setobj(objname:String){obj = objname}
 
   def insertProblem(problem:String){problems = problem::problems}
 
@@ -23,4 +26,8 @@ class Item(){
     return str
   }
 
+  //def SS_TCP_UPLOAD_SIZE_SRCIP(time:Time,other:String){}
+  //def SS_TCP_DOWNLOAD_SIZE_DSTIP(time:Time,other:String){}  
+  //def SS_TCP_UPLOAD_COUNT_SRCIP(time:Time,other:String){}
+  //def SS_TCP_DOWNLOAD_COUNT_DSTIP(time:Time,other:String){}
 }

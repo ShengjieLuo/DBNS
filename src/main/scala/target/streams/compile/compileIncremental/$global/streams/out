@@ -1,0 +1,352 @@
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
+[0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	added: Set(/root/DBNS/src/main/scala/KafkaUDPProducer.scala, /root/DBNS/src/main/scala/KafkaLogProducer1.scala, /root/DBNS/src/main/scala/OfflineAnalysis.scala, /root/DBNS/src/main/scala/KafkaLogProducer2.scala, /root/DBNS/src/main/scala/StreamingExamples.scala, /root/DBNS/src/main/scala/LogAnalyzerConnect.scala, /root/DBNS/src/main/scala/OfflineHbase.scala, /root/DBNS/src/main/scala/LogAnalyzer.scala, /root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala, /root/DBNS/src/main/scala/LogAnalyzerCluster.scala, /root/DBNS/src/main/scala/LogAnalyzerLab.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/root/DBNS/src/main/scala/KafkaUDPProducer.scala, /root/DBNS/src/main/scala/KafkaLogProducer1.scala, /root/DBNS/src/main/scala/OfflineAnalysis.scala, /root/DBNS/src/main/scala/KafkaLogProducer2.scala, /root/DBNS/src/main/scala/StreamingExamples.scala, /root/DBNS/src/main/scala/LogAnalyzerConnect.scala, /root/DBNS/src/main/scala/OfflineHbase.scala, /root/DBNS/src/main/scala/LogAnalyzer.scala, /root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala, /root/DBNS/src/main/scala/LogAnalyzerCluster.scala, /root/DBNS/src/main/scala/LogAnalyzerLab.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/root/DBNS/src/main/scala/KafkaUDPProducer.scala, /root/DBNS/src/main/scala/KafkaLogProducer1.scala, /root/DBNS/src/main/scala/OfflineAnalysis.scala, /root/DBNS/src/main/scala/KafkaLogProducer2.scala, /root/DBNS/src/main/scala/StreamingExamples.scala, /root/DBNS/src/main/scala/LogAnalyzerConnect.scala, /root/DBNS/src/main/scala/OfflineHbase.scala, /root/DBNS/src/main/scala/LogAnalyzer.scala, /root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala, /root/DBNS/src/main/scala/LogAnalyzerCluster.scala, /root/DBNS/src/main/scala/LogAnalyzerLab.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Recompiling all 11 sources: invalidated sources (11) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 11 Scala sources to /root/DBNS/src/main/scala/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.11:component from component compiler for Scala 2.10.6[0m
+[0m[[0minfo[0m] [0m'compiler-interface' not yet compiled for Scala 2.10.6. Compiling...[0m
+[0m[[0mdebug[0m] [0mPlain interface to Scala compiler 2.10.6  with arguments: [0m
+[0m[[0mdebug[0m] [0m	-nowarn[0m
+[0m[[0mdebug[0m] [0m	-d[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_d63daa58[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes:/root/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/root/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.11/xsbti/interface-0.13.11.jar:/tmp/sbt_afca01f8/srcs/org.scala-sbt/compiler-interface/compiler-interface-0.13.11-sources.jar:/root/.sbt/boot/scala-2.10.6/lib/scala-compiler.jar:/root/.sbt/boot/scala-2.10.6/lib/scala-reflect.jar:/root/.sbt/boot/scala-2.10.6/lib/jline.jar:/root/.sbt/boot/scala-2.10.6/lib/jansi.jar[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/API.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/Analyzer.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/Command.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/Compat.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/CompilerInterface.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/ConsoleInterface.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/DelegatingReporter.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/Dependency.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/ExtractAPI.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/ExtractUsedNames.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/LocateClassFile.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/Log.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/Message.scala[0m
+[0m[[0mdebug[0m] [0m	/tmp/sbt_82f6f5a/xsbt/ScaladocInterface.scala[0m
+[0m[[0minfo[0m] [0m  Compilation completed in 12.428 s[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.11:component from component compiler for Scala 2.10.6[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 23db8ed6, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes:/root/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/root/DBNS/src/main/scala/target/scala-2.10/classes[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:2: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:3: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:4: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.kafka._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:5: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.SparkConf[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:13: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m      val producer = new KafkaProducer[String, String](props)// Send some messages[0m
+[0m[[31merror[0m] [0m                         ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:18: not found: type ProducerRecord[0m
+[0m[[31merror[0m] [0m        val message = new ProducerRecord[String, String](topic, null, line)[0m
+[0m[[31merror[0m] [0m                          ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:31: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:32: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer1.scala:34: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:2: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:3: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:4: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.kafka._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:5: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.SparkConf[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:13: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m      val producer = new KafkaProducer[String, String](props)// Send some messages[0m
+[0m[[31merror[0m] [0m                         ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:18: not found: type ProducerRecord[0m
+[0m[[31merror[0m] [0m        val message = new ProducerRecord[String, String](topic, null, line)[0m
+[0m[[31merror[0m] [0m                          ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:31: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:32: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaLogProducer2.scala:34: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:2: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:17: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m  class Sender(producer:KafkaProducer[String,String],topic:String,fg:Int,queue:BlockingQueue[DatagramPacket],pool:SharePool) extends Runnable{[0m
+[0m[[31merror[0m] [0m                        ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:25: not found: type ProducerRecord[0m
+[0m[[31merror[0m] [0m        val message = new ProducerRecord[String, String](topic, null, sentence)[0m
+[0m[[31merror[0m] [0m                          ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:32: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m  class SenderSimple(producer:KafkaProducer[String,String],topic:String,queue:BlockingQueue[DatagramPacket]) extends Runnable{[0m
+[0m[[31merror[0m] [0m                              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:38: not found: type ProducerRecord[0m
+[0m[[31merror[0m] [0m        val message = new ProducerRecord[String, String](topic, null, sentence)[0m
+[0m[[31merror[0m] [0m                          ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:74: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, broker)[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:75: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:76: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducer.scala:77: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m    val producer = new KafkaProducer[String, String](props)// Send some messages[0m
+[0m[[31merror[0m] [0m                       ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:2: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:16: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m  class Sender(producer:KafkaProducer[String,String],topic:String,fg:Int,queue:ConcurrentLinkedQueue[DatagramPacket],pool:SharePool) extends Runnable{[0m
+[0m[[31merror[0m] [0m                        ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:24: not found: type ProducerRecord[0m
+[0m[[31merror[0m] [0m          val message = new ProducerRecord[String, String](topic, null, sentence)[0m
+[0m[[31merror[0m] [0m                            ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:32: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m  class SenderSimple(producer:KafkaProducer[String,String],topic:String,queue:ConcurrentLinkedQueue[DatagramPacket]) extends Runnable{[0m
+[0m[[31merror[0m] [0m                              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:39: not found: type ProducerRecord[0m
+[0m[[31merror[0m] [0m          val message = new ProducerRecord[String, String](topic, null, sentence)[0m
+[0m[[31merror[0m] [0m                            ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:64: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, broker)[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:65: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:66: not found: value ProducerConfig[0m
+[0m[[31merror[0m] [0m    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/KafkaUDPProducerConcurrent.scala:67: not found: type KafkaProducer[0m
+[0m[[31merror[0m] [0m    val producer = new KafkaProducer[String, String](props)// Send some messages[0m
+[0m[[31merror[0m] [0m                       ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:1: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.hbase.HBaseConfiguration[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:2: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.mapreduce.Job[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:3: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.mapred.JobConf[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:4: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:5: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.SparkConf[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:6: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:7: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.kafka._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:8: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.StreamingContext._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:9: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.kafka.KafkaUtils[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:10: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.hbase.mapreduce.TableOutputFormat[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:11: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.hbase.io.ImmutableBytesWritable[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:12: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.hbase.client.{Connection, ConnectionFactory, Put,Table,Result}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:13: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.hbase.util.Bytes[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:14: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.hbase.{HTableDescriptor,HColumnDescriptor,HBaseConfiguration,TableName}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:15: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.rdd.RDD[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:17: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.commons.codec.binary.Base64[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:18: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.HttpResponse[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:19: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.client.methods.CloseableHttpResponse;[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:20: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.client.HttpClient[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:21: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.client.methods.{HttpGet, HttpPut}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:22: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.entity.StringEntity[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:23: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.impl.client.CloseableHttpClient;[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:24: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.http.impl.client.HttpClients[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:25: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.log4j.Logger[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:27: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.{SQLContext, Row}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:28: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.types._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:29: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.hive.HiveContext[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:30: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.hive.HiveContext._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/StreamingExamples.scala:1: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.Logging[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/StreamingExamples.scala:4: not found: type Logging[0m
+[0m[[31merror[0m] [0mobject StreamingExamples extends Logging {[0m
+[0m[[31merror[0m] [0m                                 ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:42: not found: type SparkConf[0m
+[0m[[31merror[0m] [0m  val sc = new SparkConf().setAppName("LogStreamingAdvanced").setMaster("local[8]")[0m
+[0m[[31merror[0m] [0m               ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:43: not found: type SparkContext[0m
+[0m[[31merror[0m] [0m  val sssc = new SparkContext(sc)[0m
+[0m[[31merror[0m] [0m                 ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:44: not found: type StreamingContext[0m
+[0m[[31merror[0m] [0m  val ssc = new StreamingContext(sssc,Seconds(60))[0m
+[0m[[31merror[0m] [0m                ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:60: not found: value KafkaUtils[0m
+[0m[[31merror[0m] [0m  val lineMap1 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap1)[0m
+[0m[[31merror[0m] [0m                 ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:61: not found: value KafkaUtils[0m
+[0m[[31merror[0m] [0m  val lineMap2 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap2)[0m
+[0m[[31merror[0m] [0m                 ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:62: not found: value KafkaUtils[0m
+[0m[[31merror[0m] [0m  val lineMap3 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap3)[0m
+[0m[[31merror[0m] [0m                 ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:63: not found: value KafkaUtils[0m
+[0m[[31merror[0m] [0m  val lineMap4 = KafkaUtils.createStream(ssc,zkQuorum,group,topicMap4)[0m
+[0m[[31merror[0m] [0m                 ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:79: not found: type HiveContext[0m
+[0m[[31merror[0m] [0m  val hiveCtx = new HiveContext(sssc)[0m
+[0m[[31merror[0m] [0m                    ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:81: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val schema1 = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("type", StringType, true)))[0m
+[0m[[31merror[0m] [0m                ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:90: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val schema2 = StructType(List(StructField("time", StringType, true),StructField("TTL", StringType, true),StructField("ips", StringType, true),StructField("ps", StringType, true),StructField("ipd", StringType, true),StructField("pd", StringType, true),StructField("rc", StringType, true)))[0m
+[0m[[31merror[0m] [0m                ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:99: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val schema3 = StructType(List(StructField("time", StringType, true),StructField("ips", StringType, true),StructField("ipd", StringType, true),StructField("name", StringType, true),StructField("type", StringType, true),StructField("class", StringType, true)))[0m
+[0m[[31merror[0m] [0m                ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:108: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val schema4 = StructType(List(StructField("time", StringType, true),StructField("ips", StringType, true),StructField("ipd", StringType, true),StructField("name", StringType, true),StructField("type", StringType, true),StructField("class", StringType, true),StructField("TTL", StringType, true),StructField("url", StringType, true)))[0m
+[0m[[31merror[0m] [0m                ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:118: not found: type SQLContext[0m
+[0m[[31merror[0m] [0m  val sqlContext = new SQLContext(sssc)[0m
+[0m[[31merror[0m] [0m                       ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:119: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val ipsschema = StructType(List(StructField("id",StringType,true),StructField("IPSource",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                  ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:120: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val ipdschema = StructType(List(StructField("id",StringType,true),StructField("IPDest",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                  ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:121: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val nameschema  = StructType(List(StructField("id",StringType,true),StructField("name",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                    ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:122: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val typeschema  = StructType(List(StructField("id",StringType,true),StructField("type",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                    ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:123: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val psschema  = StructType(List(StructField("id",StringType,true),StructField("PortSource",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                  ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:124: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val pdschema  = StructType(List(StructField("id",StringType,true),StructField("PortDest",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                  ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzer.scala:125: not found: value StructType[0m
+[0m[[31merror[0m] [0m  val urlschema  = StructType(List(StructField("id",StringType,true),StructField("url",StringType,true),StructField("count",IntegerType,true)))[0m
+[0m[[31merror[0m] [0m                   ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:1: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.mapreduce.Job[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:2: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.hadoop.mapred.JobConf[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:3: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:4: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.SparkConf[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:5: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:6: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.kafka._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:7: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.StreamingContext._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:8: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.streaming.kafka.KafkaUtils[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:9: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.rdd.RDD[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:11: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.log4j.Logger[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:13: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.{SQLContext, Row}[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:14: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.types._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:15: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.hive.HiveContext[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/root/DBNS/src/main/scala/LogAnalyzerCluster.scala:16: object apache is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.apache.spark.sql.hive.HiveContext._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m261 errors found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) Compilation failed[0m
