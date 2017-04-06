@@ -3,6 +3,7 @@ package com.service
 import com.convert.Convertor
 import com.model.other.Item
 import com.model.other.Time
+import com.model.other.Request
 
 import java.util.HashMap
 import org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}
@@ -13,6 +14,7 @@ import scala.io.Source
 
 class TCPservice(itemobj:String) {
 
+ 
   val brokers = "spark-master:9092"
   val topic = "internal" 
   val obj:String = itemobj
@@ -30,21 +32,30 @@ class TCPservice(itemobj:String) {
       val message = new ProducerRecord[String, String](topic, null, line)
       producer.send(message) })
   }
+  
 
+  //def wait_from_queue(content:)
+  
   //TCP service 1
   //Statistic the upload TCP size of specific IP
   def SS_TCP_UPLOAD_SIZE_SRCIP(time:Time,other:String){
-     var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SS_TCP_UPLOAD_SIZE_SRCIP",para)
-     var internal:List[String] = external.getInterface()
-     send_to_queue(internal)  
+     //var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(other)
+     var request:Request = new Request()
+     request.setTime(time)
+     request.setName("TCP service 1")
+     //request.setParent(external.num)
+     request.setRequestMode(other) 
+     var external = new Convertor("SS_TCP_UPLOAD_SIZE_SRCIP",request)
+     var internal:List[Request] = external.getInterface()
+     //send_to_queue(internal)
   }
 
+  /*
   //TCP service 2
   //Statistic the download TCP size of specific IP
   def SS_TCP_DOWNLOAD_SIZE_DSTIP(time:Time,other:String){
      var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SS_TCP_DOWNLOAD_SIZE_DSTIP",para)
+     var external = new Convertor("SS_TCP_DOWNLOAD_SIZE_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)  
   }
@@ -53,7 +64,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size of specific IP
   def SS_TCP_UPLOAD_COUNT_SRCIP(time:Time,other:String){
      var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SS_TCP_UPLOAD_COUNT_SRCIP",para)
+     var external = new Convertor("SS_TCP_UPLOAD_COUNT_SRCIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -62,7 +73,7 @@ class TCPservice(itemobj:String) {
   //Statistic the download TCP size of specific IP
   def SS_TCP_DOWNLOAD_COUNT_DSTIP(time:Time,other:String){
      var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SS_TCP_DOWNLOAD_COUNT_DSTIP",para)
+     var external = new Convertor("SS_TCP_DOWNLOAD_COUNT_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -71,7 +82,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size of all IP
   def SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP",para)
+     var external = new Convertor("SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)  
   }
@@ -80,7 +91,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size totally
   def SA_TCP_UPLOAD_SIZE_ALL_SRCIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_UPLOAD_SIZE_ALL_SRCIP",para)
+     var external = new Convertor("SA_TCP_UPLOAD_SIZE_ALL_SRCIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)  
   }
@@ -89,7 +100,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size in average
   def SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP",para)
+     var external = new Convertor("SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -98,7 +109,7 @@ class TCPservice(itemobj:String) {
   //Statistic the download TCP size of all IP
   def SA_TCP_DOWNLOAD_SIZE_GROUPBY_DSTIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_DOWNLOAD_SIZE_GROUPBY_DSTIP",para)
+     var external = new Convertor("SA_TCP_DOWNLOAD_SIZE_GROUPBY_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)  
   }
@@ -107,7 +118,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size totally
   def SA_TCP_DOWNLOAD_SIZE_ALL_DSTIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_DOWNLOAD_SIZE_ALL_DSTIP",para)
+     var external = new Convertor("SA_TCP_DOWNLOAD_SIZE_ALL_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)  
   }
@@ -116,7 +127,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size totally
   def SA_TCP_DOWNLOAD_SIZE_AVERAGE_DSTIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_DOWNLOAD_SIZE_AVERAGE_DSTIP",para)
+     var external = new Convertor("SA_TCP_DOWNLOAD_SIZE_AVERAGE_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -125,7 +136,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size of all IP
   def SA_TCP_UPLOAD_COUNT_GROUPBY_SRCIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_UPLOAD_COUNT_GROUPBY_SRCIP",para)
+     var external = new Convertor("SA_TCP_UPLOAD_COUNT_GROUPBY_SRCIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -134,7 +145,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size totally
   def SA_TCP_UPLOAD_COUNT_ALL_SRCIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_UPLOAD_COUNT_ALL_SRCIP",para)
+     var external = new Convertor("SA_TCP_UPLOAD_COUNT_ALL_SRCIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -143,8 +154,9 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size in average
   def SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP",para)
+     var external = new Convertor("SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP")
      var internal:List[String] = external.getInterface()
+     //Only For Test: Thread.sleep(30000)
      send_to_queue(internal)
   }
 
@@ -152,7 +164,7 @@ class TCPservice(itemobj:String) {
   //Statistic the download TCP size of all IP
   def SA_TCP_DOWNLOAD_COUNT_GROUPBY_DSTIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_DOWNLOAD_COUNT_GROUPBY_DSTIP",para)
+     var external = new Convertor("SA_TCP_DOWNLOAD_COUNT_GROUPBY_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -161,7 +173,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size totally
   def SA_TCP_DOWNLOAD_COUNT_ALL_DSTIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_DOWNLOAD_COUNT_ALL_DSTIP",para)
+     var external = new Convertor("SA_TCP_DOWNLOAD_COUNT_ALL_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -170,7 +182,7 @@ class TCPservice(itemobj:String) {
   //Statistic the upload TCP size totally
   def SA_TCP_DOWNLOAD_COUNT_AVERAGE_DSTIP(time:Time,other:String){
      var para:List[String] = time.getbeginTime().toString :: time.getendTime().toString :: List(other)
-     var external = new Convertor("SA_TCP_DOWNLOAD_COUNT_AVERAGE_DSTIP",para)
+     var external = new Convertor("SA_TCP_DOWNLOAD_COUNT_AVERAGE_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -179,7 +191,7 @@ class TCPservice(itemobj:String) {
   //Compare the dowload and upload size (Use key to specific the type)
   def SC_TCP_DOWLOAD_UPLOAD_RATIO(time:Time,key:String,index:String,problem:String){
      var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(key,index,problem)
-     var external = new Convertor("SC_TCP_DOWLOAD_UPLOAD_RATIO",para)
+     var external = new Convertor("SC_TCP_DOWLOAD_UPLOAD_RATIO")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
   }
@@ -188,12 +200,12 @@ class TCPservice(itemobj:String) {
   //Compare the dowload and upload size (Use key to specific the type)
   def SC_TCP_DOWLOAD_UPLOAD_ML(time:Time,key:String,index:String,problem:String){
      var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(key,index,problem)
-     var external = new Convertor("SC_TCP_DOWLOAD_UPLOAD_ML",para)
+     var external = new Convertor("SC_TCP_DOWLOAD_UPLOAD_ML")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
-  }
+  }*/
 
-  
+  /*
   //TCP service 
   //Statistic the upload TCP size of high risk IP
   def SH_TCP_UPLOAD_SIZE_SRCIP_RISK(key:String,begin:String,end:String){
@@ -223,6 +235,6 @@ class TCPservice(itemobj:String) {
      var external = new Convertor("SL_HIGH_RISK_IP_AUTO",List(key,name))
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
-  }
+  }*/
 
 }

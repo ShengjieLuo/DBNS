@@ -1,0 +1,204 @@
+//package com.rules.trojan
+
+import com.model.problem.Trojan
+import com.model.other.Time
+import com.model.other.Type
+import com.model.other.Item
+
+// This rule is a naive simple to detect Trojan
+// Key Logic:
+// 1. Usually a host machine within trojan upload more frequently than download
+// 1. 通常来说在木马发作期间，感染木马的机器上传数据的次数比下载数据的次数多
+// 2. Usually a host machine within trojan upload package with larger size then dowonload
+// 2. 通常来说在木马发作期间，感染木马的机器上传数据的总量比下载数据的总量大
+// 3. Usually a host machine within trojan upload package with larger size then which without trojan
+// 3. 通常来说在木马发作期间，感染木马的机器上传数据的次数，比其他机器的平均上传次数多
+// 4. Usually a host machine within trojan upload more frequently than which without trojan
+// 4. 通常来说在木马发作期间，感染木马的机器上传数据的总量，比其他机器的平均上传总量大
+// Only when the data suits all four key logic, then the host machine would be detected as the trojan infected
+
+//=========================================================================
+// Set the runtime environment
+//=========================================================================
+rule "SET: begin detection time"
+   salience 100
+   lock-on-active true
+   dialect "mvel"
+   when
+     $time : Time()
+   then
+     $time.setbeginTime(1490630400)
+     System.out.println("  [Rule]  SET: begin detection time 1490630400")
+     update($time)
+end
+
+rule "SET: end detection time"
+   salience 100
+   lock-on-active true
+   dialect "mvel"
+   when
+     $time : Time()
+   then
+     $time.setendTime(1490634000)
+     System.out.println("  [Rule]  SET: end detection time 1490634000") 
+     update($time)
+end
+
+rule "VERIFY: verify the time operation"
+   //lock-on-active true
+   dialect "mvel"
+   when
+     $time : Time(beginTime == 1490630400 && endTime == 1490634000)
+   then
+     System.out.println("  [Rule]  VERIFY: verify the time operation :Correct")
+end
+
+rule "SET: detection type"
+   lock-on-active true
+   dialect "mvel"
+   when
+     $type : Type()
+   then
+     $type.setType("Trojan")
+     System.out.println("  [Rule]  SET: end detection type Trojan")
+     update($type)
+end
+
+
+//==========================================================================
+// Set the statistical data required for judgement
+//=========================================================================
+
+rule "Action: Acquire the TCP upload flow amount for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_UPLOAD_SIZE_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP upload flow amount: "+$item.obj)
+     //update($item)
+end
+/*
+rule "Action: Acquire the TCP download flow amount for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_DOWNLOAD_SIZE_DSTIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP download flow amount: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the TCP upload flow times for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_UPLOAD_COUNT_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP upload flow times: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the TCP download flow times for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_DOWNLOAD_COUNT_DSTIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP download flow times: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the average TCP upload flow size for all IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the average TCP upload flow size: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the average TCP download flow size for all IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item() &&  $time : Time()
+   then
+     $item.SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the average TCP download flow size: "+$item.obj)
+     //update($item)
+end
+
+
+//==========================================================================
+// Finish the comparison between different data
+//==========================================================================
+
+rule "Comparison: Compare the TCP upload flow and TCP download flow size"
+   lock-on-active true
+   salience 0
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SC_TCP_DOWLOAD_UPLOAD_RATIO($time,"upload-download-size","5","TCP upload size is obviously larger than download size")
+     System.out.println("  [Rule]  Comparison: Compare the TCP upload flow and TCP download flow size "+$item.obj)
+     update($item)
+end
+
+rule "Comparison: Compare the TCP upload flow and TCP download flow times"
+   lock-on-active true
+   salience 0
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SC_TCP_DOWLOAD_UPLOAD_RATIO($time,"upload-download-count","3","TCP upload times is obviously more than download times")
+     System.out.println("  [Rule]  Comparison: Compare the TCP upload flow and TCP download flow times: "+$item.obj)
+     update($item)
+end
+
+rule "Comparison: Compare the TCP upload flow and average upload flow size"
+   lock-on-active true
+   salience 0
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SC_TCP_DOWLOAD_UPLOAD_RATIO($time,"upload-average-size","5","TCP upload size is obviously larger than average size")
+     System.out.println("  [Rule]  Comparison: Compare the TCP upload flow and average upload flow size: "+$item.obj)
+     update($item)
+end
+
+rule "Comparison: Compare the TCP upload flow and average upload flow times"
+   lock-on-active true
+   salience 0
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SC_TCP_DOWLOAD_UPLOAD_RATIO($time,"upload-average-count","3","TCP upload times is obviously more than average times")
+     System.out.println("  [Rule]  Comparison: Compare the TCP upload flow and average upload flow times: "+$item.obj)
+     update($item)
+end*/

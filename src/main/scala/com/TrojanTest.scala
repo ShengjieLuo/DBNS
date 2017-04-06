@@ -67,12 +67,12 @@ object TrojanTest {
     config.setProperty("drools.dialect.mvel.strict", "false")
     var kbuilder : KnowledgeBuilder  = KnowledgeBuilderFactory.newKnowledgeBuilder(config)
     //kbuilder.add(ResourceFactory.newFileResource("/usr/local/DBNS/src/main/scala/com/rules/trojan/RuleV1.drl"), ResourceType.DRL)
-    kbuilder.add(ResourceFactory.newFileResource("/usr/local/DBNS/test.drl"), ResourceType.DRL)
+    kbuilder.add(ResourceFactory.newFileResource("/usr/local/DBNS/mini.drl"), ResourceType.DRL)
     println("  [Debug]  Rule Error:"+kbuilder.getErrors().toString())
     var kbase : KnowledgeBase = KnowledgeBaseFactory.newKnowledgeBase()
     kbase.addKnowledgePackages(kbuilder.getKnowledgePackages())
     var ksession : StatefulKnowledgeSession = kbase.newStatefulKnowledgeSession()
-    var logger : KnowledgeRuntimeLogger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession,"/root/DroolsSpark/drools.log")
+    var logger : KnowledgeRuntimeLogger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession,"/usr/local/DBNS/drools.log")
     ksession
   }
 }

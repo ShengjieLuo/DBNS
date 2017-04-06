@@ -1,5 +1,7 @@
 package com.convert
 
+import com.model.other.Request
+
 //import com.convert.Relation
 //import com.convert.InternalElement
 
@@ -8,14 +10,15 @@ object ExternalNumber{
   def getValue():Int={value=value+1;return value;}
 }
 
-class ExternalElement (elementName:String,parameter:List[String]){
+class ExternalElement (elementName:String,req:Request,percendentName:Int){
 
   var name:String = elementName
   var atom:Boolean = Relation.query_atom(this)
   var num:Int = ExternalNumber.getValue()
-  var para:List[String] = parameter
+  var percendent:Int = percendentName
+  var request:Request = req
   var atomTable:List[InternalElement] = List()
-  var interface:List[String] = List()
+  var interface:List[Request] = List()
 
   def getname():String = {return name}
 
@@ -32,9 +35,16 @@ class ExternalElement (elementName:String,parameter:List[String]){
   }
 
   def convertToInternal(){
-    var tempTable:List[ExternalElement] = Relation.query_per(this)
-    _convertToInternal(tempTable)
-    buildInterface()
+    System.out.println("  [Service] "+name+" ConvertToInternal ... begin!")
+    if (atom == false){
+      var tempTable:List[ExternalElement] = Relation.query_per(this)
+      _convertToInternal(tempTable)
+    } else {
+      val internalElement:InternalElement = Relation.query_internal(this)
+      atomTable = atomTable :+ internalElement
+    }
+    buildInterface()  
+    System.out.println("  [Service] "+name+" ConvertToInternal ... done!")
   }
 
   def buildInterface(){
@@ -43,7 +53,7 @@ class ExternalElement (elementName:String,parameter:List[String]){
     )
   }
 
-  def getInterface():List[String]={return interface}
+  def getInterface():List[Request]={return interface}
 
   def show(){
     println("External Service Number:" + num)
