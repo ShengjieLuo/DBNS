@@ -1,21 +1,20 @@
 package com.convert
 
-class Convertor(serviceName:String,para:List[String]){
+import com.model.other.Request
+
+class Convertor(serviceName:String,req:Request){
 
    var service:String = serviceName
-   var parameter:List[String] = para
+   var request:Request = req
 
    def setService(servicename:String){service=servicename}
    def getService():String = {return service}
 
-   def setparameter(para:List[String]){parameter=para}
-   def getparameter():List[String] = {return parameter}
-
-   //TODO
-   def getInterface():List[String]={
-	var externalService:ExternalElement = new ExternalElement(service,parameter)
+   def getInterface():List[Request]={
+	var externalService:ExternalElement = new ExternalElement(service,request,-1)
         externalService.convertToInternal()
-        var interface:List[String] = externalService.getInterface()
+        var interface:List[Request] = externalService.getInterface()
+        interface.foreach(item => item.print())
         interface
 	}
 }

@@ -1,4 +1,4 @@
-package com.rules.trojan
+//package com.rules.trojan
 
 import com.model.problem.Trojan
 import com.model.other.Time
@@ -64,12 +64,14 @@ rule "SET: detection type"
      update($type)
 end
 
+
 //==========================================================================
 // Set the statistical data required for judgement
 //=========================================================================
 
 rule "Action: Acquire the TCP upload flow amount for each IP"
    lock-on-active true
+   salience 10
    dialect "mvel"
    when
      $item : Item()
@@ -82,6 +84,7 @@ end
 
 rule "Action: Acquire the TCP download flow amount for each IP"
    lock-on-active true
+   salience 10
    dialect "mvel"
    when
      $item : Item()
@@ -94,6 +97,7 @@ end
 
 rule "Action: Acquire the TCP upload flow times for each IP"
    lock-on-active true
+   salience 10
    dialect "mvel"
    when
      $item : Item()
@@ -106,6 +110,7 @@ end
 
 rule "Action: Acquire the TCP download flow times for each IP"
    lock-on-active true
+   salience 10
    dialect "mvel"
    when
      $item : Item()
@@ -118,6 +123,7 @@ end
 
 rule "Action: Acquire the average TCP upload flow size for all IP"
    lock-on-active true
+   salience 10
    dialect "mvel"
    when
      $item : Item()
@@ -130,15 +136,16 @@ end
 
 rule "Action: Acquire the average TCP download flow size for all IP"
    lock-on-active true
+   salience 10
    dialect "mvel"
    when
-     $item : Item()
-     $time : Time()
+     $item : Item() &&  $time : Time()
    then
      $item.SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP($time,"Default")
      System.out.println("  [Rule]  Action: Acquire the average TCP download flow size: "+$item.obj)
      //update($item)
 end
+
 
 //==========================================================================
 // Finish the comparison between different data
@@ -146,6 +153,7 @@ end
 
 rule "Comparison: Compare the TCP upload flow and TCP download flow size"
    lock-on-active true
+   salience 0
    dialect "mvel"
    when
      $item : Item()
@@ -158,6 +166,7 @@ end
 
 rule "Comparison: Compare the TCP upload flow and TCP download flow times"
    lock-on-active true
+   salience 0
    dialect "mvel"
    when
      $item : Item()
@@ -170,6 +179,7 @@ end
 
 rule "Comparison: Compare the TCP upload flow and average upload flow size"
    lock-on-active true
+   salience 0
    dialect "mvel"
    when
      $item : Item()
@@ -182,6 +192,7 @@ end
 
 rule "Comparison: Compare the TCP upload flow and average upload flow times"
    lock-on-active true
+   salience 0
    dialect "mvel"
    when
      $item : Item()
@@ -191,5 +202,3 @@ rule "Comparison: Compare the TCP upload flow and average upload flow times"
      System.out.println("  [Rule]  Comparison: Compare the TCP upload flow and average upload flow times: "+$item.obj)
      update($item)
 end
-
-

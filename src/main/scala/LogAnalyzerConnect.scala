@@ -1,4 +1,4 @@
-import org.apache.hadoop.hbase.HBaseConfiguration
+//import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.mapreduce.Job
 import org.apache.hadoop.mapred.JobConf
 import org.apache.spark._
@@ -7,11 +7,11 @@ import org.apache.spark.streaming._
 import org.apache.spark.streaming.kafka._
 import org.apache.spark.streaming.StreamingContext._
 import org.apache.spark.streaming.kafka.KafkaUtils
-import org.apache.hadoop.hbase.mapreduce.TableOutputFormat
-import org.apache.hadoop.hbase.io.ImmutableBytesWritable
-import org.apache.hadoop.hbase.client.{Connection, ConnectionFactory, Put,Table,Result}
-import org.apache.hadoop.hbase.util.Bytes
-import org.apache.hadoop.hbase.{HTableDescriptor,HColumnDescriptor,HBaseConfiguration,TableName}
+//import org.apache.hadoop.hbase.mapreduce.TableOutputFormat
+//import org.apache.hadoop.hbase.io.ImmutableBytesWritable
+//import org.apache.hadoop.hbase.client.{Connection, ConnectionFactory, Put,Table,Result}
+//import org.apache.hadoop.hbase.util.Bytes
+//import org.apache.hadoop.hbase.{HTableDescriptor,HColumnDescriptor,HBaseConfiguration,TableName}
 import org.apache.spark.rdd.RDD
 import java.util.Calendar
 import org.apache.commons.codec.binary.Base64

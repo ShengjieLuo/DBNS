@@ -1,0 +1,99 @@
+syntax = "proto2";
+package rpc;
+
+option java_package = "com.rpc";
+option java_outer_classname = "Interface";
+
+message IRequest{
+ 
+  enum RequestType{
+    ALL = 0;
+    SINGLE = 1;
+    COMPARE = 2;
+    TOOL = 3;
+  }
+
+  enum RequestMode{
+    DEFAULT = 0;
+    OPTIMIZED = 1;
+    SIMPLE = 2;
+  }
+
+  message CompareParameter{
+
+    //Compare Object Type : "IP-SIZE","DNS-COUNT"
+    required string objectAType = 1;
+
+    //Compare Object A : "202.120.37.78","all-average","all-max","all-min"
+    required string objectA = 2;
+    
+    //Compare Object Type : "IP-SIZE","DNS-COUNT"
+    required string objectBType = 3;
+
+    //Compare Object B : "202.120.37.78","all-average","all-max","all-min"
+    required string objectB = 4;
+
+    //Compare Method: "Ratio","ML"
+    required string method = 5;
+   
+    //Compare Index(optional)
+    optional string index = 6;
+
+    //Compare Problem(optional)
+    optional string problem = 7;
+  }
+
+  message AllParameter{
+    
+    //All Object Type : "UPLOAD_SRCIP","DOWNLOAD_DSTIP"
+    required string content = 1;
+
+    //All Object Kind : "TCP""UDP""ICMP"
+    required string kind = 2;
+
+    //All Method : "Total""Average""Max""Min""Count""GroupBy"
+    required string method = 3;
+
+  }
+
+  message SingleParameter{
+    
+    //Single Object Type : "UPLOAD_SRCIP","DOWNLOAD_DSTIP"
+    required string content = 1;
+
+    //Single Object Kind : "TCP""UDP""ICMP"
+    required string kind = 2;
+
+    //Single Object : "202.120.37.78"
+    required string object = 3;
+
+  }
+
+  message ToolParameter{
+    //Tool Object Type : "UPLOAD_SRCIP","DOWNLOAD_DSTIP"
+    required string content = 1;
+
+    //Tool Object Kind : "TCP""UDP""ICMP"
+    required string kind = 2;
+
+    //Tool Object : "202.120.37.78"
+    required string object = 3;
+
+  }
+
+  //Use in all Four Modes
+  required RequestType type = 1;
+  required string name = 2;
+  required int32 num = 3;
+  required int32 parent = 4;
+  required int32 beginTime = 5;
+  required int32 endTime = 6;
+  optional RequestMode mode = 7 [default=DEFAULT];
+
+  //Used in Compare-Type Request
+  optional CompareParameter compare = 8;
+  optional AllParameter all = 9;
+  optional SingleParameter single = 10;  
+  optional ToolParameter tool = 11;  
+  
+}  
