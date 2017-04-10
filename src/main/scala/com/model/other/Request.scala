@@ -13,6 +13,7 @@ class Request(){
   var compare:List[CompareParameter] = List()
   var all:List[AllParameter] = List()
   var single:List[SingleParameter] = List()
+  var tool:List[ToolParameter] = List()
 
   def setTime(time:Time){
     beginTime = time.getbeginTime();
@@ -23,6 +24,14 @@ class Request(){
   def setName(obj:String) { name = obj;}
   def setParent(obj:Int) { parent = obj;}
   def setRequestMode(obj:String) { requestMode = obj;}
+
+  def getNum():Int = {num}
+  def getName():String = {name}
+  def getParent():Int = {parent}
+  def getRequestType():String = {requestType}
+  def getRequestMode():String = {requestMode}
+  def getBeginTime():Int = {beginTime}
+  def getEndTime():Int = {endTime}
 
   def setAllParameter(obj1:String,obj2:String,obj3:String){
       var obj:AllParameter = new AllParameter(obj1,obj2,obj3)
@@ -37,5 +46,31 @@ class Request(){
   def setCompareParameter(obj1:String,obj2:String,obj3:String,obj4:String,obj5:String,obj6:String,obj7:String){
       var obj:CompareParameter = new CompareParameter(obj1,obj2,obj3,obj4,obj5,obj6,obj7)
       compare = compare :+ obj
+  }
+  
+  def setToolParameter(obj1:String,obj2:String,obj3:String){
+      var obj:ToolParameter = new ToolParameter(obj1,obj2,obj3)
+      tool = tool :+ obj
+  }
+
+  def print(){
+      println("============Service Request============")
+      println("  [Request] Request Number: "+num);
+      println("  [Request] Request name: "+name);
+      println("  [Request] Request Begin Time:"+beginTime)
+      println("  [Request] Request End Time:"+endTime)
+      println("  [Request] Request Mode:"+requestMode)
+      println("  [Request] Request Type:"+requestType)
+      println("  [Request] Request Parent:"+parent)
+      if (requestType == "ALL"){
+        all.last.print()
+      } else if (requestType == "SINGLE"){
+        single.last.print()
+      } else if (requestType == "COMPARE"){
+        compare.last.print()
+      } else if (requestType == "TOOL"){
+        tool.last.print()
+      }
+      println("=======================================")
   }
 }

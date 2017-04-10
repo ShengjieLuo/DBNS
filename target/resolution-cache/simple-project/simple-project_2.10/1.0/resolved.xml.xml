@@ -4,7 +4,7 @@
 		module="simple-project_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20170401162615"
+		publication="20170410205519"
 	>
 		<description>
 		Simple Project
@@ -37,11 +37,9 @@
 		<dependency org="org.apache.spark" name="spark-core_2.10" rev="1.6.2" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming_2.10" rev="1.6.2" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming-kafka_2.10" rev="1.6.2" conf="compile->default(compile)"/>
-		<dependency org="org.apache.hbase" name="hbase-client" rev="1.1.2" conf="compile->default(compile)"/>
-		<dependency org="org.apache.hbase" name="hbase-common" rev="1.1.2" conf="compile->default(compile)"/>
-		<dependency org="org.apache.hbase" name="hbase-server" rev="1.1.2" conf="compile->default(compile)"/>
-		<dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.2" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-hive_2.10" rev="1.2.1" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-sql_2.10" rev="1.6.2" conf="compile->default(compile)"/>
+		<dependency org="com.google.protobuf" name="protobuf-java" rev="3.2.0" conf="compile->default(compile)"/>
+		<dependency org="org.zeromq" name="jzmq" rev="3.1.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

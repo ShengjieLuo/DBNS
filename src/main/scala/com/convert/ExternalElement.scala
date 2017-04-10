@@ -27,6 +27,7 @@ class ExternalElement (elementName:String,req:Request,percendentName:Int){
         if (element.atom==true){
 	  val internalElement:InternalElement = Relation.query_internal(element) 
           atomTable = atomTable :+ internalElement
+	  //internalElement.interface.print()
 	} else{
           val newTable:List[ExternalElement] = Relation.query_per(element)
           _convertToInternal(newTable)
@@ -36,6 +37,7 @@ class ExternalElement (elementName:String,req:Request,percendentName:Int){
 
   def convertToInternal(){
     System.out.println("  [Service] "+name+" ConvertToInternal ... begin!")
+    request.setNum(num)
     if (atom == false){
       var tempTable:List[ExternalElement] = Relation.query_per(this)
       _convertToInternal(tempTable)
@@ -48,7 +50,7 @@ class ExternalElement (elementName:String,req:Request,percendentName:Int){
   }
 
   def buildInterface(){
-    atomTable.foreach( element =>
+    atomTable.foreach( element =>	
       interface = interface :+ element.getInterface()
     )
   }

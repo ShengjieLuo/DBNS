@@ -14,6 +14,7 @@ class Convertor(serviceName:String,req:Request){
 	var externalService:ExternalElement = new ExternalElement(service,request,-1)
         externalService.convertToInternal()
         var interface:List[Request] = externalService.getInterface()
+        interface.foreach(item => item.print())
         interface
 	}
 }

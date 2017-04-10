@@ -19,12 +19,31 @@ class InternalElement (elementName:String,req:Request){
   var interface:Request = buildInterface(req)
 
   def buildInterface(request:Request):Request = {
+    var req:Request = new Request()
+    //TODO:Need a graceful implement
+    req.name = request.name
+    req.requestMode = request.requestMode
+    req.requestType = request.requestType
+    req.beginTime = request.beginTime
+    req.endTime = request.endTime
+    req.num = request.num
+    req.parent = request.parent    
+
     if (name=="_SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP"){
-          request.setRequestType("ALL")
-          request.setAllParameter("SRCIP_SIZE","TCP","GroupBy")
-          request.setNum(num)
+      req.setRequestType("ALL")
+      req.setAllParameter("SRCIP_SIZE","TCP","GroupBy")
+      req.setParent(request.num)
+      req.setNum(num)
+      println("  [Request] Build Internal Interface: "+"_SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP")
+    } else if (name=="_ST_CHOOSE_FROM_TABLE"){
+      req.setRequestType("TOOL")
+      req.setToolParameter("SRCIP_SIZE","TCP",request.single.last.obj)
+      req.setParent(request.num)
+      req.setNum(num)
+      println("  [Request] Build Internal Interface: "+"_ST_CHOOSE_FROM_TABLE")
     }
-    request
+
+    req
   }
 
   def getInterface():Request = {return interface}

@@ -1,9 +1,10 @@
-package com.interface;
+syntax = "proto2";
+package rpc;
 
-option java_package = "com.interface";
+option java_package = "com.rpc";
 option java_outer_classname = "Interface";
 
-message Request{
+message IRequest{
  
   enum RequestType{
     ALL = 0;
@@ -55,7 +56,7 @@ message Request{
 
   }
 
-  message SinglePrameter{
+  message SingleParameter{
     
     //Single Object Type : "UPLOAD_SRCIP","DOWNLOAD_DSTIP"
     required string content = 1;
@@ -68,17 +69,31 @@ message Request{
 
   }
 
+  message ToolParameter{
+    //Tool Object Type : "UPLOAD_SRCIP","DOWNLOAD_DSTIP"
+    required string content = 1;
+
+    //Tool Object Kind : "TCP""UDP""ICMP"
+    required string kind = 2;
+
+    //Tool Object : "202.120.37.78"
+    required string object = 3;
+
+  }
+
   //Use in all Four Modes
   required RequestType type = 1;
   required string name = 2;
-  required int32 parent = 3;
-  required int32 beginTime = 4;
-  required int32 endTime = 5;
-  optional RequestMode mode = 6 [default=DEFAULT];
+  required int32 num = 3;
+  required int32 parent = 4;
+  required int32 beginTime = 5;
+  required int32 endTime = 6;
+  optional RequestMode mode = 7 [default=DEFAULT];
 
   //Used in Compare-Type Request
-  optional CompareParameter compare = 7;
-  optional AllParameter all = 8;
-  optional SingleParameter single = 9;  
+  optional CompareParameter compare = 8;
+  optional AllParameter all = 9;
+  optional SingleParameter single = 10;  
+  optional ToolParameter tool = 11;  
   
 }  

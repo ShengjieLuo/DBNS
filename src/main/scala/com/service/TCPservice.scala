@@ -6,48 +6,32 @@ import com.model.other.Time
 import com.model.other.Request
 
 import java.util.HashMap
+import scala.collection.JavaConverters._
 import org.apache.kafka.clients.producer.{ProducerConfig, KafkaProducer, ProducerRecord}
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.kafka._
 import org.apache.spark.SparkConf
 import scala.io.Source
 
+import com.rpc.Client
+
 class TCPservice(itemobj:String) {
 
- 
-  val brokers = "spark-master:9092"
-  val topic = "internal" 
+  var client:Client = new Client() 
   val obj:String = itemobj
 
-  val producer = {
-    val props = new HashMap[String, Object]()
-    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
-    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")
-    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")
-    new KafkaProducer[String, String](props) 
-  }
-
-  def send_to_queue(content:List[String]){
-    content.foreach( line => {
-      val message = new ProducerRecord[String, String](topic, null, line)
-      producer.send(message) })
-  }
-  
-
-  //def wait_from_queue(content:)
-  
+   
   //TCP service 1
   //Statistic the upload TCP size of specific IP
   def SS_TCP_UPLOAD_SIZE_SRCIP(time:Time,other:String){
-     //var para:List[String] = obj.toString :: time.getbeginTime().toString :: time.getendTime().toString :: List(other)
      var request:Request = new Request()
      request.setTime(time)
      request.setName("TCP service 1")
-     //request.setParent(external.num)
-     request.setRequestMode(other) 
+     request.setRequestMode(other)
+     request.setSingleParameter("SRCIP_SIZE","TCP",obj)
      var external = new Convertor("SS_TCP_UPLOAD_SIZE_SRCIP",request)
      var internal:List[Request] = external.getInterface()
-     //send_to_queue(internal)
+     client.send(internal.asJava)
   }
 
   /*
