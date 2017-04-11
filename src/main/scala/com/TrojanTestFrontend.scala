@@ -25,7 +25,7 @@ import com.model.other.Item
 import com.model.other.Type
 import com.model.problem.Trojan
 
-object TrojanTest {
+object TrojanTestFrontend {
 
   def main(args : Array[String]):Unit ={
     

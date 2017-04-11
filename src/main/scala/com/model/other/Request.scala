@@ -24,6 +24,8 @@ class Request(){
   def setName(obj:String) { name = obj;}
   def setParent(obj:Int) { parent = obj;}
   def setRequestMode(obj:String) { requestMode = obj;}
+  def setBeginTime(obj:Int) {beginTime = obj}
+  def setEndTime(obj:Int) {endTime = obj}
 
   def getNum():Int = {num}
   def getName():String = {name}
@@ -52,6 +54,11 @@ class Request(){
       var obj:ToolParameter = new ToolParameter(obj1,obj2,obj3)
       tool = tool :+ obj
   }
+
+  def getAllParameter():AllParameter = {return all.last}
+  def getToolParameter():ToolParameter = {return tool.last}
+  def getSingleParameter():SingleParameter = { return single.last}
+  def getCompareParameter():CompareParameter = { return compare.last}  
 
   def print(){
       println("============Service Request============")
