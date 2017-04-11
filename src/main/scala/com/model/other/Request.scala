@@ -80,4 +80,22 @@ class Request(){
       }
       println("=======================================")
   }
+
+  def equals(obj:Request):Boolean = {
+    if ( requestType == obj.requestType && name == obj.name && beginTime == obj.beginTime && endTime == obj.endTime && requestMode == obj.requestMode){
+      if (requestType == "ALL"){
+        return all.last.equals(obj.all.last)
+      } else if (requestType == "SINGLE") {
+        return single.last.equals(obj.single.last)
+      } else if (requestType == "COMPARE") {
+        return compare.last.equals(obj.compare.last)
+      } else if (requestType == "TOOL"){
+        return tool.last.equals(obj.tool.last)
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
 }
