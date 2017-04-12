@@ -81,3 +81,43 @@ rule "Action: Acquire the TCP upload flow amount for each IP"
      System.out.println("  [Rule]  Action: Acquire the TCP upload flow amount: "+$item.obj)
      //update($item)
 end
+
+rule "Action: Acquire the TCP download flow amount for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_DOWNLOAD_SIZE_DSTIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP download flow amount: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the TCP upload flow times for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_UPLOAD_COUNT_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP upload flow times: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the TCP download flow times for each IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SS_TCP_DOWNLOAD_COUNT_DSTIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the TCP download flow times: "+$item.obj)
+     //update($item)
+end
+

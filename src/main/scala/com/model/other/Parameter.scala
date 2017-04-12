@@ -19,6 +19,22 @@ class CompareParameter(obj1:String,obj2:String,obj3:String,obj4:String,obj5:Stri
      println("  [Request] Compare index: "+index);     
      println("  [Request] Compare problem: "+problem);     
    }
+
+   def equals(obj:CompareParameter):Boolean = {
+     if ( objectAType == obj.objectAType && objectA == obj.objectA && objectBType == obj.objectBType && objectB == obj.objectB && method == obj.method && index == obj.index && problem == obj.problem) {
+       return true
+     } else {
+       return false
+     }     
+   }
+ 
+   def getObjectAType():String = {return objectAType}
+   def getObjectA():String = {return objectA}
+   def getObjectBType():String = {return objectBType}
+   def getObjectB():String = {return objectB}
+   def getMethod():String = {return method}
+   def getIndex():String = {return index}
+   def getProblem():String = {return problem}
 }
 
 class AllParameter(obj1:String,obj2:String,obj3:String){
@@ -33,6 +49,18 @@ class AllParameter(obj1:String,obj2:String,obj3:String){
      println("  [Request] All content: "+content);     
      println("  [Request] All kind: "+kind);     
    }
+
+   def equals(obj:AllParameter):Boolean = {
+     if ( method == obj.method && content  == obj.content && kind == obj.kind) {
+       return true
+     } else {
+       return false
+     }
+   }
+
+   def getContent():String = {return content}
+   def getKind():String = {return kind}
+   def getMethod():String = {return method}
 }
 
 class SingleParameter(obj1:String,obj2:String,obj3:String){
@@ -46,6 +74,18 @@ class SingleParameter(obj1:String,obj2:String,obj3:String){
      println("  [Request] Single content: "+content);     
      println("  [Request] Single kind: "+kind);     
    }
+
+   def equals(sin:SingleParameter):Boolean = {
+     if ( obj == sin.obj && content  == sin.content && kind == sin.kind) {
+       return true
+     } else {
+       return false
+     }
+   }
+ 
+   def getContent():String = {return content}
+   def getKind():String = {return kind}
+   def getObj():String = {return obj}
 }
 
 
@@ -60,4 +100,16 @@ class ToolParameter(obj1:String,obj2:String,obj3:String){
      println("  [Request] Tool content: "+content);     
      println("  [Request] Tool kind: "+kind);     
    }
+ 
+   def equals(tool:ToolParameter):Boolean = {
+     if ( obj == tool.obj && content  == tool.content && kind == tool.kind) {
+       return true
+     } else {
+       return false
+     }
+   }
+
+   def getContent():String = {return content}
+   def getKind():String = {return kind}
+   def getObj():String = {return obj}
 }

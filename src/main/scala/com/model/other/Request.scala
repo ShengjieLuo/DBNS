@@ -24,6 +24,8 @@ class Request(){
   def setName(obj:String) { name = obj;}
   def setParent(obj:Int) { parent = obj;}
   def setRequestMode(obj:String) { requestMode = obj;}
+  def setBeginTime(obj:Int) {beginTime = obj}
+  def setEndTime(obj:Int) {endTime = obj}
 
   def getNum():Int = {num}
   def getName():String = {name}
@@ -53,6 +55,11 @@ class Request(){
       tool = tool :+ obj
   }
 
+  def getAllParameter():AllParameter = {return all.last}
+  def getToolParameter():ToolParameter = {return tool.last}
+  def getSingleParameter():SingleParameter = { return single.last}
+  def getCompareParameter():CompareParameter = { return compare.last}  
+
   def print(){
       println("============Service Request============")
       println("  [Request] Request Number: "+num);
@@ -72,5 +79,23 @@ class Request(){
         tool.last.print()
       }
       println("=======================================")
+  }
+
+  def equals(obj:Request):Boolean = {
+    if ( requestType == obj.requestType && name == obj.name && beginTime == obj.beginTime && endTime == obj.endTime && requestMode == obj.requestMode){
+      if (requestType == "ALL"){
+        return all.last.equals(obj.all.last)
+      } else if (requestType == "SINGLE") {
+        return single.last.equals(obj.single.last)
+      } else if (requestType == "COMPARE") {
+        return compare.last.equals(obj.compare.last)
+      } else if (requestType == "TOOL"){
+        return tool.last.equals(obj.tool.last)
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
   }
 }

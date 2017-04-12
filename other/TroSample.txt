@@ -1,0 +1,97 @@
+./runTroSingle.sh
+launch and connect broker.
+Run Trojan Test by Distributed Rule Engine
+  [Debug] Begin Execution!
+  [Debug] Load the knowledge session
+  [Debug]  Rule Error:[]
+  [Debug] Begin Dealing the element: 202.120.37.78
+  [RPC] Connect to server spark-master:5556
+  [Rule]  SET: end detection time 1490634000
+  [Rule]  SET: begin detection time 1490630400
+  [Service] Initial Relation From File!
+  [Service] External Service List: List(SS_TCP_UPLOAD_SIZE_SRCIP, SS_TCP_DOWNLOAD_SIZE_DSTIP, SS_TCP_UPLOAD_COUNT_SRA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP, SA_TCP_UPLOAD_SIZE_ALL_SRCIP, SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP, SA_TCP_DOWNLOAD_SIZZE_ALL_DSTIP, SA_TCP_DOWNLOAD_SIZE_AVERAGE_DSTIP, SA_TCP_UPLOAD_COUNT_GROUPBY_SRCIP, SA_TCP_UPLOAD_COUNT_ALL_SRCIP, SA_TCP_DOWNLOAD_COUNT_GROUPBY_DSTIP, SA_TCP_DOWNLOAD_COUNT_ALL_DSTIP, SA_TCP_DOWNLOAD_COUNT_AVERAGE_DSTIP, SC_TCP_DOUPLOAD_ML, ST_CHOOSE_FROM_TABLE)
+  [Service] Internal Service List: List(_SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP, _SA_TCP_UPLOAD_SIZE_ALL_SRCIP, _SA_TCP_UPWNLOAD_SIZE_GROUPBY_DSTIP, _SA_TCP_DOWNLOAD_SIZE_ALL_DSTIP, _SA_TCP_DOWNLOAD_SIZE_AVERAGE_DSTIP, _SA_TCP_UPLOAD_COUNNT_ALL_SRCIP, _SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP, _SA_TCP_DOWNLOAD_COUNT_GROUPBY_DSTIP, _SA_TCP_DOWNLOAD_COUNT_ALL_DE_DSTIP, _SC_TCP_DOWLOAD_UPLOAD_RATIO, _SC_TCP_DOWLOAD_UPLOAD_ML, _ST_CHOOSE_FROM_TABLE)
+  [Service] SS_TCP_UPLOAD_SIZE_SRCIP ConvertToInternal ... begin!
+  [Service] Internal Element Name: _SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP Element Number: 0
+  [Request] Build Internal Interface: _SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP
+[Service] Internal Element Name: _ST_CHOOSE_FROM_TABLE Element Number: 14
+  [Request] Build Internal Interface: _ST_CHOOSE_FROM_TABLE
+  [Service] SS_TCP_UPLOAD_SIZE_SRCIP ConvertToInternal ... done!
+============Service Request============
+  [Request] Request Number: 1
+  [Request] Request name: _SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP
+  [Request] Request Begin Time:1490630400
+  [Request] Request End Time:1490634000
+  [Request] Request Mode:Default
+  [Request] Request Type:ALL
+  [Request] Request Parent:1
+  [Request] All method: GroupBy
+  [Request] All content: SRCIP_SIZE
+  [Request] All kind: TCP
+=======================================
+============Service Request============
+  [Request] Request Number: 2
+  [Request] Request name: _ST_CHOOSE_FROM_TABLE
+  [Request] Request Begin Time:1490630400
+  [Request] Request End Time:1490634000
+  [Request] Request Mode:Default
+  [Request] Request Type:TOOL
+  [Request] Request Parent:1
+  [Request] Tool object: 202.120.37.78
+  [Request] Tool content: SRCIP_SIZE
+  [Request] Tool kind: TCP
+=======================================
+  [RPC] Send Package: 1
+  [Internal] The registra table size: 1
+  [Hive] CREATE TABLE RuEn.table1(ips varchar(20),count bigInt)
+  [Hive] SELECT ips,count(*) as count FROM hrq.original WHERE time >  1490630400 and time< 1490634000 GROUP BY ips htable1
+  [RPC] Received Package: Request 1
+  [RPC] Send Package: 2
+  [Internal] The registra table size: 2
+  [Hive] SELECT * FROM RuEn.table1 WHERE ips = 202.120.37.78
+  [RPC] Received Package: Request 2
+  [Rule]  Action: Acquire the TCP upload flow amount: 202.120.37.78
+  [Rule]  VERIFY: verify the time operation :Correct
+  [Rule]  SET: end detection type Trojan
+  [Debug] Begin Dealing the element: 8.8.8.8
+  [RPC] Connect to server spark-master:5556
+  [Service] SS_TCP_UPLOAD_SIZE_SRCIP ConvertToInternal ... begin!
+  [Service] Internal Element Name: _SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP Element Number: 0
+  [Request] Build Internal Interface: _SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP
+  [Service] Internal Element Name: _ST_CHOOSE_FROM_TABLE Element Number: 14
+  [Request] Build Internal Interface: _ST_CHOOSE_FROM_TABLE
+  [Service] SS_TCP_UPLOAD_SIZE_SRCIP ConvertToInternal ... done!
+============Service Request============
+  [Request] Request Number: 3
+  [Request] Request name: _SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP
+  [Request] Request Begin Time:1490630400
+  [Request] Request End Time:1490634000
+  [Request] Request Mode:Default
+  [Request] Request Type:ALL
+  [Request] Request Parent:4
+  [Request] All method: GroupBy
+  [Request] All content: SRCIP_SIZE
+  [Request] All kind: TCP
+=======================================
+============Service Request============
+  [Request] Request Number: 4
+  [Request] Request name: _ST_CHOOSE_FROM_TABLE
+  [Request] Request Begin Time:1490630400
+  [Request] Request End Time:1490634000
+  [Request] Request Mode:Default
+  [Request] Request Type:TOOL
+  [Request] Request Parent:4
+  [Request] Tool object: 8.8.8.8
+  [Request] Tool content: SRCIP_SIZE
+  [Request] Tool kind: TCP
+=======================================
+  [RPC] Send Package: 3
+  [RPC] Received Package: Request 3
+  [RPC] Send Package: 4
+  [Internal] The registra table size: 3
+  [Hive] SELECT * FROM RuEn.table1 WHERE ips = 8.8.8.8
+  [RPC] Received Package: Request 4
+  [Rule]  Action: Acquire the TCP upload flow amount: 8.8.8.8
+  [Debug] Detection Object: 202.120.37.78: Number :1
+  [Debug] Detection Object: 8.8.8.8: Number :1
+

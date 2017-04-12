@@ -34,12 +34,14 @@ class InternalElement (elementName:String,req:Request){
       req.setAllParameter("SRCIP_SIZE","TCP","GroupBy")
       req.setParent(request.num)
       req.setNum(num)
+      req.setName(name)
       println("  [Request] Build Internal Interface: "+"_SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP")
     } else if (name=="_ST_CHOOSE_FROM_TABLE"){
       req.setRequestType("TOOL")
       req.setToolParameter("SRCIP_SIZE","TCP",request.single.last.obj)
       req.setParent(request.num)
       req.setNum(num)
+      req.setName(name)
       println("  [Request] Build Internal Interface: "+"_ST_CHOOSE_FROM_TABLE")
     }
 

@@ -34,7 +34,7 @@ class TCPservice(itemobj:String) {
      client.send(internal.asJava)
   }
 
-  /*
+  /* 
   //TCP service 2
   //Statistic the download TCP size of specific IP
   def SS_TCP_DOWNLOAD_SIZE_DSTIP(time:Time,other:String){
@@ -60,8 +60,9 @@ class TCPservice(itemobj:String) {
      var external = new Convertor("SS_TCP_DOWNLOAD_COUNT_DSTIP")
      var internal:List[String] = external.getInterface()
      send_to_queue(internal)
-  }
+  }*/
 
+  /*
   //TCP service 5
   //Statistic the upload TCP size of all IP
   def SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP(time:Time,other:String){
