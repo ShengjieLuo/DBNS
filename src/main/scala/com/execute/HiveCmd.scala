@@ -14,9 +14,6 @@ class HiveCmd(cmd:List[String],req:Request){
     def getRequest():Request = {return request}
 
     def print(){
-      //println("  [Hive] ===========Execute Hive Commands================")
       command.foreach( p => println(Console.RED + "  [Hive] " + p + Console.WHITE) )
-      //println(Console.WHITE)
-      //println("  [Hive] ================================================")
     }
 }

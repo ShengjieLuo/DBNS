@@ -4,7 +4,7 @@
 		module="simple-project_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20170410205519"
+		publication="20170412024132"
 	>
 		<description>
 		Simple Project
@@ -39,6 +39,9 @@
 		<dependency org="org.apache.spark" name="spark-streaming-kafka_2.10" rev="1.6.2" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-hive_2.10" rev="1.2.1" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-sql_2.10" rev="1.6.2" conf="compile->default(compile)"/>
+		<dependency org="org.drools" name="drools-compiler" rev="6.5.0.Final" conf="compile->default(compile)"/>
+		<dependency org="org.drools" name="drools-core" rev="6.5.0.Final" conf="compile->default(compile)"/>
+		<dependency org="org.drools" name="drools-decisiontables" rev="6.5.0.Final" conf="compile->default(compile)"/>
 		<dependency org="com.google.protobuf" name="protobuf-java" rev="3.2.0" conf="compile->default(compile)"/>
 		<dependency org="org.zeromq" name="jzmq" rev="3.1.0" conf="compile->default(compile)"/>
 	</dependencies>

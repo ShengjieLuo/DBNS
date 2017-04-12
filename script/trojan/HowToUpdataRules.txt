@@ -1,0 +1,150 @@
+When we update the ruls in the repo, there are two frequently occurred situation, the first sort is the user-mode change, in which the service is not changed; the second sort is the system-mode change, in which we need to update the service.
+
+User-Mode Change
+Step1: Change the .drl files to update the rules used.
+Step2: Launch the Trojan Detection task
+Step3: Observer whether the task can be finished successfully.
+
+System-Mode Change
+Step1: Change the drools files to update the rules used.
+       File Reference: $DBNS_HOME/test.drl
+
+Step2: Summarize the new service called in the rules, and design the atom-service of the service.
+       File Reference: $DBNS_HOME/test.drl
+       Example: new service S1 is composed of atomic service I1 and I2
+
+Note: An intact service is composed of three parts, the first part is the service name, the second part is the service parameter, and the third part is the service implementation.
+1. Service Name: Refer to step3 to find how to update.
+2. Service Parameter: Refer to step4 to find how to establish new parameter standard
+3. Service Implementation: Refer to step6
+
+
+Step3: Update the $DBNS_HOME/Relation.txt following the existed grammar standard.
+       File Reference: $DBNS_HOME/src/main/scala/com/convert/Relation.txt
+       Example:
+       Section1: External Service List
+       5. <New_Service_Name>
+       Section2: Internal Service List
+       12. <New_Atomic_Service_I1_Name>
+       13. <New_Atomic_Service_I2_Name>
+
+Step4: Create the cutomed parameter standard for your new service. Both the external service and the internal service need new parameters, therefore don't forget any of them. It is important to note that the parameter changes need some code works. Therefore, use the existed parameter regulation can speed up your work. In most time, you need not create a totally new parameter standard for your service.
+
+Step4a: Change the Request Parameter File to told system that there is a new parameter standard now. 
+       File Reference: $DBNS_HOME/src/main/scala/com/model/other/Request.scala
+       Example:
+       var new:List[NewParameter] = List()
+       def getNewParameter():NewParameter = {return new.last}
+       def setNewParameter(obj1:String,obj2:String,obj3:String){
+         var New:AllParameter = new NewParameter(obj1,obj2,obj3) //Parameter Object Number can be changed up to the requirement
+         new = new :+ obj
+       }
+
+Step4b: Create a detail explanation for the new parameter standard
+       File Reference: $DBNS_HOME/src/main/scala/com/model/other/Parameter.scala
+       Example:
+       class AllParameter(obj1:String,obj2:String,obj3:String){
+          var para1 = obj1
+          var para2 = obj2
+          var para3 = obj3
+          def print(){//Implement the print function to provide logs}
+          def equals(obj:AllParameter):Boolean = {//Implement the equals function to check whether two parameters are the same}
+          def getPara1():String = {return content}
+          def getPara2():String = {return kind}
+          def getPara3():String = {return method}
+       }
+
+Step4c: Add the parameter standard into the protobuf protocol
+       File Reference: $DBNS_HOME/proto/interface.proto
+       Example:
+       message NewParameter{
+         required string para1 = 1;
+         required string para2 = 2;
+         required string para3 = 3;
+       }
+
+Step4d: Connect the program specification and the protobuf protocol (Program -> Protobuf)
+       File Reference: $DBNS_HOME/src/main/java/com/rpc/Client.java
+       Example:
+       else if ( req.getRequestType().equals("NEW")){
+          iRequest.setType(IRequest.RequestType.NEW);
+          com.rpc.Interface.IRequest.NewParameter.Builder isin = com.rpc.Interface.IRequest.NewParameter.newBuilder();
+          com.model.other.NewParameter sin = req.getNewParameter();
+          isin.setPara1(sin.getPara1());
+          isin.setPara2(sin.getPara2());
+          isin.setPara3(sin.getPara3());
+          iRequest.setNewParameter(isin.build());
+        }
+
+Step4e: Connect the program specification and the protobuf protocol (Protobuf -> Program)
+       File Reference: $DBNS_HOME/src/main/java/com/TrojanTestBackend.java
+       Example:
+       case NEW:
+          {
+            req.setRequestType("NEW");
+            IRequest.ToolParameter newobj = ireq.getNew();
+            String obj1 = newobj.getPara1();
+            String obj2 = newobj.getPara2();
+            String obj3 = newobj.getPara3();
+            req.setNewParameter(obj1,obj2,obj3);
+          }
+          break;
+
+Step5:  Connect the new service and new parameter standard together. In step3, we build the new service name; in step4, we build the new service parameter. But you need remember that the "name:parameter" is the "n:m" relation instead of the "1:1" relation, usually many service can share the same parametr standard.
+
+Step5a: Connect the external service and new parameter standard
+        File Reference: $DBNS_HOME/src/main/scala/com/service/TCPservice.scala
+        Example:
+        def New_Service_Name(time:Time,other:String){
+          var request:Request = new Request()
+          request.setTime(time)
+          request.setName(<User_Defined_NickName>)
+          request.setRequestMode(other)
+          request.setNewParameter(obj1,obj2,obj3)
+          var external = new Convertor(New_Service_Name,request)
+          var internal:List[Request] = external.getInterface()
+          client.send(internal.asJava)
+        }
+
+Step5b: Connect the new Internal service and new parameter standard
+        File Reference: $DBNS_HOME/src/main/scala/com/convert/InternalElement.scala
+	Example:
+	if (name == "New_Internal_Service_Name"){
+          req.setRequestType("NEW")
+          req.setNewParameter(obj1,obj2,obj3)
+          req.setParent(request.num)
+          req.setNum(num)
+          req.setName(name)
+          println("  [Request] Build Internal Interface: "+"New_Internal_Service_Name")
+        }
+
+Step6:  Implement the atom service function.
+
+Step6a: Now we only support hive as the computation tool. In the next step, we may add more methods into the system.
+        File Reference: $DBNS_HOME/src/main/scala/com/execute/HiveConvertor.scala
+        def Convert_SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP(req:Request): List[String] = {
+          var sql:List[String] = List()
+          var status:Int = InternalTrigger.queryStatus(req)
+          if (status == 0) {
+            //TODO: Implement the service by a Hive Command List
+            InternalTrigger.insertEvent(req)
+          } else {
+            InternalTrigger.updateStatus(req)
+          }
+          return sql
+        }
+
+Step6b: mySQL Executor. It is only an preview function.
+        File Reference: Next Version
+        def Convert_SA_TCP_UPLOAD_SIZE_GROUPBY_SRCIP(req:Request): List[String] = {
+          var sql:List[String] = List()
+          var status:Int = InternalTrigger.queryStatus(req)
+          if (status == 0) {
+            //TODO: 1. Implement the service by a mySQL Command List
+            //TODO: 2. If this service would be employed by Hive Executor in the future, use the auxiliary function ConvertToHive.
+            InternalTrigger.insertEvent(req)
+          } else {
+            InternalTrigger.updateStatus(req)
+          }
+          return sql
+        }

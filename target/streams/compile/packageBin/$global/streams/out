@@ -62,6 +62,8 @@
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$main$6$$anonfun$6.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedCluster$$anonfun$main$1$$anonfun$35.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedCluster$$anonfun$main$1$$anonfun$35.class[0m
+[0m[[0mdebug[0m] [0m	com/execute/HiveRecorder.class[0m
+[0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/execute/HiveRecorder.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$30.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$30.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$7$$anonfun$75.class[0m
@@ -388,8 +390,6 @@
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$main$8$$anonfun$94.class[0m
 [0m[[0mdebug[0m] [0m	com/TrojanTestFrontend$$anonfun$1.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/TrojanTestFrontend$$anonfun$1.class[0m
-[0m[[0mdebug[0m] [0m	com/execute/HiveExecutor$.class[0m
-[0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/execute/HiveExecutor$.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvanced$$anonfun$main$5$$anonfun$51.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvanced$$anonfun$main$5$$anonfun$51.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$5$$anonfun$54.class[0m
@@ -434,6 +434,8 @@
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedCluster$$anonfun$main$6$$anonfun$68.class[0m
 [0m[[0mdebug[0m] [0m	OfflineAnalysis$$anonfun$20.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/OfflineAnalysis$$anonfun$20.class[0m
+[0m[[0mdebug[0m] [0m	com/execute/HiveRecorder$.class[0m
+[0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/execute/HiveRecorder$.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$26.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$26.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$1.class[0m
@@ -898,6 +900,8 @@
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogUDPProducer$.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$5$$anonfun$42.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$main$5$$anonfun$42.class[0m
+[0m[[0mdebug[0m] [0m	com/execute/HiveRecord.class[0m
+[0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/execute/HiveRecord.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$7$$anonfun$87.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedLab$$anonfun$main$7$$anonfun$87.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedLab$$anonfun$main$8$$anonfun$107.class[0m
@@ -1010,6 +1014,8 @@
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/execute/HiveCmd$$anonfun$print$1.class[0m
 [0m[[0mdebug[0m] [0m	com/TrojanTestFrontend$$anonfun$5.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/TrojanTestFrontend$$anonfun$5.class[0m
+[0m[[0mdebug[0m] [0m	com/execute/HiveExecutor$$anonfun$execute$1.class[0m
+[0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/com/execute/HiveExecutor$$anonfun$execute$1.class[0m
 [0m[[0mdebug[0m] [0m	LogStreamingAdvancedCluster$$anonfun$main$7$$anonfun$10.class[0m
 [0m[[0mdebug[0m] [0m	  /usr/local/DBNS/target/scala-2.10/classes/LogStreamingAdvancedCluster$$anonfun$main$7$$anonfun$10.class[0m
 [0m[[0mdebug[0m] [0m	com/rpc/Broker.class[0m
