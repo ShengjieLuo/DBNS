@@ -13,10 +13,10 @@ object ExternalNumber{
 class ExternalElement (elementName:String,req:Request,percendentName:Int){
 
   var name:String = elementName
-  var atom:Boolean = Relation.query_atom(this)
   var num:Int = ExternalNumber.getValue()
   var percendent:Int = percendentName
   var request:Request = req
+  var atom:Boolean = Relation.query_atom(this)
   var atomTable:List[InternalElement] = List()
   var interface:List[Request] = List()
 

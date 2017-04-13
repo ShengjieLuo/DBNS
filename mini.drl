@@ -27,7 +27,7 @@ rule "SET: begin detection time"
    when
      $time : Time()
    then
-     $time.setbeginTime(1490630400)
+     $time.setbeginTime(1480867200)
      System.out.println("  [Rule]  SET: begin detection time 1490630400")
      update($time)
 end
@@ -39,7 +39,7 @@ rule "SET: end detection time"
    when
      $time : Time()
    then
-     $time.setendTime(1490634000)
+     $time.setendTime(1480870000)
      System.out.println("  [Rule]  SET: end detection time 1490634000") 
      update($time)
 end
@@ -82,6 +82,7 @@ rule "Action: Acquire the TCP upload flow amount for each IP"
      //update($item)
 end
 
+
 rule "Action: Acquire the TCP download flow amount for each IP"
    lock-on-active true
    salience 10
@@ -94,6 +95,7 @@ rule "Action: Acquire the TCP download flow amount for each IP"
      System.out.println("  [Rule]  Action: Acquire the TCP download flow amount: "+$item.obj)
      //update($item)
 end
+
 
 rule "Action: Acquire the TCP upload flow times for each IP"
    lock-on-active true
@@ -121,3 +123,44 @@ rule "Action: Acquire the TCP download flow times for each IP"
      //update($item)
 end
 
+rule "Action: Acquire the average TCP upload flow size for all IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SA_TCP_UPLOAD_SIZE_AVERAGE_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the average TCP upload flow size: "+$item.obj)
+     //update($item)
+end
+
+rule "Action: Acquire the average TCP download flow size for all IP"
+   lock-on-active true
+   salience 10
+   dialect "mvel"
+   when
+     $item : Item() &&  $time : Time()
+   then
+     $item.SA_TCP_UPLOAD_COUNT_AVERAGE_SRCIP($time,"Default")
+     System.out.println("  [Rule]  Action: Acquire the average TCP download flow size: "+$item.obj)
+     //update($item)
+end
+
+//==========================================================================
+// Finish the comparison between different data
+//==========================================================================
+
+rule "Comparison: Compare the TCP upload flow and TCP download flow size"
+   lock-on-active true
+   salience 0
+   dialect "mvel"
+   when
+     $item : Item()
+     $time : Time()
+   then
+     $item.SC_TCP_DOWLOAD_UPLOAD_RATIO($time,"single-single-size","10","TCP upload size is great larger than download size")
+     System.out.println("  [Rule]  Comparison: Compare the TCP upload flow and TCP download flow size "+$item.obj)
+     update($item)
+end

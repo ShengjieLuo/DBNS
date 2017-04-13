@@ -5,7 +5,7 @@ import scala.io.Source
 object Relation{
 
   val sourceFile = sys.env("DBNS_HOME")+"/src/main/scala/com/convert/Relation.txt"
-  var relationMap:Map[Int,Map[String,List[Int]]] = Map()
+  var relationMap:Map[Tuple2[Int,String],Map[String,List[Int]]] = Map()
   // relationMap Explanation
   // Right Case: S1 => S2 + S3 (Convert To) (1,("External",[2,3]))
   // Right Case: S3 => I3 (Convert To) (1,("Internal",[3]))
@@ -13,6 +13,7 @@ object Relation{
   var section1:List[String] = List()
   var section2:List[String] = List()
   var section3:List[String] = List()
+  var section4:List[String] = List()
   var externalServiceList:List[String] = List()
   var internalServiceList:List[String] = List()
   var status:Int = initRelationFromFile()
@@ -31,6 +32,8 @@ object Relation{
           flag = 2
 	} else if (line.startsWith("Section3")){
           flag = 3
+        } else if (line.startsWith("Section4")){
+          flag = 4
         } else {
           if (flag == 1) {
               section1 = section1:+ line
@@ -38,12 +41,15 @@ object Relation{
               section2 = section2:+ line
           } else if (flag == 3) { 
               section3 = section3:+ line
+          } else if (flag == 4) {
+              section4 = section4:+ line
           }
        }
       }
       _dealSection1()
       _dealSection2()
       _dealSection3()
+      _dealSection4()
       return 0
   }
 
@@ -77,7 +83,24 @@ object Relation{
 
   def _dealSection3() = {
     for (line<-section3){
-       val ls:Int = line.trim.split("=>")(0).trim.replace("S","0").toInt
+       val number:Int = line.trim.split("=>")(0).trim.replace("S","0").toInt
+       val ls:Tuple2[Int,String] = new Tuple2(number,"")
+       var stype:String = ""
+       var elelist:List[Int] = List()
+       for (item <- line.trim.split("=>")(1).split("\\+")) {
+           if (item.trim.startsWith("I")){ elelist = elelist :+ item.trim.replace("I","0").toInt ; stype = "Internal" ;}
+           if (item.trim.startsWith("S")){ elelist = elelist :+ item.trim.replace("S","0").toInt ; stype = "External" ;}
+       }
+       val rs:Map[String,List[Int]] = Map(stype -> elelist)
+       relationMap = relationMap ++ Map(ls -> rs)
+    }
+  }
+
+  def _dealSection4() = {
+    for (line<-section4){
+       val number:Int = line.trim.split("=>")(0).trim.split(" ")(0).replace("S","0").toInt
+       val para:String = line.trim.split("=>")(0).trim.split(" ")(1).trim
+       val ls:Tuple2[Int,String] = new Tuple2(number,para)
        var stype:String = ""
        var elelist:List[Int] = List()
        for (item <- line.trim.split("=>")(1).split("\\+")) {
@@ -92,28 +115,46 @@ object Relation{
   def query_atom(ele:ExternalElement):Boolean={
     val elenum = externalServiceList.indexOf(ele.name,0)
     //System.out.println("  [Service] External Element Name: "+ele.name+ " Element Number: "+elenum)
-    if (relationMap.apply(elenum).contains("Internal") == true) {return true}
+    if (ele.request.binding!="") {return false}
+    if (relationMap.contains(Tuple2(elenum,""))){
+       if (relationMap.apply(Tuple2(elenum,"")).contains("Internal") == true) {return true}
+    }
     return false
   }
 
   def query_per(ele:ExternalElement):List[ExternalElement]={
     var returnList:List[ExternalElement] = List() 
     val elenum = externalServiceList.indexOf(ele.name,0)
-    if (relationMap.apply(elenum).contains("External")){
-      for (item <- relationMap.apply(elenum).apply("External")){
+    if ( relationMap.contains(Tuple2(elenum,ele.request.binding))){
+      if ( relationMap.apply(Tuple2(elenum,ele.request.binding)).contains("External")) {
+      var order = 1
+      for (item <- relationMap.apply(Tuple2(elenum,ele.request.binding)).apply("External")){
         val elename = externalServiceList(item)
-        //val elepara = ele.para
+        val elerequest = ele.request.copyTo()
         val elepercendent = ele.num
-        val externalEle = new ExternalElement(elename,ele.request,elepercendent)
+        if (ele.request.requestType == "COMPARE") {elerequest.setOrder(order);order = order + 1;}
+        elerequest.setBinding("")
+        elerequest.setRequestType("")
+        val externalEle = new ExternalElement(elename,elerequest,elepercendent)
         returnList = returnList :+ externalEle
+      }}
+    } /*else{
+      if (relationMap.apply(Tuple2(elenum,"")).contains("External")){
+        for (item <- relationMap.apply(Tuple2(elenum,"")).apply("External")){
+          val elename = externalServiceList(item)
+          //val elepara = ele.para
+          val elepercendent = ele.num
+          val externalEle = new ExternalElement(elename,ele.request,elepercendent)
+          returnList = returnList :+ externalEle
+        }
       }
-    }
+    }*/
     return returnList
   }
 
   def query_internal(ele:ExternalElement):InternalElement = {
     val exelenum = externalServiceList.indexOf(ele.name,0)
-    val inelenum = relationMap.apply(exelenum).apply("Internal")(0)
+    val inelenum = relationMap.apply(Tuple2(exelenum,"")).apply("Internal")(0)
     val inelename = internalServiceList(inelenum)
     System.out.println("  [Service] Internal Element Name: "+inelename+ " Element Number: "+inelenum)
     //val inelepara = ele.percendent.toString()::ele.para

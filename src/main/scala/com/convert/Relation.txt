@@ -70,3 +70,9 @@ S15 => I11
 S16 => I12
 S17 => I13
 S18 => I14
+
+Section4: External-Internal Latency Binding Relation
+S16 single-single-size => S0 + S1 + S16
+S16 single-single-count => S2 + S3 + S16
+S16 single-average-size => S0 + S6 + S16
+S16 single-average-count => S2 + S12 + S16

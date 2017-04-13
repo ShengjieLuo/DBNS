@@ -15,11 +15,12 @@ class HiveExecutor{
   val hiveCtx = new HiveContext(sc)
   
   def execute(hiveCmd:HiveCmd){ 
+    println("  [Hive] Executor Task Begin")
     hiveCmd.command.foreach(cmd => {
       hiveCtx.sql(cmd)
       HiveRecorder.addRecord(cmd)
     })
-    println("Execute")
+    println("  [Hive] Executor Task Finished")
   }
 
 }

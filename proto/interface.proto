@@ -21,13 +21,13 @@ message IRequest{
 
   message CompareParameter{
 
-    //Compare Object Type : "IP-SIZE","DNS-COUNT"
+    //Compare Object Type : "SRCIP-SIZE","DNS-COUNT"
     required string objectAType = 1;
 
     //Compare Object A : "202.120.37.78","all-average","all-max","all-min"
     required string objectA = 2;
     
-    //Compare Object Type : "IP-SIZE","DNS-COUNT"
+    //Compare Object Type : "SRCIP-SIZE","DNS-COUNT"
     required string objectBType = 3;
 
     //Compare Object B : "202.120.37.78","all-average","all-max","all-min"

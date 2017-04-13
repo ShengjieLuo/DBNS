@@ -9,6 +9,8 @@ class Request(){
   var endTime:Int = 0
   var requestMode:String = ""
   var num:Int = -1
+  var binding:String = ""
+  var order:Int = 0
 
   var compare:List[CompareParameter] = List()
   var all:List[AllParameter] = List()
@@ -26,6 +28,8 @@ class Request(){
   def setRequestMode(obj:String) { requestMode = obj;}
   def setBeginTime(obj:Int) {beginTime = obj}
   def setEndTime(obj:Int) {endTime = obj}
+  def setBinding(obj:String){binding = obj}
+  def setOrder(obj:Int) {order=obj}
 
   def getNum():Int = {num}
   def getName():String = {name}
@@ -34,6 +38,8 @@ class Request(){
   def getRequestMode():String = {requestMode}
   def getBeginTime():Int = {beginTime}
   def getEndTime():Int = {endTime}
+  def getBinding():String = {binding}
+  def getOrder():Int = {order}
 
   def setAllParameter(obj1:String,obj2:String,obj3:String){
       var obj:AllParameter = new AllParameter(obj1,obj2,obj3)
@@ -59,6 +65,24 @@ class Request(){
   def getToolParameter():ToolParameter = {return tool.last}
   def getSingleParameter():SingleParameter = { return single.last}
   def getCompareParameter():CompareParameter = { return compare.last}  
+
+  def copyTo():Request = {
+    var obj = new Request()
+    obj.setName(name)
+    obj.setNum(num)
+    obj.setParent(parent)
+    obj.setRequestType(requestType)
+    obj.setRequestMode(requestMode)
+    obj.setBeginTime(beginTime)
+    obj.setEndTime(endTime)
+    obj.setBinding(binding)
+    obj.setOrder(order)
+    if (all.length>0) {obj.all = this.all}
+    if (tool.length>0) {obj.tool = this.tool}
+    if (single.length>0) {obj.single = this.single}
+    if (compare.length>0) {obj.compare = this.compare}
+    return obj
+  }
 
   def print(){
       println("============Service Request============")

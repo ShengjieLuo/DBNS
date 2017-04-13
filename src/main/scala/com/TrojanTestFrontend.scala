@@ -34,7 +34,7 @@ object TrojanTestFrontend {
     val sc = new SparkContext(sparkconf)
 
     //Input the IP of the host machine you would like to detect
-    val data = List("202.120.37.78","8.8.8.8")
+    val data = List("210.35.112.215","115.25.211.13")
     println("  [Debug] Begin Execution!")
 
     val pairRDD = sc.parallelize(data.map(p=>p.trim),1)
